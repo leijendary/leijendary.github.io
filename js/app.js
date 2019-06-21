@@ -322,8 +322,27 @@
 
         function onReadyState() {
             if (this.readyState == 4) {
-                // Parse the responseText into JSON
-                var response = JSON.parse(this.responseText);
+                var response;
+
+                try {
+                    // Parse the responseText into JSON
+                    response = JSON.parse(this.responseText);
+                } catch (e) {
+                    // If there is an error, write the error in the console
+                    console.error(e);
+
+                    // If there is a responseText, show the error message
+                    if (this.responseText) {
+                        responseElement.innerHTML = this.responseText;
+                        responseElement.classList.add('error');
+                    } else {
+                        // If there is none just show a generic error message
+                        responseElement.innerHTML = 'Could not send the email';
+                        responseElement.classList.add('error');
+                    }
+
+                    return;
+                }
 
                 // If the response is success
                 if (this.status == 200) {

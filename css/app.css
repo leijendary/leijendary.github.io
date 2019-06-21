@@ -815,6 +815,6 @@ button:hover {
 }
 
 .error {
-    color: #ff2424;
+    color: #ff2424 !important;
     text-transform: none;
 }
