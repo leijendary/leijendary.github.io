@@ -1,0 +1,22 @@
+/** Fonts */
+@font-face {
+    font-family: Bjorn;
+    src: url(../fonts/Bjorn-Regular.woff);
+}
+
+@font-face {
+    font-family: Lato;
+    src: url(../fonts/Lato-Regular.woff);
+}
+
+@font-face {
+    font-family: Lato;
+    font-weight: 200;
+    src: url(../fonts/Lato-light.woff);
+}
+
+@font-face {
+    font-family: Ubuntu;
+    font-weight: 700;
+    src: url(../fonts/Ubuntu-Bold.woff);
+}
