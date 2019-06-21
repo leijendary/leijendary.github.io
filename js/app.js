@@ -341,7 +341,8 @@
                         responseElement.classList.add('error');
                     }
 
-                    return;
+                    // Enable submit button
+                    enableSubmit();
                 }
 
                 // If the response is success
@@ -372,10 +373,17 @@
                     }
                 }
 
-                // Enable the submit button
-                button.disabled = false;
-                button.innerHTML = 'Send Message';
+                // Enable submit button
+                enableSubmit();
             }
+        }
+
+        /**
+         * Enables the submit button and sets the innerHTML to "Send Message"
+         */
+        function enableSubmit() {
+            button.disabled = false;
+            button.innerHTML = 'Send Message';
         }
     }
 
