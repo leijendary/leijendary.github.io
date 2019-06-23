@@ -51,6 +51,9 @@
     // to add a mouseover and mouseout event
     hoverTargets();
 
+    // Wake up the emailer API
+    wakeUpApi();
+
     /**
      * Window scroll function
      */
@@ -313,70 +316,62 @@
             message: message.value,
         };
 
-        // Create the AJAX object
-        var ajax = new XMLHttpRequest();
-        ajax.onreadystatechange = onReadyState;
-        ajax.open('POST', 'https://inaapi.herokuapp.com', true);
-        ajax.setRequestHeader('Content-Type', 'application/json');
-        ajax.send(JSON.stringify(data));
+        // Create the ajax request
+        ajax('https://inaapi.herokuapp.com', 'post', data, function () {
+            var response;
 
-        function onReadyState() {
-            if (this.readyState == 4) {
-                var response;
+            try {
+                // Parse the responseText into JSON
+                response = JSON.parse(this.responseText);
+            } catch (e) {
+                // If there is an error, write the error in the console
+                console.error(e);
 
-                try {
-                    // Parse the responseText into JSON
-                    response = JSON.parse(this.responseText);
-                } catch (e) {
-                    // If there is an error, write the error in the console
-                    console.error(e);
-
-                    // If there is a responseText, show the error message
-                    if (this.responseText) {
-                        responseElement.innerHTML = this.responseText;
-                        responseElement.classList.add('error');
-                    } else {
-                        // If there is none just show a generic error message
-                        responseElement.innerHTML = 'Could not send the email';
-                        responseElement.classList.add('error');
-                    }
-
-                    // Enable submit button
-                    enableSubmit();
-                }
-
-                // If the response is success
-                if (this.status == 200) {
-                    // Set the message of the response object
-                    responseElement.innerHTML = response.message;
-                } else if (this.status == 400) {
-                    // If the response has validation errors
-                    if (response.errors) {
-                        var errors = response.errors;
-
-                        if (errors['name']) {
-                            name.nextElementSibling.innerHTML = errors['name'];
-                        }
-
-                        if (errors['email']) {
-                            email.nextElementSibling.innerHTML = errors['email'];
-                        }
-
-                        if (errors['message']) {
-                            message.nextElementSibling.innerHTML = errors['message'];
-                        }
-                    } else if (response.error) {
-                        // If the response has a generic error
-                        // Set the message of the response object
-                        responseElement.innerHTML = response.error;
-                        responseElement.classList.add('error');
-                    }
+                // If there is a responseText, show the error message
+                if (this.responseText) {
+                    responseElement.innerHTML = this.responseText;
+                    responseElement.classList.add('error');
+                } else {
+                    // If there is none just show a generic error message
+                    responseElement.innerHTML = 'Could not send the email';
+                    responseElement.classList.add('error');
                 }
 
                 // Enable submit button
                 enableSubmit();
             }
-        }
+
+            // If the response is success
+            if (this.status == 200) {
+                // Set the message of the response object
+                responseElement.innerHTML = response.message;
+            } else if (this.status == 400) {
+                // If the response has validation errors
+                if (response.errors) {
+                    var errors = response.errors;
+
+                    if (errors['name']) {
+                        name.nextElementSibling.innerHTML = errors['name'];
+                    }
+
+                    if (errors['email']) {
+                        email.nextElementSibling.innerHTML = errors['email'];
+                    }
+
+                    if (errors['message']) {
+                        message.nextElementSibling.innerHTML = errors['message'];
+                    }
+                } else if (response.error) {
+                    // If the response has a generic error
+                    // Set the message of the response object
+                    responseElement.innerHTML = response.error;
+                    responseElement.classList.add('error');
+                }
+            }
+
+            // Enable submit button
+            enableSubmit();
+        });
 
         /**
          * Enables the submit button and sets the innerHTML to "Send Message"
@@ -384,6 +379,52 @@
         function enableSubmit() {
             button.disabled = false;
             button.innerHTML = 'Send Message';
+        }
+    }
+
+    /**
+     * Create an ajax request and sends the response into the callback object
+     */
+    function ajax(url, method, body, callback) {
+        if (typeof body == 'function' && !callback) {
+            callback = body;
+        }
+
+        // Create the AJAX object
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = onReadyState;
+        xhttp.open(method, url, true);
+        xhttp.setRequestHeader('Content-Type', 'application/json');
+
+        if (method.toLowerCase() === 'post') {
+            xhttp.send(JSON.stringify(body));
+        } else {
+            xhttp.send();
+        }
+
+        function onReadyState() {
+            if (this.readyState == 4) {
+                if (callback) {
+                    callback.bind(this)(this);
+                }
+            }
+        }
+    }
+
+    /**
+     * Wake up the "inaapi" API
+     */
+    function wakeUpApi() {
+        // Wake up now
+        wakeUp();
+
+        // Wake up again after 5 minutes
+        setInterval(function () {
+            wakeUp();
+        }, 300000)
+
+        function wakeUp() {
+            ajax('https://inaapi.herokuapp.com/wake-me-up', 'get');
         }
     }
 
