@@ -1,0 +1,117 @@
+.device {
+    display: table;
+    width: 100%;
+
+    .platform {
+        display: table-cell;
+        margin-bottom: 40px;
+        vertical-align: middle;
+    }
+
+    .image {
+        @extend .platform;
+        max-height: 500px;
+        max-width: 500px;
+
+        &:not(.right) {
+            padding-right: 30px;
+        }
+
+        &.right {
+            float: right;
+            padding-left: 30px;
+        }
+    }
+
+    .name {
+        display: flex;
+        padding-right: 20px;
+
+        h4 {
+            color: $primary-color;
+            font-size: 1.1em;
+            letter-spacing: .3em;
+            min-width: fit-content;
+        }
+    }
+
+    .line {
+        background-color: $primary-color;
+        height: 1px;
+        margin-left: 10px;
+        position: relative;
+        top: 11px;
+        width: 100%;
+
+        &::before {
+            background-color: $primary-color;
+            border-radius: 50%;
+            content: '';
+            display: block;
+            height: 20px;
+            position: absolute;
+            right: 0;
+            top: -9px;
+            width: 20px;
+        }
+
+        &::after {
+            border: 1px solid $primary-color;
+            border-radius: 50%;
+            content: '';
+            height: 50px;
+            position: absolute;
+            right: -16px;
+            top: -25px;
+            width: 50px;
+        }
+    }
+
+    .summary {
+        color: $secondary-text-color;
+        font-size: .7em;
+        letter-spacing: .3em;
+        line-height: 1.7em;
+        width: 90%;
+    }
+
+    .right {
+        .name {
+            padding-left: 20px;
+            padding-right: 0px;
+        }
+
+        .line {
+            margin-left: 0;
+            margin-right: 10px;
+
+            &::before {
+                background-color: $primary-color;
+                border-radius: 50%;
+                content: '';
+                display: block;
+                height: 20px;
+                left: 0;
+                position: absolute;
+                top: -9px;
+                width: 20px;
+            }
+
+            &::after {
+                border: 1px solid $primary-color;
+                border-radius: 50%;
+                content: '';
+                height: 50px;
+                position: absolute;
+                left: -16px;
+                top: -25px;
+                width: 50px;
+            }
+        }
+
+        .summary {
+            float: right;
+            text-align: right;
+        }
+    }
+}

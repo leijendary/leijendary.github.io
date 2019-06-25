@@ -1,0 +1,252 @@
+/** Element animations */
+[data-animate="reveal-text"] {
+    display: inline-block;
+    visibility: hidden;
+}
+
+[data-animate="fade-in-up"] {
+    opacity: 0;
+    position: relative;
+    top: 40px;
+}
+
+[data-animate="slide-in-left"] {
+    opacity: 0;
+    left: 40px;
+}
+
+[data-animate="slide-in-right"] {
+    opacity: 0;
+    right: 40px;
+}
+
+@mixin animation-delay {
+    animation-delay: 500ms;
+}
+
+@mixin animation-options {
+    animation-duration: 800ms;
+    animation-fill-mode: both;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.ready {
+    .reveal-text {
+        @include animation-options;
+        animation-name: clip-text;
+        cursor: default;
+        position: relative;
+        white-space: nowrap;
+        visibility: visible;
+
+        &::after {
+            @include animation-options;
+            animation-name: text-revealer;
+            background-color: #fff;
+            bottom: 0;
+            content: "";
+            left: 0;
+            pointer-events: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+        }
+    }
+
+    .fade-in-up {
+        @include animation-delay;
+        @include animation-options;
+        animation-name: fade-in-up;
+    }
+
+    .slide-in-left {
+        @include animation-delay;
+        @include animation-options;
+        animation-name: slide-in-left;
+    }
+
+    .slide-in-right {
+        @include animation-delay;
+        @include animation-options;
+        animation-name: slide-in-right;
+    }
+}
+
+/** Keyframes */
+@keyframes clip-text {
+	from {
+		clip-path: inset(0 100% 0 0);
+	}
+	to {
+		clip-path: inset(0 0 0 0);
+	}
+}
+
+@keyframes text-revealer {
+	0%, 50% {
+		transform-origin: 0 50%;
+	}
+
+	60%, 100% {
+		transform-origin: 100% 50%;
+	}
+
+	60% {
+		transform: scaleX(1);
+	}
+
+	100% {
+		transform: scaleX(0);
+	}
+}
+
+@keyframes top-line {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 69%;
+    }
+}
+
+@keyframes scroll-text {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes top-line-after {
+    from {
+        bottom: -95px;
+        height: 0;
+    }
+
+    to {
+        bottom: -144px;
+        height: 40px;
+    }
+}
+
+@keyframes mouse {
+    from {
+        bottom: 12.4%;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 6.4%;
+        opacity: 1;
+    }
+}
+
+@keyframes arrow {
+    from {
+        bottom: 80px;
+        height: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 2px;
+        height: 40px;
+        opacity: 1;
+    }
+}
+
+@keyframes arrow-pseudo {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scroll-wheel {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    80% {
+        transform: translate(0, 20px);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        top: 40px;
+    }
+
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}
+
+@keyframes description-fade-in {
+    from {
+        bottom: 30px;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 50px;
+        opacity: 1;
+    }
+}
+
+@keyframes description-fade-out {
+    from {
+        bottom: 50px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 70px;
+        opacity: 0;
+    }
+}
+
+@keyframes slide-in-left {
+    from {
+        left: 40px;
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        left: 0;
+    }
+}
+
+@keyframes slide-in-right {
+    from {
+        right: 40px;
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        right: 0;
+    }
+}

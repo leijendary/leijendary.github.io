@@ -1,0 +1,75 @@
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+html {
+    -ms-overflow-style: none;
+    overflow: hidden;
+    scrollbar-width: none;
+
+    &.ready {
+        overflow: auto;
+    }
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: $body-bg;
+    color: $primary-text-color;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: .5em;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 3.6em;
+}
+
+h2 {
+    font-size: 3.2em;
+}
+
+h3 {
+    font-size: 2.6em;
+}
+
+h4 {
+    font-size: 1.8em;
+}
+
+h5 {
+    font-size: .9em;
+}
+
+h6 {
+    font-size: .6em;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+a {
+    color: $primary-color;
+    text-decoration: underline;
+}
+
+em {
+    color: $primary-color;
+    font-style: normal;
+}

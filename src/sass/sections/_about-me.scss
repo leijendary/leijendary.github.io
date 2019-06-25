@@ -1,0 +1,125 @@
+@mixin about-me-description {
+    color: $secondary-text-color;
+    display: table-cell;
+    font-family: Lato, sans-serif;
+    font-size: .8em;
+    letter-spacing: .3em;
+    line-height: 1.5em;
+    padding-left: 30px;
+    text-align: justify;
+    vertical-align: middle;
+}
+
+#about-me .content {
+    display: table;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.picture-frame {
+    display: table-cell;
+    padding: 30px 55px;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        background-color: $primary-color;
+        content: '';
+        display: block;
+        height: calc(100% - 60px);
+        left: 0px;
+        position: absolute;
+        top: -15px;
+        width: 335px;
+    }
+
+    &::after {
+        border-bottom: 10px solid $primary-color;
+        border-right: 10px solid $primary-color;
+        border-top: 10px solid $primary-color;
+        content: '';
+        display: block;
+        height: calc(100% - 30px);
+        position: absolute;
+        right: 25px;
+        top: 5px;
+        width: 320px;
+    }
+
+    img {
+        max-height: 250px;
+        max-width: 335px;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+#about-me {
+    .words {
+        @include about-me-description;
+
+        .title {
+            color: $primary-color;
+        }
+
+        > p {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+.awards {
+    article {
+        display: table;
+        margin: 20px 40px;
+
+        .description {
+            @include about-me-description;
+            padding-left: 45px;
+            position: relative;
+            z-index: 6;
+        }
+
+        img {
+            display: table-cell;
+            max-width: 300px;
+        }
+
+        a {
+            float: right;
+            margin-top: 50px;
+        }
+    }
+
+    .title {
+        display: table;
+        font-family: Lato, sans-serif;
+        font-weight: 400;
+        margin-bottom: 50px;
+        width: 100%;
+
+        > div,
+        > span {
+            display: table-cell;
+        }
+
+        > div {
+            &:nth-child(1) {
+                width: 50px;
+            }
+        }
+
+        > span {
+            padding: 0 30px;
+            text-align: center;
+            width: 275px;
+        }
+
+        .line {
+            background-color: $primary-color;
+            height: 1px;
+            margin-bottom: 5px;
+            width: 100%;
+        }
+    }
+}
