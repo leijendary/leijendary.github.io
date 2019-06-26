@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import { Clock, PerspectiveCamera, Scene, WebGLRenderer } from 'three';
 import requestAnimationFrame from '../util/request-animation-frame';
 import Particles from './Particles';
 import InteractiveControls from './InteractiveControls';
@@ -23,16 +23,16 @@ export default class ImageParticles {
      */
     init() {
         // Scene
-        this.scene = new THREE.Scene();
+        this.scene = new Scene();
         // Camera
-        this.camera = new THREE.PerspectiveCamera(50, this.element.clientWidth / this.element.clientHeight, 1, 10000);
+        this.camera = new PerspectiveCamera(50, this.element.clientWidth / this.element.clientHeight, 1, 10000);
         this.camera.position.z = 300;
         // Renderer
-        this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        this.renderer = new WebGLRenderer({ alpha: true, antialias: true });
         // Set the id of the renderer
         this.renderer.domElement.id = this.options.id;
         // Clock
-        this.clock = new THREE.Clock(true);
+        this.clock = new Clock(true);
         // Texture
         this.particles = new Particles(this);
         // Initialize interactive controls

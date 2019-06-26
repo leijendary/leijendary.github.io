@@ -3,6 +3,7 @@ const sass = require('sass');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: './src/js/index.js',
@@ -124,4 +125,15 @@ module.exports = {
         poll: true,
         ignored: /node_modules/
     },
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                    output: {
+                        comments: false
+                    }
+                }
+            })
+        ]
+      }
 }

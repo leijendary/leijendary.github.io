@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import { Texture } from 'three';
 
 export default class TouchTexture {
 
@@ -22,7 +22,7 @@ export default class TouchTexture {
 		this.ctx.fillStyle = 'black';
 		this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
-		this.texture = new THREE.Texture(this.canvas);
+		this.texture = new Texture(this.canvas);
 
 		this.canvas.id = 'touchTexture';
 		this.canvas.style.width = this.canvas.style.height = (this.canvas.width + 'px');
