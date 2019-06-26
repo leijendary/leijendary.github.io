@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
     entry: './src/js/index.js',
@@ -97,6 +98,7 @@ module.exports = {
         new CleanWebpackPlugin({
             cleanAfterEveryBuildPatterns: [
                 '!favicon/**',
+                '!fonts/**',
                 '!img/**',
                 '!index.html'
             ]
@@ -118,11 +120,33 @@ module.exports = {
                 to: 'favicon'
             }
         ]),
+        new BrowserSyncPlugin(
+            {
+                // browse to http://localhost:3000/ during development,
+                // ./dist directory is being served
+                host: 'localhost',
+                port: 3000,
+                open: false,
+                server: {
+                    baseDir: ['dist']
+                },
+                files: [{
+                    match: ['dist/*.css'],
+                    fn: function(event, file) {
+                        if (event === "change") {
+                            const bs = require('browser-sync').get('bs-webpack-plugin');
+                            bs.reload("*.css");
+                        }
+                    }
+                }]
+            },
+            {
+                injectCss: true,
+                reload: false
+            }
+        )
     ],
-    mode: 'production',
     watchOptions: {
-        aggregateTimeout: 100,
-        poll: true,
         ignored: /node_modules/
     },
     optimization: {
@@ -135,5 +159,5 @@ module.exports = {
                 }
             })
         ]
-      }
+    }
 }
