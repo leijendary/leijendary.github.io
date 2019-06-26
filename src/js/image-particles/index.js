@@ -1,1 +1,1 @@
-export { default as ImageParticles } from './ImageParticles';
+export { default as ImageParticles } from './WebGLView';

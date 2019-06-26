@@ -122,10 +122,10 @@ module.exports = {
         ]),
         new BrowserSyncPlugin(
             {
-                // browse to http://localhost:3000/ during development,
+                // browse to http://localhost:9000/ during development,
                 // ./dist directory is being served
                 host: 'localhost',
-                port: 3000,
+                port: 9000,
                 open: false,
                 server: {
                     baseDir: ['dist']
@@ -133,11 +133,14 @@ module.exports = {
                 files: [{
                     match: ['dist/*.css'],
                     fn: function(event, file) {
-                        if (event === "change") {
+                        if (event === 'change') {
                             this.reload("*.css");
                         }
                     }
-                }]
+                }],
+                ui: {
+                    port: 9001
+                }
             },
             {
                 injectCss: true,

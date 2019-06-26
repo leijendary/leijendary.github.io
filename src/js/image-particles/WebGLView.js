@@ -3,7 +3,7 @@ import requestAnimationFrame from '../util/request-animation-frame';
 import Particles from './Particles';
 import InteractiveControls from './InteractiveControls';
 
-export default class ImageParticles {
+export default class WebGLView {
 
     constructor(element, options = {}) {
         this.element = typeof element === 'object' ? element : document.querySelector(element);
