@@ -4,8 +4,8 @@
   "description": "Jonathan Leijendekker's Official Website",
   "main": "webpack.config.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js --mode=production",
-    "watch": "webpack --watch --config webpack.config.js --mode=development"
+    "build": "webpack --mode=production --config webpack.config.js",
+    "watch": "webpack --mode=development --watch --config webpack.config.js"
   },
   "repository": {
     "type": "git",

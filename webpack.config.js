@@ -134,8 +134,7 @@ module.exports = {
                     match: ['dist/*.css'],
                     fn: function(event, file) {
                         if (event === "change") {
-                            const bs = require('browser-sync').get('bs-webpack-plugin');
-                            bs.reload("*.css");
+                            this.reload("*.css");
                         }
                     }
                 }]
