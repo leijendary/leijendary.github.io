@@ -65,8 +65,6 @@ export default class ImageParticles {
         this.update();
         this.draw();
 
-        console.log(requestAnimationFrame);
-
         requestAnimationFrame(this.animationHandler);
     }
 
