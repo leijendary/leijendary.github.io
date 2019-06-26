@@ -55,15 +55,11 @@ module.exports = {
             {
                 // Apply rule for shader files
                 test: /\.(glsl|vs|fs|vert|frag)$/,
+                exclude: /node_modules/,
                 use: [
-                    {
-                        // Using file-loader too
-                        loader: "file-loader",
-                        options: {
-                            outputPath: 'shaders',
-                            name: '[name].[ext]',
-                        }
-                    }
+                    'glslify-import-loader',
+                    'raw-loader',
+                    'glslify-loader'
                 ]
             },
             {
@@ -97,7 +93,13 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin({
+            cleanAfterEveryBuildPatterns: [
+                '!favicon/**',
+                '!img/**',
+                '!index.html'
+            ]
+        }),
         new MiniCssExtractPlugin({
             filename: "app.css"
         }),
@@ -116,5 +118,10 @@ module.exports = {
             }
         ]),
     ],
-    mode: 'production'
+    mode: 'production',
+    watchOptions: {
+        aggregateTimeout: 100,
+        poll: true,
+        ignored: /node_modules/
+    },
 }

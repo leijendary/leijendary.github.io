@@ -1,41 +1,24 @@
-import {
-    BufferAttribute,
-    InstancedBufferAttribute,
-    InstancedBufferGeometry,
-    LinearFilter,
-    Mesh,
-    MeshBasicMaterial,
-    Object3D,
-    PlaneGeometry,
-    RawShaderMaterial,
-    RGBFormat,
-    TextureLoader,
-    Vector2
-} from 'three';
+import * as THREE from 'three';
+import { TweenLite } from 'gsap/TweenMax';
 import glslify from 'glslify';
 import TouchTexture from './TouchTexture';
-import TweenLite from 'gsap/TweenLite';
-
-const vertexShader = require('../../shaders/particle.vert');
-const fragmentShader = require('../../shaders/particle.frag');
+import vertexShader from '../../../shaders/particle.vert';
+import fragmentShader from '../../../shaders/particle.frag';
 
 export default class Particles {
 
     constructor (webgl) {
         this.webgl = webgl;
         // Object3D Container
-        this.container = new Object3D();
-
-        console.log(vertexShader);
-        console.log(fragmentShader);
+        this.container = new THREE.Object3D();
 
         // Texture Loader
-        const loader = new TextureLoader();
+        const loader = new THREE.TextureLoader();
         loader.load(webgl.image, (texture) => {
             this.texture = texture;
-            this.texture.minFilter = LinearFilter;
-            this.texture.magFilter = LinearFilter;
-            this.texture.format = RGBFormat;
+            this.texture.minFilter = THREE.LinearFilter;
+            this.texture.magFilter = THREE.LinearFilter;
+            this.texture.format = THREE.RGBFormat;
             this.width = texture.image.width;
             this.height = texture.image.height;
 
@@ -78,11 +61,11 @@ export default class Particles {
             uRandom: { value: this.webgl.options.particlesRandom },
             uDepth: { value: this.webgl.options.particlesDepth },
             uSize: { value: this.webgl.options.particlesSize },
-            uTextureSize: { value: new Vector2(this.width, this.height) },
+            uTextureSize: { value: new THREE.Vector2(this.width, this.height) },
             uTexture: { value: this.texture },
             uTouch: { value: null },
         };
-        const material = new RawShaderMaterial({
+        const material = new THREE.RawShaderMaterial({
             uniforms,
             vertexShader: glslify(vertexShader),
             fragmentShader: glslify(fragmentShader),
@@ -90,9 +73,9 @@ export default class Particles {
             transparent: true,
         });
         // Geometry
-        const geometry = new InstancedBufferGeometry();
+        const geometry = new THREE.InstancedBufferGeometry();
         // Positions
-        const positions = new BufferAttribute(new Float32Array(4 * 3), 3);
+        const positions = new THREE.BufferAttribute(new Float32Array(4 * 3), 3);
         positions.setXYZ(0, -0.5, 0.5, 0.0);
         positions.setXYZ(1, 0.5, 0.5, 0.0);
         positions.setXYZ(2, -0.5, -0.5, 0.0);
@@ -102,7 +85,7 @@ export default class Particles {
         geometry.addAttribute('position', positions);
 
         // UVs
-        const uvs = new BufferAttribute(new Float32Array(4 * 2), 2);
+        const uvs = new THREE.BufferAttribute(new Float32Array(4 * 2), 2);
         uvs.setXYZ(0, 0.0, 0.0);
         uvs.setXYZ(1, 1.0, 0.0);
         uvs.setXYZ(2, 0.0, 1.0);
@@ -113,7 +96,7 @@ export default class Particles {
 
         // Index
         const indexBuffer = new Uint16Array([0, 2, 1, 2, 3, 1]);
-        const index = new BufferAttribute(indexBuffer, 1);
+        const index = new THREE.BufferAttribute(indexBuffer, 1);
 
         // Set the index of the geometry object
         geometry.setIndex(index);
@@ -137,15 +120,15 @@ export default class Particles {
             j++;
         }
 
-        const pindex = new InstancedBufferAttribute(indices, 1, false);
-        const offset = new InstancedBufferAttribute(offsets, 3, false);
-        const angle = new InstancedBufferAttribute(angles, 1, false);
+        const pindex = new THREE.InstancedBufferAttribute(indices, 1, false);
+        const offset = new THREE.InstancedBufferAttribute(offsets, 3, false);
+        const angle = new THREE.InstancedBufferAttribute(angles, 1, false);
 
         geometry.addAttribute('pindex', pindex);
         geometry.addAttribute('offset', offset);
         geometry.addAttribute('angle', angle);
 
-        this.object3D = new Mesh(geometry, material);
+        this.object3D = new THREE.Mesh(geometry, material);
         this.container.add(this.object3D);
     }
 
@@ -153,11 +136,11 @@ export default class Particles {
      * Initialize the box where the particles can be hit by the mouse
      */
     initHitArea() {
-        const geometry = new PlaneGeometry(this.width, this.height, 1, 1);
-        const material = new MeshBasicMaterial({ color: 0xffffff, wireframe: true, depthTest: false });
+        const geometry = new THREE.PlaneGeometry(this.width, this.height, 1, 1);
+        const material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, depthTest: false });
         material.visible = false;
 
-        this.hitArea = new Mesh(geometry, material);
+        this.hitArea = new THREE.Mesh(geometry, material);
         this.container.add(this.hitArea);
     }
 
@@ -179,9 +162,6 @@ export default class Particles {
         if (!this.object3D) {
             return;
         }
-
-        console.log(delta);
-        console.log(this.object3D);
 
 		if (this.touch) {
             this.touch.update();
@@ -207,9 +187,7 @@ export default class Particles {
     /**
      * Show the particles
      */
-    show(time) {
-        time = time == undefined ? 1.00 : time;
-
+    show(time = 1.00) {
 		// Reset
         TweenLite.fromTo(
             this.object3D.material.uniforms.uSize,

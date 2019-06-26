@@ -1,5 +1,5 @@
 import EventEmitter from 'events';
-import { Plane, Raycaster, Vector2, Vector3 } from 'three';
+import * as THREE from 'three';
 import mobile from '../util/mobile';
 
 export default class InteractiveControls extends EventEmitter {
@@ -11,12 +11,12 @@ export default class InteractiveControls extends EventEmitter {
         this.el = el;
         this.passiveEvent = passiveEvent;
 
-		this.plane = new Plane();
-		this.raycaster = new Raycaster();
+		this.plane = new THREE.Plane();
+		this.raycaster = new THREE.Raycaster();
 
-		this.mouse = new Vector2();
-		this.offset = new Vector3();
-		this.intersection = new Vector3();
+		this.mouse = new THREE.Vector2();
+		this.offset = new THREE.Vector3();
+		this.intersection = new THREE.Vector3();
 
 		this.objects = [];
 		this.hovered = null;

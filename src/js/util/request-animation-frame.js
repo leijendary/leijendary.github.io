@@ -11,4 +11,4 @@ function requestAnimationFrame() {
     );
 }
 
-export default requestAnimationFrame;
+export default requestAnimationFrame();

@@ -1,4 +1,4 @@
-import { Texture } from 'three';
+import * as THREE from 'three';
 
 export default class TouchTexture {
 
@@ -22,7 +22,7 @@ export default class TouchTexture {
 		this.ctx.fillStyle = 'black';
 		this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
-		this.texture = new Texture(this.canvas);
+		this.texture = new THREE.Texture(this.canvas);
 
 		this.canvas.id = 'touchTexture';
 		this.canvas.style.width = this.canvas.style.height = (this.canvas.width + 'px');
@@ -80,7 +80,7 @@ export default class TouchTexture {
     /**
      * Draw touch particles
      */
-    drawTouch() {
+    drawTouch(point) {
         const pos = {
 			x: point.x * this.size,
 			y: (1 - point.y) * this.size

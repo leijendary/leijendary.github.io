@@ -333,15 +333,7 @@ export default class App {
          * Ajax request callback
          */
         function callback() {
-            let response;
-
-            try {
-                // Parse the responseText into JSON
-                response = JSON.parse(this.responseText);
-            } catch (e) {
-                // If there is an error, write the error in the console
-                console.error(e);
-
+            if (!this.responseJson) {
                 // If there is a responseText, show the error message
                 if (this.responseText) {
                     responseElement.innerHTML = this.responseText;
@@ -354,16 +346,18 @@ export default class App {
 
                 // Enable submit button
                 enableSubmit();
+
+                return;
             }
 
             // If the response is success
             if (this.status == 200) {
                 // Set the message of the response object
-                responseElement.innerHTML = response.message;
+                responseElement.innerHTML = this.responseJson.message;
             } else if (this.status == 400) {
                 // If the response has validation errors
-                if (response.errors) {
-                    const errors = response.errors;
+                if (this.responseJson.errors) {
+                    const errors = this.responseJson.errors;
 
                     if (errors['name']) {
                         name.nextElementSibling.innerHTML = errors['name'];
@@ -376,10 +370,10 @@ export default class App {
                     if (errors['message']) {
                         message.nextElementSibling.innerHTML = errors['message'];
                     }
-                } else if (response.error) {
+                } else if (this.responseJson.error) {
                     // If the response has a generic error
                     // Set the message of the response object
-                    responseElement.innerHTML = response.error;
+                    responseElement.innerHTML = this.responseJson.error;
                     responseElement.classList.add('error');
                 }
             }

@@ -17,6 +17,10 @@ function ajax(url, method, body, callback) {
 
     function onReadyState() {
         if (this.readyState == 4 && callback) {
+            try {
+                this.responseJson = JSON.parse(this.responseText);
+            } catch {}
+
             callback.bind(this)(this);
         }
     }
