@@ -133,33 +133,31 @@ module.exports = {
                 to: 'favicon'
             }
         ]),
-        new BrowserSyncPlugin(
-            {
-                // browse to http://localhost:9000/ during development,
-                // ./dist directory is being served
-                host: 'localhost',
-                port: 9000,
-                open: false,
-                server: {
-                    baseDir: ['dist']
-                },
-                files: [{
-                    match: ['dist/*.css'],
-                    fn: function(event, file) {
-                        if (event === 'change') {
-                            this.reload("*.css");
-                        }
-                    }
-                }],
-                ui: {
-                    port: 9001
-                }
+        new BrowserSyncPlugin({
+            // browse to http://localhost:9000/ during development,
+            // ./dist directory is being served
+            host: 'localhost',
+            port: 9000,
+            open: false,
+            server: {
+                baseDir: ['dist']
             },
-            {
-                injectCss: true,
-                reload: false
+            files: [{
+                match: ['dist/*.css'],
+                fn: function(event, file) {
+                    if (event === 'change') {
+                        this.reload("*.css");
+                    }
+                }
+            }],
+            ui: {
+                port: 9001
             }
-        )
+        },
+        {
+            injectCss: true,
+            reload: false
+        })
     ],
     watchOptions: {
         ignored: /node_modules/
