@@ -1,11 +1,12 @@
 import { ImageParticles } from './image-particles';
 import ajax from './util/ajax';
+import { query, queryAll } from './util/Query';
 
 export default class App {
 
     constructor() {
         // Cross browser support for the html element
-        this.html = document.documentElement || document.body.parentNode || document.body;
+        this.html = this.getHtml();
         // Get the header element for the image particles
         this.header = query('header');
         // GIT REKT
@@ -53,6 +54,15 @@ export default class App {
 
         // Add event listeners
         this.addListeners();
+    }
+
+    /**
+     * Get the HTML element or at least the BODY element
+     */
+    getHtml() {
+        return document.documentElement
+            || document.body.parentNode
+            || document.body;
     }
 
     addListeners() {

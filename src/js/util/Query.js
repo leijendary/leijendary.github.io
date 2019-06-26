@@ -1,13 +1,5 @@
 class Query {
-    init() {
-        window.query = function (selector) {
-            return document.querySelector(selector);
-        }
-
-        window.queryAll = function (selector) {
-            return document.querySelectorAll(selector);
-        }
-
+    extend() {
         Element.prototype.query = function (selector) {
             return this.querySelector(selector);
         }
@@ -18,4 +10,13 @@ class Query {
     }
 }
 
+function query(selector) {
+    return document.querySelector(selector);
+}
+
+function queryAll(selector) {
+    return document.querySelectorAll(selector);
+}
+
 export default new Query;
+export { query, queryAll };

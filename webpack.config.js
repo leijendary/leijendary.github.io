@@ -20,7 +20,20 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env']
+                        presets: [
+                            [
+                                '@babel/preset-env',
+                                {
+                                    targets: {
+                                        browsers: [
+                                            'last 5 versions'
+                                        ]
+                                    },
+                                    // For tree shaking to work
+                                    modules: false
+                                }
+                            ]
+                        ]
                     }
                 }
             },
@@ -155,6 +168,9 @@ module.exports = {
         minimizer: [
             new UglifyJsPlugin({
                 uglifyOptions: {
+                    compress: {
+                        drop_console: true
+                    },
                     output: {
                         comments: false
                     }

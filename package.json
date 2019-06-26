@@ -17,6 +17,15 @@
     "url": "https://github.com/leijendary/leijendary.github.io/issues"
   },
   "homepage": "https://github.com/leijendary/leijendary.github.io#readme",
+  "browserslist": [
+    "ie >= 8",
+    "Chrome >= 14",
+    "ff >= 14",
+    "Safari >= 5.1",
+    "Opera >= 12",
+    "last 5 iOS versions",
+    "last 5 Android versions"
+  ],
   "dependencies": {
     "events": "^3.0.0",
     "glsl-noise": "0.0.0",
