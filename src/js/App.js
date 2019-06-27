@@ -5,8 +5,6 @@ import { query, queryAll } from './util/Query';
 export default class App {
 
     constructor() {
-        // Cross browser support for the html element
-        this.html = this.getHtml();
         // Get the header element for the image particles
         this.header = query('header');
         // GIT REKT
@@ -27,8 +25,6 @@ export default class App {
     }
 
     init() {
-        // Add the "ready" class into the html object
-        this.html.classList.add('ready');
         // Set the image of the particles
         this.imageParticles.image = this.image;
         // Initialize image particles
@@ -54,15 +50,6 @@ export default class App {
 
         // Add event listeners
         this.addListeners();
-    }
-
-    /**
-     * Get the HTML element or at least the BODY element
-     */
-    getHtml() {
-        return document.documentElement
-            || document.body.parentNode
-            || document.body;
     }
 
     addListeners() {
