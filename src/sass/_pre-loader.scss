@@ -1,11 +1,34 @@
-.pre-loader {
+#pre-loader {
     background-color: $body-bg;
     height: 100%;
+    opacity: 1;
     position: fixed;
+    text-align: center;
+    transition: opacity .3s linear, visibility .3s;
+    visibility: visible;
     width: 100%;
     z-index: 100;
+
+    svg {
+        display: inline-block;
+        fill: none;
+        height: 100%;
+        max-width: 25%;
+        stroke: $primary-text-color;
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        stroke-width: 4;
+        vertical-align: middle;
+
+        polygon {
+            transition: 1s;
+        }
+    }
 }
 
-.ready .pre-loader {
-    display: none;
+.ready {
+    #pre-loader {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
