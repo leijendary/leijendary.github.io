@@ -44,7 +44,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
     <link rel="manifest" href="/favicon/manifest.json">
 
-    <link rel="stylesheet" href="/app.css">
+    <!-- CSS -->
+    <link async rel="stylesheet" href="/app.css">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68660949-2"></script>
@@ -77,6 +78,11 @@
 
     <!-- Noise -->
     <div class="noice"></div>
+
+    <!-- Pre-loader -->
+    <div class="pre-loader">
+        Loading....
+    </div>
 
     <!-- Header -->
     <header>
@@ -140,7 +146,7 @@
                         class="summary ht"
                         data-animate="fade-in-up"
                         data-delay="1.4s">
-                        From static websites, e-commerce platforms, to REST APIs and web socket, i do full stack web development.
+                        From static websites, e-commerce platforms, to REST API and web socket, i do full stack web development.
                     </div>
                 </div>
                 <img
@@ -436,6 +442,59 @@
     <!-- Mouse Cursor -->
     <div id="cursor"></div>
 
-    <script src="/app.js"></script>
+    <!-- Loader -->
+    <script>
+        // Load document images
+        var images = document.images;
+        var cssImages = ['/img/noice.gif'];
+        var fonts = document.fonts;
+        var loaded = 0;
+        var progress = 0;
+        var total = (
+            images.length +
+            cssImages.length +
+            fonts.size +
+            1 // For the only JS file
+        );
+
+        // Load document images
+        for (var i = 0; i < images.length; i++) {
+            loadImage(images[i].src);
+        }
+
+        // Load css images
+        for (var i = 0; i < cssImages.length; i++) {
+            loadImage(cssImages[i]);
+        }
+
+        // On font loaded
+        fonts.forEach(function (font) {
+            font.loaded.then(function (details) {
+                if (details.status === 'loaded') {
+                    ups();
+                }
+            });
+        })
+
+        // Create the only JS file
+        var script = document.createElement('script');
+        script.onload = ups;
+        script.src = '/app.js';
+
+        // Append the js file into the body tag
+        document.body.appendChild(script);
+
+        // Load image and call the progress up function
+        function loadImage(src) {
+            var image = new Image();
+            image.onload = ups;
+            image.src = src;
+        }
+
+        // Increase progress
+        function ups() {
+            progress = (++loaded / total) * 100;
+        }
+    </script>
 </body>
 </html>

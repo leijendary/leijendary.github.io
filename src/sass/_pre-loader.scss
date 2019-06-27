@@ -1,0 +1,11 @@
+.pre-loader {
+    background-color: $body-bg;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.ready .pre-loader {
+    display: none;
+}

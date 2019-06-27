@@ -7,4 +7,9 @@
     opacity: .2;
     position: fixed;
     width: 100%;
+    z-index: 101;
+}
+
+.ready .noice {
+    z-index: 0;
 }

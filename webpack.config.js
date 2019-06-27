@@ -150,9 +150,7 @@ module.exports = {
                     }
                 }
             }],
-            ui: {
-                port: 9001
-            }
+            ui: false
         },
         {
             injectCss: true,
