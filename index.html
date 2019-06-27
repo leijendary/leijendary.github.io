@@ -433,7 +433,7 @@
     <footer>
         <img class="logo" src="/img/logo.png" alt="Logo">
         <hr>
-        <ul class="menu ht">
+        <ul class="menu ht navigate">
             <li class="item">
                 <a href="#home">Home</a>
             </li>
@@ -452,17 +452,23 @@
         </ul>
         <ul class="menu social">
             <li class="item">
-                <img class="icon" src="/img/icons/facebook.png" alt="Facebook icon">
+                <a href="https://www.facebook.com/jleijendekker" target="_blank">
+                    <img class="icon" src="/img/icons/facebook.png" alt="Facebook icon">
+                </a>
             </li>
             <li class="item">
-                <img class="icon" src="/img/icons/github.png" alt="GitHub icon">
+                <a href="https://github.com/leijendary" target="_blank">
+                    <img class="icon" src="/img/icons/github.png" alt="GitHub icon">
+                </a>
             </li>
             <li class="item">
-                <img class="icon" src="/img/icons/linkedin.png" alt="LinkedIn icon">
+                <a href="https://www.linkedin.com/in/jonathan-leijendekker-99456bbb/" target="_blank">
+                    <img class="icon" src="/img/icons/linkedin.png" alt="LinkedIn icon">
+                </a>
             </li>
         </ul>
-        <span class="copyright">
-            Jonathan Leijendekker 2019. All Rights Reserved.
+        <span class="copyright ht">
+            Copyright © 2019 Jonathan Leijendekker. All Rights Reserved.
         </span>
     </footer>
 
@@ -471,6 +477,7 @@
 
     <!-- Loader -->
     <script>
+        var html = document.querySelector('html');
         var body = document.body;
         var preloader = document.querySelector('#pre-loader svg');
         var dasharray = getComputedStyle(preloader).strokeDasharray.replace('px', '');
@@ -544,7 +551,7 @@
                 setTimeout(function () {
                     window.scrollTo(0, 0);
                     preloader.style.strokeDasharray = 'none';
-                    body.classList.add('ready');
+                    html.classList.add('ready');
                 }, 1000);
             }
         }
