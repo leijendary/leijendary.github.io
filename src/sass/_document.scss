@@ -5,19 +5,20 @@
 
 html {
     -ms-overflow-style: none;
+    overflow: hidden;
     scrollbar-width: none;
+
+    &.ready {
+        overflow: auto;
+        scroll-behavior: smooth;
+    }
 }
 
 body {
     background-color: $body-bg;
     color: $primary-text-color;
     margin: 0;
-    overflow: hidden;
     text-transform: uppercase;
-
-    &.ready {
-        overflow: auto;
-    }
 }
 
 h1,
