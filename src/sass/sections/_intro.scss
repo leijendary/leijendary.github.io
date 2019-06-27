@@ -45,7 +45,7 @@ header canvas {
     }
 }
 
-.top-line {
+.ready .top-line {
     animation: top-line 2s;
     animation-delay: 2s;
     animation-fill-mode: forwards;
@@ -68,6 +68,10 @@ header canvas {
 }
 
 .scroll-text {
+    opacity: 0;
+}
+
+.ready .scroll-text {
     animation: scroll-text 2s;
     animation-delay: 3s;
     animation-fill-mode: forwards;
@@ -85,7 +89,7 @@ header canvas {
     width: 91px;
 }
 
-.mouse {
+.ready .mouse {
     animation: mouse 1s;
     animation-delay: 3.5s;
     animation-fill-mode: forwards;
@@ -117,7 +121,7 @@ header canvas {
     }
 }
 
-.arrow {
+.ready .arrow {
     animation: arrow 1.5s;
     animation-delay: 3.4s;
     animation-fill-mode: forwards;
