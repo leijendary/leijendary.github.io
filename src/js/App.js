@@ -196,11 +196,6 @@ export default class App {
             // element inside the project
             parent.insertBefore(index, parent.childNodes[0]);
 
-            // Pre-load image of this project
-            if (Image) {
-                new Image().src = parent.query('img').src;
-            }
-
             // Mouse events
             hover.onmouseover = onHover;
             hover.onmouseout = onOut;
