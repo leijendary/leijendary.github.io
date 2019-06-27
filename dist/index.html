@@ -48,7 +48,6 @@
     <link rel="stylesheet" href="/app.css">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68660949-2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -445,9 +444,6 @@
     <!-- Mouse Cursor -->
     <div id="cursor"></div>
 
-    <!-- JS -->
-    <script async src="/app.js"></script>
-
     <!-- Loader -->
     <script>
         var body = document.body;
@@ -456,7 +452,11 @@
         var images = document.images;
         var cssImages = ['/img/noice.gif'];
         var fonts = document.fonts;
-        var scripts = document.querySelectorAll('script[async]');
+        var scripts = [{
+            src: 'https://www.googletagmanager.com/gtag/js?id=UA-68660949-2'
+        }, {
+            src: '/app.js'
+        }];
         var loaded = 0;
         var progress = 0;
         var total = (
@@ -489,7 +489,16 @@
         // On font loaded
         fonts.forEach(function (font) {
             font.loaded.then(ups);
-        })
+        });
+
+        // Load the scripts
+        for (var i = 0; i < scripts.length; i++) {
+            var script = document.createElement('script');
+            script.onload = ups;
+            script.src = scripts[i].src;
+
+            body.appendChild(script);
+        }
 
         // Load image and call the progress up function
         function loadImage(src) {
