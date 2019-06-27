@@ -461,6 +461,7 @@
             scripts.length
         );
 
+        // Load JS files
         for (var i = 0; i < scripts.length; i++) {
             scripts[i].onload = ups;
         }
@@ -491,7 +492,7 @@
             image.src = src;
         }
 
-        // Increase progress
+        // Increment number of loaded items and update progress
         function ups() {
             progress = (++loaded / total) * 100;
 
@@ -500,8 +501,6 @@
             if (progress === 100) {
                 body.classList.add('ready');
             }
-
-            console.log(progress);
         }
     </script>
 </body>

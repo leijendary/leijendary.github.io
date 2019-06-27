@@ -1,1 +1,1 @@
-git subtree push --prefix dist origin master
+git push && git subtree push --prefix dist origin master
