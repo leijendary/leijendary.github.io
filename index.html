@@ -483,9 +483,7 @@
 
         // On font loaded
         fonts.forEach(function (font) {
-            font.loaded.then(function (details) {
-                ups();
-            });
+            font.loaded.then(ups);
         })
 
         // Load image and call the progress up function
@@ -497,6 +495,8 @@
 
         // Increment number of loaded items and update progress
         function ups() {
+            console.log(this);
+
             progress = (++loaded / total) * 100;
 
             // Get the computed dash offset based on the progress bar
