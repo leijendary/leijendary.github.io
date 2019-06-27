@@ -45,7 +45,7 @@
     <link rel="manifest" href="/favicon/manifest.json">
 
     <!-- CSS -->
-    <link async rel="stylesheet" href="/app.css">
+    <link rel="stylesheet" href="/app.css">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68660949-2"></script>
@@ -442,20 +442,28 @@
     <!-- Mouse Cursor -->
     <div id="cursor"></div>
 
+    <!-- JS -->
+    <script async src="/app.js"></script>
+
     <!-- Loader -->
     <script>
-        // Load document images
+        var body = document.body;
         var images = document.images;
         var cssImages = ['/img/noice.gif'];
         var fonts = document.fonts;
+        var scripts = document.querySelectorAll('script[async]');
         var loaded = 0;
         var progress = 0;
         var total = (
             images.length +
             cssImages.length +
             fonts.size +
-            1 // For the only JS file
+            scripts.length
         );
+
+        for (var i = 0; i < scripts.length; i++) {
+            scripts[i].onload = ups;
+        }
 
         // Load document images
         for (var i = 0; i < images.length; i++) {
@@ -476,14 +484,6 @@
             });
         })
 
-        // Create the only JS file
-        var script = document.createElement('script');
-        script.onload = ups;
-        script.src = '/app.js';
-
-        // Append the js file into the body tag
-        document.body.appendChild(script);
-
         // Load image and call the progress up function
         function loadImage(src) {
             var image = new Image();
@@ -494,6 +494,12 @@
         // Increase progress
         function ups() {
             progress = (++loaded / total) * 100;
+
+            // If everything is loaded, add the "ready" class into
+            // the document body.
+            if (progress === 100) {
+                body.classList.add('ready');
+            }
 
             console.log(progress);
         }
