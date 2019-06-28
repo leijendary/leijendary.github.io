@@ -568,7 +568,7 @@
 
         // Increment number of loaded items and update progress
         function ups(p) {
-            if (typeof p !== 'undefined') {
+            if (typeof p === 'number') {
                 progress = p;
             } else {
                 progress = (++loaded / total) * 100;
