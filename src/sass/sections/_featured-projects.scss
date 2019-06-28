@@ -79,7 +79,6 @@
 
     .description {
         @include project-settings;
-        @include project-text-shadow;
         bottom: 30px;
         color: #fff;
         float: right;
@@ -88,6 +87,7 @@
         opacity: 0;
         position: fixed;
         right: 50px;
+        text-shadow: 0 0 10px rgba(0,0,0,1);
         width: 400px;
         z-index: 5;
 

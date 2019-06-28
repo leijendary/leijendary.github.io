@@ -73,6 +73,10 @@
         display: table;
         margin: 20px 40px;
 
+        h2 {
+            display: none;
+        }
+
         .description {
             @include about-me-description;
             padding-left: 45px;

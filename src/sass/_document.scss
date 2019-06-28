@@ -64,8 +64,20 @@ ul {
 
 a {
     color: $primary-color;
-    text-decoration: underline;
+    position: relative;
+    text-decoration: none;
 }
+
+a:after {
+    background-color: $primary-color;
+    bottom: -3px;
+    content: '';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
 
 em {
     color: $primary-color;

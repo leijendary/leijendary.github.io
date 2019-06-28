@@ -370,6 +370,8 @@
 
                 <!-- AngelHack Article -->
                 <article>
+                    <h2>AngelHack Manila 2018 - Impoq (Ipon Pinoy) by team "Relax, You're Doing Fine"</h2>
+
                     <img src="/img/angelhack.png" alt="AngelHack">
 
                     <div
@@ -565,8 +567,12 @@
         }
 
         // Increment number of loaded items and update progress
-        function ups() {
-            progress = (++loaded / total) * 100;
+        function ups(p) {
+            if (typeof p !== 'undefined') {
+                progress = p;
+            } else {
+                progress = (++loaded / total) * 100;
+            }
 
             // Get the computed dash offset based on the progress bar
             var dashoffset = dasharray - ((dasharray / 100) * progress)

@@ -9,8 +9,18 @@ import App from './App';
  * also fully loaded
  */
 window.onload = () => {
+    // If ups is a function, set the progress value of ups to 100
+    // and override the loader's progress bar
+    if (progress !== 100 && typeof ups === 'function') {
+        alert('overriden');
+        ups(100);
+    }
+
     // Initialize Element extension
     Query.extend();
+
+    // Remove hash from the url
+    history.pushState("", document.title, window.location.pathname + window.location.search);
 
     // Image for the ImageParticles
     const logoCut = '/img/logo-cut.png';
