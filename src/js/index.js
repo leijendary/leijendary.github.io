@@ -12,7 +12,6 @@ window.onload = () => {
     // If ups is a function, set the progress value of ups to 100
     // and override the loader's progress bar
     if (progress !== 100 && typeof ups === 'function') {
-        alert('overriden');
         ups(100);
     }
 
