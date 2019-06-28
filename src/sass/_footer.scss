@@ -32,7 +32,7 @@ footer {
             a {
                 color: $secondary-text-color;
                 text-decoration: none;
-                transition: color .2s;
+                transition: color .3s;
 
                 &:hover {
                     color: $primary-color;
@@ -45,9 +45,17 @@ footer {
 
             .item {
                 .icon {
-                    max-height: 30px;
-                    max-width: 30px;
+                    fill: $secondary-text-color;
+                    height: 30px;
+                    width: 30px;
                     padding: 10px;
+                    transition: fill .3s;
+                }
+
+                a:hover {
+                    .icon {
+                        fill: $primary-color;
+                    }
                 }
             }
         }
