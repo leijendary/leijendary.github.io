@@ -18,7 +18,14 @@ body {
     background-color: $body-bg;
     color: $primary-text-color;
     margin: 0;
+    overflow: hidden;
     text-transform: uppercase;
+}
+
+.ready {
+    body {
+        overflow: auto;
+    }
 }
 
 h1,

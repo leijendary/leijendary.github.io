@@ -1,15 +1,15 @@
 import EventEmitter from 'events';
 import { Plane, Raycaster, Vector2, Vector3 } from 'three';
+import { passiveEvent } from '../util/event';
 import mobile from '../util/mobile';
 
 export default class InteractiveControls extends EventEmitter {
 
-    constructor(camera, el, passiveEvent) {
+    constructor(camera, el) {
         super();
 
         this.camera = camera;
         this.el = el;
-        this.passiveEvent = passiveEvent;
 
 		this.plane = new Plane();
 		this.raycaster = new Raycaster();
@@ -23,8 +23,6 @@ export default class InteractiveControls extends EventEmitter {
 		this.selected = null;
 
 		this.isDown = false;
-
-		this.mobile = mobile();
 
 		this.enable();
     }
@@ -41,7 +39,19 @@ export default class InteractiveControls extends EventEmitter {
 
         this.addListeners();
         this._enabled = true;
-    }
+	}
+
+	/**
+	 * Disable Interactive Controls
+	 */
+	disable() {
+		if (!this._enabled) {
+			return;
+		}
+
+		this.removeListeners();
+		this._enabled = false;
+	}
 
     /**
      * Add interactive controls event listeners
@@ -52,17 +62,33 @@ export default class InteractiveControls extends EventEmitter {
 		this.handlerUp = this.onUp.bind(this);
 		this.handlerLeave = this.onLeave.bind(this);
 
-		if (this.mobile) {
-			this.el.addEventListener('touchstart', this.handlerDown, this.passiveEvent);
-			this.el.addEventListener('touchmove', this.handlerMove, this.passiveEvent);
-			this.el.addEventListener('touchend', this.handlerUp, this.passiveEvent);
+		if (mobile()) {
+			this.el.addEventListener('touchstart', this.handlerDown, passiveEvent);
+			this.el.addEventListener('touchmove', this.handlerMove, passiveEvent);
+			this.el.addEventListener('touchend', this.handlerUp, passiveEvent);
 		} else {
 			this.el.addEventListener('mousedown', this.handlerDown);
 			this.el.addEventListener('mousemove', this.handlerMove);
 			this.el.addEventListener('mouseup', this.handlerUp);
             this.el.addEventListener('mouseleave', this.handlerLeave);
 		}
-    }
+	}
+
+	/**
+	 * Remove interactive controls event listeners
+	 */
+	removeListeners() {
+		if (mobile()) {
+			this.el.removeEventListener('touchstart', this.handlerDown, passiveEvent);
+			this.el.removeEventListener('touchmove', this.handlerMove, passiveEvent);
+			this.el.removeEventListener('touchend', this.handlerUp, passiveEvent);
+		} else {
+			this.el.removeEventListener('mousedown', this.handlerDown);
+			this.el.removeEventListener('mousemove', this.handlerMove);
+			this.el.removeEventListener('mouseup', this.handlerUp);
+			this.el.removeEventListener('mouseleave', this.handlerLeave);
+		}
+	}
 
     /**
      * Resize interactive control

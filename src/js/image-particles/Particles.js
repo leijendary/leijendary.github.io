@@ -26,8 +26,20 @@ export default class Particles {
         this.container = new Object3D();
 
         // Texture Loader
-        const loader = new TextureLoader();
-        loader.load(webgl.image, (texture) => {
+        this.loader = new TextureLoader();
+
+        // Interactive move listener
+        this.handlerInteractiveMove = this.onInteractiveMove.bind(this);
+
+        // Initialize the image into the texture loader
+        this.init(webgl.image);
+    }
+
+    /**
+     * Initialize the image into the texture loader
+     */
+    init(image, time) {
+        this.loader.load(image, (texture) => {
             this.texture = texture;
             this.texture.minFilter = LinearFilter;
             this.texture.magFilter = LinearFilter;
@@ -39,7 +51,7 @@ export default class Particles {
             this.initHitArea();
             this.initTouch();
             this.resize();
-            this.show();
+            this.show(time);
         });
     }
 
@@ -191,7 +203,13 @@ export default class Particles {
             return;
         }
 
-        const scale = this.webgl.fovHeight / this.height;
+        let scale = this.webgl.options.scale;
+
+        if (typeof scale == 'function') {
+            scale = scale();
+        }
+
+        scale = (this.webgl.fovHeight / this.height) * scale;
 
         this.object3D.scale.set(scale, scale, 1);
         this.hitArea.scale.set(scale, scale, 1);
@@ -223,12 +241,22 @@ export default class Particles {
      * Add event listeners to the particles
      */
     addListeners() {
-        this.handlerInteractiveMove = this.onInteractiveMove.bind(this);
-
 		this.webgl.interactive.addListener('interactive-move', this.handlerInteractiveMove);
 		this.webgl.interactive.objects.push(this.hitArea);
         this.webgl.interactive.enable();
     }
+
+    /**
+     * Remove event listeners from the particles
+     */
+    removeListeners() {
+		this.webgl.interactive.removeListener('interactive-move', this.handlerInteractiveMove);
+
+        const index = this.webgl.interactive.objects.findIndex(obj => obj === this.hitArea);
+
+		this.webgl.interactive.objects.splice(index, 1);
+		this.webgl.interactive.disable();
+	}
 
     /**
      * On interactive control touch move
@@ -240,4 +268,27 @@ export default class Particles {
             this.touch.addTouch(uv);
         }
     }
+
+    /**
+     * Remove elements
+     */
+    destroy() {
+		if (!this.object3D) {
+            return;
+        }
+
+		this.object3D.parent.remove(this.object3D);
+		this.object3D.geometry.dispose();
+		this.object3D.material.dispose();
+		this.object3D = null;
+
+		if (!this.hitArea) {
+            return;
+        }
+
+		this.hitArea.parent.remove(this.hitArea);
+		this.hitArea.geometry.dispose();
+		this.hitArea.material.dispose();
+        this.hitArea = null;
+	}
 }

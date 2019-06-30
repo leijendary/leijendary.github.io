@@ -1,18 +1,24 @@
-import { ImageParticles } from './image-particles';
 import ajax from './util/ajax';
+import { ImageParticles } from './image-particles';
+import mobile from './util/mobile';
 import { query, queryAll } from './util/Query';
 
 export default class App {
 
     constructor() {
-        // Get the header element for the image particles
+        // Width of the mobile threshold in pixels
+        this.mobileWidth = 700;
+        // Get the logo element for the image particles
+        this.logo = query('#logo');
+        // Get the header element
         this.header = query('header');
         // GIT REKT
         this.header.getRect = this.header.getBoundingClientRect;
         // Create Image Particles
-        this.imageParticles = new ImageParticles(this.header, {
-            imageX: 0.07,
-            imageY: 3
+        this.imageParticles = new ImageParticles(this.logo, {
+            imageX: this.particlesXPosition.bind(this),
+            scale: this.particlesScale.bind(this),
+            particlesSize: window.innerWidth <= this.mobileWidth ? 1.4 : undefined
         })
         // Elements with data-animate attribute
         this.dataAnimate = queryAll('[data-animate]');
@@ -20,13 +26,29 @@ export default class App {
         this.cursor = query('#cursor');
         // Years
         this.years = query('#years');
+        // API url
+        this.apiUrl = 'https://inaapi.herokuapp.com';
         // Contact form
         this.form = query('form');
+        // Set the image of the particles
+        this.logoCut = '/img/logo-cut.png';
+        // Image to be used if the screen reached the mobile threshold
+        this.logo = '/img/logo.png';
+        // Date I started working
+        this.startDate = new Date(2014, 10);
     }
 
     init() {
-        // Set the image of the particles
-        this.imageParticles.image = this.image;
+        // Set the image of the image particles.
+        // If the width reached the mobile threshold,
+        // use the image for mobile devices. Else,
+        // use the default image
+        if (window.innerWidth <= this.mobileWidth) {
+            this.imageParticles.image = this.logo;
+        } else {
+            this.imageParticles.image = this.logoCut;
+        }
+
         // Initialize image particles
         this.imageParticles.init();
 
@@ -45,20 +67,33 @@ export default class App {
         // to add a mouseover and mouseout event
         this.hoverTargets();
 
+        // Add event listeners
+        this.addListeners();
+
         // Wake up the emailer API
         this.wakeUpApi();
 
-        // Add event listeners
-        this.addListeners();
+        // Wake up API again every 5 minutes
+        setInterval(this.wakeUpApi.bind(this), 300000);
+
+        // Set the mobile view if this is a mobile browser
+        if (mobile()) {
+            this.mobileView();
+        }
     }
 
+    /**
+     * Add application event listeners
+     */
     addListeners() {
         // Add an event on window scroll
         window.addEventListener('scroll', this.onScroll.bind(this));
+        // Add an event on window mouse move
         window.addEventListener('mousemove', this.onMouseMove.bind(this));
-
+        // Add an event on window resize
+        window.addEventListener('resize', this.onResize.bind(this));
         // Add submit event for the form
-        this.form.addEventListener('submit', this.onSubmit);
+        this.form.addEventListener('submit', this.onSubmit.bind(this));
     }
 
     /**
@@ -71,7 +106,11 @@ export default class App {
             this.imageParticles.resize();
         }
 
+        // Check data-animate attributes if to be animated
         this.checkDataAnimate();
+
+        // Projects should be out
+        this.onProjectOut();
     }
 
     /**
@@ -80,6 +119,63 @@ export default class App {
     onMouseMove(e) {
         this.cursor.style.left = e.clientX + 'px';
         this.cursor.style.top = e.clientY + 'px';
+    }
+
+    /**
+     * Window resize function
+     */
+    onResize() {
+        if (window.innerWidth <= this.mobileWidth) {
+            if (!this.imageParticles.isMobile) {
+                this.imageParticles.isMobile = true;
+                this.imageParticles.particles.destroy();
+                this.imageParticles.particles.init(this.logo, 0);
+            }
+        } else {
+            if (this.imageParticles.isMobile) {
+                this.imageParticles.isMobile = false;
+                this.imageParticles.particles.destroy();
+                this.imageParticles.particles.init(this.logoCut, 0);
+            }
+        }
+    }
+
+    /**
+     * Get the particles' X position based on the client height and width
+     * of the header element
+     */
+    particlesXPosition() {
+        const clientHeight = this.header.clientHeight;
+        const clientWidth = this.header.clientWidth;
+
+        // If the client width is less than the mobile
+        // threshold, set the x position to 0
+        if (clientWidth <= this.mobileWidth) {
+            return 0;
+        }
+
+        return (clientWidth / clientHeight) * 50;
+    }
+
+    /**
+     * Get the particles' scale value based on the client height and width
+     * of the header element
+     */
+    particlesScale() {
+        const clientHeight = this.header.clientHeight;
+        const clientWidth = this.header.clientWidth;
+
+        // If the client width is less than the mobile
+        // threshold, set the scale to 1
+        if (clientWidth <= this.mobileWidth) {
+            return 1;
+        }
+
+        if (clientHeight > clientWidth) {
+            return (clientWidth / clientHeight) * 0.6;
+        }
+
+        return 0.7;
     }
 
     /**
@@ -185,7 +281,7 @@ export default class App {
 
             // Mouse events
             hover.onmouseover = onHover;
-            hover.onmouseout = onOut;
+            hover.onmouseout = this.onProjectOut.bind(this);
         }
 
         /**
@@ -211,18 +307,6 @@ export default class App {
         }
 
         /**
-         * On project mouse out
-         */
-        function onOut() {
-            const description = query('.project .description.in');
-
-            if (description) {
-                description.classList.add('out');
-                description.classList.remove('in');
-            }
-        }
-
-        /**
          * Update the image of the background container
          */
         function updateImage(image) {
@@ -233,6 +317,18 @@ export default class App {
 
         function getSelected() {
             return query('.project.selected');
+        }
+    }
+
+    /**
+     * On project mouse out
+     */
+    onProjectOut() {
+        const description = query('.project .description.in');
+
+        if (description) {
+            description.classList.add('out');
+            description.classList.remove('in');
         }
     }
 
@@ -288,12 +384,12 @@ export default class App {
         e.preventDefault();
 
         // Get the response text element
-        const responseElement = this.query('#response');
+        const responseElement = this.form.query('#response');
         responseElement.innerHTML = '';
         responseElement.classList.remove('error');
 
         // Disable the submit button
-        const button = this.query('button');
+        const button = this.form.query('button');
         button.disabled = true;
         button.innerHTML = 'Sending...';
 
@@ -306,11 +402,11 @@ export default class App {
 
         // Get the form data
         // Name
-        const name = this.query('input[name=name]');
+        const name = this.form.query('input[name=name]');
         // Email
-        const email = this.query('input[name=email]');
+        const email = this.form.query('input[name=email]');
         // Message
-        const message = this.query('textarea[name=message]');
+        const message = this.form.query('textarea[name=message]');
         // Combine the form data into json format
         const data = {
             name: name.value,
@@ -319,16 +415,16 @@ export default class App {
         };
 
         // Create the ajax request
-        ajax('https://inaapi.herokuapp.com', 'post', data, callback);
+        ajax(this.apiUrl, 'post', data, callback.bind(this));
 
         /**
          * Ajax request callback
          */
-        function callback() {
-            if (!this.responseJson) {
+        function callback(response) {
+            if (!response.json) {
                 // If there is a responseText, show the error message
-                if (this.responseText) {
-                    responseElement.innerHTML = this.responseText;
+                if (response.responseText) {
+                    responseElement.innerHTML = response.responseText;
                     responseElement.classList.add('error');
                 } else {
                     // If there is none just show a generic error message
@@ -343,13 +439,18 @@ export default class App {
             }
 
             // If the response is success
-            if (this.status == 200) {
+            if (response.status == 200) {
                 // Set the message of the response object
-                responseElement.innerHTML = this.responseJson.message;
-            } else if (this.status == 400) {
+                responseElement.innerHTML = response.json.message;
+
+                // Remove the value of the inputs and text area
+                name.value = '';
+                email.value = '';
+                message.value = '';
+            } else if (response.status == 400) {
                 // If the response has validation errors
-                if (this.responseJson.errors) {
-                    const errors = this.responseJson.errors;
+                if (response.json.errors) {
+                    const errors = response.json.errors;
 
                     if (errors['name']) {
                         name.nextElementSibling.innerHTML = errors['name'];
@@ -362,10 +463,10 @@ export default class App {
                     if (errors['message']) {
                         message.nextElementSibling.innerHTML = errors['message'];
                     }
-                } else if (this.responseJson.error) {
+                } else if (response.json.error) {
                     // If the response has a generic error
                     // Set the message of the response object
-                    responseElement.innerHTML = this.responseJson.error;
+                    responseElement.innerHTML = response.json.error;
                     responseElement.classList.add('error');
                 }
             }
@@ -387,16 +488,14 @@ export default class App {
      * Wake up the "inaapi" API
      */
     wakeUpApi() {
-        // Wake up now
-        wakeUp();
+        ajax(this.apiUrl + '/wake-me-up', 'get');
+    }
 
-        // Wake up again after 5 minutes
-        setInterval(function () {
-            wakeUp();
-        }, 300000)
-
-        function wakeUp() {
-            ajax('https://inaapi.herokuapp.com/wake-me-up', 'get');
-        }
+    /**
+     * Set up the mobile view
+     */
+    mobileView() {
+        // Hide cursor
+        this.cursor.style.display = 'none';
     }
 }

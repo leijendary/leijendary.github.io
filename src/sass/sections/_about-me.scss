@@ -1,23 +1,20 @@
 @mixin about-me-description {
     color: $secondary-text-color;
-    display: table-cell;
     font-family: Lato, sans-serif;
     font-size: .8em;
     letter-spacing: .3em;
     line-height: 1.5em;
-    padding-left: 30px;
-    text-align: justify;
     vertical-align: middle;
 }
 
 #about-me .content {
-    display: table;
+    display: flex;
     margin-top: 100px;
     margin-bottom: 100px;
 }
 
 .picture-frame {
-    display: table-cell;
+    max-height: max-content;
     padding: 30px 55px;
     position: relative;
     z-index: 1;
@@ -30,7 +27,7 @@
         left: 0px;
         position: absolute;
         top: -15px;
-        width: 335px;
+        width: 77%;
     }
 
     &::after {
@@ -43,7 +40,7 @@
         position: absolute;
         right: 25px;
         top: 5px;
-        width: 320px;
+        width: 67%;
     }
 
     img {
@@ -58,7 +55,7 @@
     .words {
         @include about-me-description;
 
-        .title {
+        .headline {
             color: $primary-color;
         }
 
@@ -70,7 +67,7 @@
 
 .awards {
     article {
-        display: table;
+        display: flex;
         margin: 20px 40px;
 
         h2 {
@@ -84,9 +81,10 @@
             z-index: 6;
         }
 
-        img {
-            display: table-cell;
-            max-width: 300px;
+        .image {
+            img {
+                max-width: 300px;
+            }
         }
 
         a {
@@ -95,28 +93,31 @@
         }
     }
 
-    .title {
-        display: table;
+    .headline {
+        color: $primary-color;
+        display: flex;
         font-family: Lato, sans-serif;
         font-weight: 400;
+        letter-spacing: .3em;
+        line-height: .8em;
         margin-bottom: 50px;
         width: 100%;
 
-        > div,
-        > span {
-            display: table-cell;
-        }
-
         > div {
-            &:nth-child(1) {
-                width: 50px;
+            align-self: flex-end;
+
+            &:first-child {
+                width: 6%;
+            }
+
+            &:last-child {
+                flex: 1
             }
         }
 
         > span {
             padding: 0 30px;
             text-align: center;
-            width: 275px;
         }
 
         .line {

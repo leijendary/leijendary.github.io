@@ -6,6 +6,7 @@ footer {
     padding: 40px;
     position: relative;
     text-align: center;
+    z-index: 6;
 
     .logo {
         max-height: 60px;
@@ -33,6 +34,10 @@ footer {
                 color: $secondary-text-color;
                 text-decoration: none;
                 transition: color .2s;
+
+                &::after {
+                    height: 0;
+                }
 
                 &:hover {
                     color: $primary-color;

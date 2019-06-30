@@ -4,7 +4,7 @@
     <title>Jonathan Leijendekker</title>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Jonathan Leijendekker is a Senior Software Engineer that builds different kinds of software from websites to mobile to arduino">
 
@@ -23,10 +23,15 @@
     <meta name="twitter:description" content="">
     <meta name="twitter:image:src" content="https://leijendary.github.io/img/logo.png">
 
-    <!-- Favicons -->
+    <!-- Theme -->
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#000000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000000">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
@@ -38,7 +43,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
@@ -77,19 +82,22 @@
     <!-- Header -->
     <header id="home">
         <div class="intro ht">
-            <h1 class="name">
-                <span
-                    data-animate="reveal-text"
-                    data-delay="1s">Jonathan Leijendekker
-                </span>
-            </h1>
+            <div class="container">
+                <div id="logo"></div>
+                <h1 class="name">
+                    <span
+                        data-animate="reveal-text"
+                        data-delay="1s">Jonathan Leijendekker
+                    </span>
+                </h1>
 
-            <h5 class="position">
-                <span
-                    data-animate="reveal-text"
-                    data-delay="1.2s">Software Engineer
-                </span>
-            </h5>
+                <h5 class="position">
+                    <span
+                        data-animate="reveal-text"
+                        data-delay="1.2s">Software Engineer
+                    </span>
+                </h5>
+            </div>
         </div>
 
         <div class="top-line">
@@ -116,7 +124,14 @@
             </h5>
 
             <!-- Web Based Apps -->
-            <div class="device">
+            <div class="device reverse">
+                <div
+                    class="image"
+                    data-animate="fade-in-up"
+                    data-padding="80%"
+                    data-delay=".8s">
+                    <img src="/img/web.png" alt="Web">
+                </div>
                 <div class="platform">
                     <div class="name">
                         <h4 class="ht">
@@ -139,24 +154,17 @@
                         From static websites, e-commerce platforms, to REST API and web socket, i do full stack web development.
                     </div>
                 </div>
-                <img
-                    class="image right"
-                    src="/img/web.png"
-                    alt="Web"
-                    data-animate="fade-in-up"
-                    data-padding="80%"
-                    data-delay=".8s">
             </div>
 
             <!-- Mobile Development -->
             <div class="device">
-                <img
+                <div
                     class="image"
-                    src="/img/mobile.png"
-                    alt="Mobile"
                     data-animate="fade-in-up"
                     data-padding="80%">
-                <div class="platform right">
+                    <img src="/img/mobile.png" alt="Mobile">
+                </div>
+                <div class="platform">
                     <div class="name">
                         <div
                             class="line"
@@ -178,9 +186,14 @@
                     </div>
                 </div>
             </div>
-
             <!-- Arduino -->
-            <div class="device">
+            <div class="device reverse">
+                <div
+                    class="image"
+                    data-animate="fade-in-up"
+                    data-padding="80%">
+                    <img src="/img/arduino.png" alt="Arduino">
+                </div>
                 <div class="platform">
                     <div class="name">
                         <h4 class="ht">
@@ -202,12 +215,6 @@
                         Besides web and mobile, here is another big platform; Arduino. Welcome to <a class="small-caps" href="https://en.wikipedia.org/wiki/Internet_of_things" target="_blank" title="Internet of Things">IoT</a>, the future.
                     </div>
                 </div>
-                <img
-                    class="image right"
-                    src="/img/arduino.png"
-                    alt="Arduino"
-                    data-animate="fade-in-up"
-                    data-padding="80%">
             </div>
         </section>
 
@@ -328,12 +335,14 @@
 
             <!-- Content of About Me -->
             <div class="content">
-                <div class="picture-frame">
-                    <img
-                        src="/img/profile-picture.jpg"
-                        alt="Me @ DEVCON Summit Manila 2019"
-                        data-animate="fade-in-up"
-                        data-padding="80%">
+                <div class="frame-container">
+                    <div class="picture-frame">
+                        <img
+                            src="/img/profile-picture.jpg"
+                            alt="Me @ DEVCON Summit Manila 2019"
+                            data-animate="fade-in-up"
+                            data-padding="80%">
+                    </div>
                 </div>
                 <div class="words ht">
                     <p>
@@ -352,7 +361,7 @@
 
             <!-- Awards -->
             <div class="awards">
-                <div class="title">
+                <div class="headline">
                     <div>
                         <div class="line"></div>
                     </div>
@@ -372,7 +381,9 @@
                 <article>
                     <h2>AngelHack Manila 2018 - Impoq (Ipon Pinoy) by team "Relax, You're Doing Fine"</h2>
 
-                    <img src="/img/angelhack.png" alt="AngelHack">
+                    <div class="image">
+                        <img src="/img/angelhack.png" alt="AngelHack">
+                    </div>
 
                     <div
                         class="description ht"
@@ -393,7 +404,16 @@
         <!-- Contact -->
         <section id="contact">
             <h3 class="title ht">
-                <span data-animate="reveal-text">Thinking of creating something?</span>
+                <span data-animate="reveal-text">
+                    Thinking of
+                </span>
+            </h3>
+            <h3 class="title ht">
+                <span
+                    class="mt-5"
+                    data-animate="reveal-text">
+                    creating something?
+                </span>
             </h3>
             <h5
                 class="sub-title ht"
@@ -434,25 +454,35 @@
     <!-- Footer -->
     <footer>
         <img class="logo" src="/img/logo.png" alt="Logo">
+
         <hr>
+
+        <!-- Footer navigation -->
         <ul class="menu ht navigate">
             <li class="item">
                 <a href="#home">Home</a>
             </li>
+
             <li class="item">
                 <a href="#i-develop">Skills</a>
             </li>
+
             <li class="item">
                 <a href="#featured-projects">Works</a>
             </li>
+
             <li class="item">
                 <a href="#about-me">About</a>
             </li>
+
             <li class="item">
                 <a href="#contact">Contact</a>
             </li>
         </ul>
+
+        <!-- Social media icons -->
         <ul class="menu social">
+            <!-- Facebook -->
             <li class="item">
                 <a href="https://www.facebook.com/jleijendekker" target="_blank">
                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="88.428 12.828 107.543 207.085">
@@ -460,6 +490,8 @@
                     </svg>
                 </a>
             </li>
+
+            <!-- GitHub -->
             <li class="item">
                 <a href="https://github.com/leijendary" target="_blank">
                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 438.549 438.549" >
@@ -486,6 +518,8 @@
                     </svg>
                 </a>
             </li>
+
+            <!-- LinkedIn -->
             <li class="item">
                 <a href="https://www.linkedin.com/in/jonathan-leijendekker-99456bbb/" target="_blank">
                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430.117 430.117">
@@ -499,6 +533,7 @@
                 </a>
             </li>
         </ul>
+
         <span class="copyright ht">
             Copyright © 2019 Jonathan Leijendekker. All Rights Reserved.
         </span>

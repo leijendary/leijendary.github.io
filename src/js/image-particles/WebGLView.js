@@ -12,8 +12,9 @@ export default class WebGLView {
             particlesDepth: options.particlesDepth || 3,
             particlesSize: options.particlesSize || 1,
             touchRadius: options.touchRadius || 5,
-            imageX: options.imageX || 0.07,
-            imageY: options.imageY || 3,
+            imageX: options.imageX || 0,
+            imageY: options.imageY || 0,
+            scale: options.scale || 1,
             id: options.id || 'particles'
         }
     }
@@ -36,7 +37,7 @@ export default class WebGLView {
         // Texture
         this.particles = new Particles(this);
         // Initialize interactive controls
-        this.interactive = new InteractiveControls(this.camera, this.renderer.domElement, this.passiveEvent);
+        this.interactive = new InteractiveControls(this.camera, this.renderer.domElement);
         // Add the particles into the scene
         this.scene.add(this.particles.container);
         // Append the rendered domElement into the html element
@@ -76,13 +77,24 @@ export default class WebGLView {
             return;
         }
 
+        let imageX = this.options.imageX;
+        let imageY = this.options.imageY;
+
+        if (typeof imageX === 'function') {
+            imageX = imageX();
+        }
+
+        if (typeof imageY === 'function') {
+            imageY = imageY();
+        }
+
         this.camera.aspect = this.element.clientWidth / this.element.clientHeight;
         this.camera.updateProjectionMatrix();
 
         this.fovHeight = 2 * Math.tan((this.camera.fov * Math.PI) / 180 / 2) * this.camera.position.z;
 
-        this.scene.position.x = this.element.clientWidth * this.options.imageX;
-        this.scene.position.y = this.options.imageY;
+        this.scene.position.x = imageX;
+        this.scene.position.y = imageY;
 
         this.renderer.setSize(this.element.clientWidth, this.element.clientHeight);
 
@@ -111,41 +123,5 @@ export default class WebGLView {
      */
     draw() {
         this.renderer.render(this.scene, this.camera);
-    }
-
-    /**
-     * Check if the passive event option is supported
-     */
-    passiveEvent() {
-        this.passive = this.passive || {
-            tested: false,
-            supported: false
-        };
-
-        function isSupported(cls) {
-            if (cls.passive.tested) {
-                return cls.passive.supported;
-            }
-
-            cls.passive.tested = true;
-
-            try {
-                let opts = Object.defineProperty({}, 'passive', {
-                    get: function get() {
-                        cls.passive.supported = true;
-                    }
-                });
-
-                window.addEventListener('test', null, opts);
-            } catch (e) {
-                return cls.passive.supported;
-            }
-
-            window.removeEventListener('test', null, opts);
-
-            return cls.passive.supported;
-        }
-
-        return isSupported(this) ? { passive: true } : false;
     }
 }
