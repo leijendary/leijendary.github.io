@@ -7,9 +7,9 @@
     background: rgba(0, 0, 0, 0);
     border: none;
     border-bottom: 1px solid $form-border;
+    box-sizing: border-box;
     margin-bottom: 6px;
-    padding: 12px 0;
-    resize: vertical;
+    padding: 12px;
     width: 100%;
 }
 
@@ -19,7 +19,23 @@
     transition: 0.2s ease-in;
 }
 
+#contact {
+    &:before {
+        background-image: url(../img/bluewave.png);
+        background-position: 270px 80%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}
+
 form {
+    position: relative;
     width: 500px;
 
     fieldset {
@@ -73,6 +89,7 @@ textarea {
     @include form-input-settings;
     height: 5rem;
     outline: none;
+    resize: vertical;
 
     &:focus {
         @include focus-settings;
