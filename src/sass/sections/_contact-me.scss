@@ -20,18 +20,10 @@
 }
 
 #contact {
-    &:before {
-        background-image: url(../img/bluewave.png);
-        background-position: 270px 80%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        content: '';
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-    }
+    background-image: url(../img/bluewave.png);
+    background-position: 300px 80%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 form {
