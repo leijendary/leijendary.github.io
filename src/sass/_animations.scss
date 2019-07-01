@@ -110,6 +110,7 @@
 
     to {
         width: 100vh;
+        width: calc(var(--vh, 1vh) * 100);
     }
 }
 

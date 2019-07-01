@@ -36,6 +36,9 @@ export default class App {
         this.logo = '/img/logo.png';
         // Date I started working
         this.startDate = new Date(2014, 10);
+
+        // Set the VH value
+        this.setVh();
     }
 
     init() {
@@ -125,6 +128,8 @@ export default class App {
      * Window resize function
      */
     onResize() {
+        // If the width reached the mobile threshold,
+        // change the image of the image particles
         if (window.innerWidth <= this.mobileWidth) {
             if (!this.imageParticles.isMobile) {
                 this.imageParticles.isMobile = true;
@@ -132,12 +137,16 @@ export default class App {
                 this.imageParticles.particles.init(this.logo, 0);
             }
         } else {
+            // If not, set the image back to default
             if (this.imageParticles.isMobile) {
                 this.imageParticles.isMobile = false;
                 this.imageParticles.particles.destroy();
                 this.imageParticles.particles.init(this.logoCut, 0);
             }
         }
+
+        // Update the VH value
+        this.setVh();
     }
 
     /**
@@ -311,8 +320,8 @@ export default class App {
          */
         function updateImage(image) {
             bg.style.backgroundImage =
-                "radial-gradient(ellipse at center, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.9) 100%), " +
-                "url('" + image + "')";
+                `radial-gradient(ellipse at center, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.9) 100%), \
+                url(${image})`;
         }
 
         function getSelected() {
@@ -488,7 +497,7 @@ export default class App {
      * Wake up the "inaapi" API
      */
     wakeUpApi() {
-        ajax(this.apiUrl + '/wake-me-up', 'get');
+        ajax(`${this.apiUrl}/wake-me-up`, 'get');
     }
 
     /**
@@ -497,5 +506,19 @@ export default class App {
     mobileView() {
         // Hide cursor
         this.cursor.style.display = 'none';
+    }
+
+    /**
+     * Set the VH using the inner height of the window.
+     * This will fix the bug in mobile browsers wherein vh
+     * includes the size of the address bar
+     */
+    setVh() {
+        // First we get the viewport height and we multiply
+        // it by 1% to get a value for a vh unit
+        const vh = window.innerHeight * 0.01;
+        // Then we set the value in the --vh custom property
+        // to the root of the document
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
     }
 }

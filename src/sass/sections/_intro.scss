@@ -3,6 +3,7 @@ header {
     align-items: center;
     display: flex;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     position: relative;
     width: 100%;
 }
@@ -16,6 +17,7 @@ header {
     .container {
         #logo {
             height: 100vh;
+            height: calc(var(--vh, 1vh) * 100);
             left: 0;
             position: absolute;
             top: 0;
@@ -56,6 +58,7 @@ header {
         right: 0;
         transform: translateX(40%) rotate(-90deg);
         width: 100vh;
+        width: calc(var(--vh, 1vh) * 100);
 
         .hider {
             align-items: center;
