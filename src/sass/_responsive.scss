@@ -214,6 +214,10 @@
             .description {
                 padding-left: 0;
             }
+
+            .link {
+                text-align: left;
+            }
         }
     }
 }
@@ -259,6 +263,7 @@
 
         .mouse {
             left: 50%;
+            margin-bottom: 10px;
             margin-left: 0;
             right: 0;
             transform: translateX(-50%);
@@ -721,6 +726,16 @@
                 img {
                     max-width: 220px;
                 }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    footer {
+        .menu {
+            .item {
+                padding: 0 10px;
             }
         }
     }
