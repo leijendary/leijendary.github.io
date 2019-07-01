@@ -311,7 +311,7 @@ export default class App {
          */
         function updateImage(image) {
             bg.style.backgroundImage =
-                "radial-gradient(ellipse at center, rgba(0,0,0,0.6) 10%, rgba(0,0,0,0.8) 100%), " +
+                "radial-gradient(ellipse at center, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.9) 100%), " +
                 "url('" + image + "')";
         }
 

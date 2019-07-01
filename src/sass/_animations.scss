@@ -103,13 +103,13 @@
 	}
 }
 
-@keyframes top-line {
+@keyframes scroll-hider {
     from {
-        height: 0;
+        width: 0;
     }
 
     to {
-        height: 69%;
+        width: 100vh;
     }
 }
 
@@ -123,45 +123,7 @@
     }
 }
 
-@keyframes top-line-after {
-    from {
-        bottom: -95px;
-        height: 0;
-    }
-
-    to {
-        bottom: -27.8%;
-        height: 8%;
-    }
-}
-
 @keyframes mouse {
-    from {
-        bottom: 12.4%;
-        opacity: 0;
-    }
-
-    to {
-        bottom: 6.4%;
-        opacity: 1;
-    }
-}
-
-@keyframes arrow {
-    from {
-        bottom: 80px;
-        height: 0;
-        opacity: 0;
-    }
-
-    to {
-        bottom: 2px;
-        height: 5.3%;
-        opacity: 1;
-    }
-}
-
-@keyframes arrow-pseudo {
     from {
         opacity: 0;
     }
