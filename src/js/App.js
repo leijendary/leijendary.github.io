@@ -256,7 +256,6 @@ export default class App {
      */
     projectBackground() {
         const hovers = queryAll('.project .hover');
-        const bg = query('#featured-projects');
         // Update the background of the background container
         // based on the default selected project
         let selected = getSelected();
@@ -319,9 +318,23 @@ export default class App {
          * Update the image of the background container
          */
         function updateImage(image) {
+            // Selector for featured projects' background image container
+            const selector = '#featured-projects .bg';
+            // Get the active background container
+            const activeBg = query(`${selector}.active`);
+            // Get the inactive background container
+            const bg = query(`${selector}:not(.active)`);
+
             bg.style.backgroundImage =
                 `radial-gradient(ellipse at center, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.9) 100%), \
                 url(${image})`;
+            bg.classList.add('active');
+
+            // Remove the 'active' class from the active
+            // background container
+            if (activeBg) {
+                activeBg.classList.remove('active');
+            }
         }
 
         function getSelected() {

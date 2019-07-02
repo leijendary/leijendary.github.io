@@ -131,7 +131,8 @@
 
             .mouse {
                 animation-delay: 2s;
-                margin: 0;
+                margin-left: 3px;
+                margin-right: 0;
 
                 &::before {
                     animation-delay: 2s;
@@ -458,6 +459,10 @@
         .copyright {
             font-size: .75em;
         }
+    }
+
+    #cursor {
+        display: none;
     }
 }
 
