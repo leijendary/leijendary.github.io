@@ -73,7 +73,7 @@ export default class Particles {
         ctx.drawImage(this.texture.image, 0, 0, this.width, this.height * -1);
 
         let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        originalColors = Float32Array.from(imgData.data);
+        originalColors = new Float32Array(imgData.data);
 
         for (let i = 0; i < this.numPoints; i++) {
             if (originalColors[i * 4 + 0] > threshold) {
