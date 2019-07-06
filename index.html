@@ -636,10 +636,9 @@
             // the strokeDasharray of the pre-loader, and
             // add the "ready" class into the document body.
             if (progress === 100) {
-                preloaders[0].style.strokeDasharray = 'none';
-                preloaders[1].style.strokeDasharray = 'none';
-
                 setTimeout(function () {
+                    preloaders[0].style.strokeDasharray = 'none';
+                    preloaders[1].style.strokeDasharray = 'none';
                     window.scrollTo(0, 0);
                     html.classList.add('ready');
                 }, 1000);
