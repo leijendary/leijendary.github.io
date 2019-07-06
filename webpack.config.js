@@ -115,6 +115,7 @@ module.exports = {
                 '!img/**',
                 '!index.html',
                 '!favicon.ico',
+                '!CNAME',
             ]
         }),
         new MiniCssExtractPlugin({
@@ -135,6 +136,9 @@ module.exports = {
             },
             {
                 from: 'src/favicon.ico'
+            },
+            {
+                from: 'CNAME'
             }
         ]),
         new BrowserSyncPlugin({
