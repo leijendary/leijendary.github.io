@@ -10,7 +10,7 @@ header {
 
 /** Intro/Landing section */
 .intro {
-    padding-left: 15%;
+    padding-left: 8%;
     padding-top: 25px;
     line-height: .8;
 
@@ -45,6 +45,7 @@ header {
         .position {
             color: $secondary-text-color;
             font-family: Ubuntu, sans-serif;
+            font-size: 1em;
             font-weight: 700;
             letter-spacing: .8em;
             margin: 0;

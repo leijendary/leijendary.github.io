@@ -6,19 +6,22 @@ import { query, queryAll } from './util/Query';
 export default class App {
 
     constructor() {
+        this.basis = {
+            height: 754,
+            width: 1536,
+        }
         // Width of the mobile threshold in pixels
         this.mobileWidth = 700;
         // Get the logo element for the image particles
-        this.logo = query('#logo');
+        this.logoContainer = query('#logo');
         // Get the header element
         this.header = query('header');
         // GIT REKT
         this.header.getRect = this.header.getBoundingClientRect;
         // Create Image Particles
-        this.imageParticles = new ImageParticles(this.logo, {
+        this.imageParticles = new ImageParticles(this.logoContainer, {
             imageX: this.particlesXPosition.bind(this),
             scale: this.particlesScale.bind(this),
-            particlesSize: window.innerWidth <= this.mobileWidth ? 1.4 : undefined
         })
         // Elements with data-animate attribute
         this.dataAnimate = queryAll('[data-animate]');
@@ -30,8 +33,6 @@ export default class App {
         this.apiUrl = 'https://inaapi.herokuapp.com';
         // Contact form
         this.form = query('form');
-        // Set the image of the particles
-        this.logoCut = '/img/logo-cut.png';
         // Image to be used if the screen reached the mobile threshold
         this.logo = '/img/logo.png';
         // Date I started working
@@ -42,15 +43,7 @@ export default class App {
     }
 
     init() {
-        // Set the image of the image particles.
-        // If the width reached the mobile threshold,
-        // use the image for mobile devices. Else,
-        // use the default image
-        if (window.innerWidth <= this.mobileWidth) {
-            this.imageParticles.image = this.logo;
-        } else {
-            this.imageParticles.image = this.logoCut;
-        }
+        this.imageParticles.image = this.logo;
 
         // Initialize image particles
         this.imageParticles.init();
@@ -128,25 +121,31 @@ export default class App {
      * Window resize function
      */
     onResize() {
-        // If the width reached the mobile threshold,
-        // change the image of the image particles
-        if (window.innerWidth <= this.mobileWidth) {
-            if (!this.imageParticles.isMobile) {
-                this.imageParticles.isMobile = true;
-                this.imageParticles.particles.destroy();
-                this.imageParticles.particles.init(this.logo, 0);
-            }
-        } else {
-            // If not, set the image back to default
-            if (this.imageParticles.isMobile) {
-                this.imageParticles.isMobile = false;
-                this.imageParticles.particles.destroy();
-                this.imageParticles.particles.init(this.logoCut, 0);
-            }
-        }
-
         // Update the VH value
         this.setVh();
+
+        // Set the particles' size value using the height and width
+        // basis and the current height and width of the header element
+        let size;
+
+        // If the window width is less than the mobile width basis,
+        // set the size value default for mobile views
+        if (window.innerWidth <= this.mobileWidth) {
+            size = 1.4;
+        } else {
+            // Initial particle size value
+            const initialValue = 1;
+            // Ratio basis for the initial value
+            const basis = this.basis.width / this.basis.height;
+            // The current height and width of the header element
+            const current = this.header.clientWidth / this.header.clientHeight;
+
+            // The new value of the particles size
+            size = initialValue * (current / basis);
+        }
+
+        // Update the value in the image particles object
+        this.imageParticles.particles.object3D.material.uniforms.uSize.value = size;
     }
 
     /**
@@ -163,7 +162,7 @@ export default class App {
             return 0;
         }
 
-        return (clientWidth / clientHeight) * 50;
+        return (clientWidth / clientHeight) * 70;
     }
 
     /**
@@ -181,10 +180,10 @@ export default class App {
         }
 
         if (clientHeight > clientWidth) {
-            return (clientWidth / clientHeight) * 0.6;
+            return (clientWidth / clientHeight) * 0.3;
+        } else {
+            return clientWidth / (clientHeight * 3);
         }
-
-        return 0.7;
     }
 
     /**

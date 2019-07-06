@@ -3,7 +3,6 @@
     height: 100%;
     opacity: 1;
     position: fixed;
-    text-align: center;
     transition: opacity .3s linear, visibility .3s;
     visibility: visible;
     width: 100%;
@@ -13,12 +12,23 @@
         display: inline-block;
         fill: none;
         height: 100%;
+        left: 50%;
         max-width: 25%;
+        position: absolute;
         stroke: $primary-text-color;
-        stroke-dasharray: 2000;
-        stroke-dashoffset: 2000;
-        stroke-width: 4;
+        stroke-width: 10;
+        transform: translateX(-50%);
         vertical-align: middle;
+
+        &.diamond {
+            stroke-dasharray: 10000;
+            stroke-dashoffset: 10000;
+        }
+
+        &.j {
+            stroke-dasharray: 5000;
+            stroke-dashoffset: 5000;
+        }
 
         polygon {
             transition: 1s;

@@ -113,7 +113,8 @@ module.exports = {
                 '!favicon/**',
                 '!fonts/**',
                 '!img/**',
-                '!index.html'
+                '!index.html',
+                '!favicon.ico',
             ]
         }),
         new MiniCssExtractPlugin({
@@ -131,6 +132,9 @@ module.exports = {
             {
                 from: 'src/favicon',
                 to: 'favicon'
+            },
+            {
+                from: 'src/favicon.ico'
             }
         ]),
         new BrowserSyncPlugin({

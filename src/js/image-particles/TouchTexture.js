@@ -94,7 +94,7 @@ export default class TouchTexture {
 			intensity = ease(1 - (point.age - this.maxAge * 0.3) / (this.maxAge * 0.7), 0, 1, 1);
 		}
 
-		intensity *= point.force;
+        intensity *= point.force;
 
 		const radius = this.size * this.radius * intensity;
         const grd = this.ctx.createRadialGradient(pos.x, pos.y, radius * 0.25, pos.x, pos.y, radius);
