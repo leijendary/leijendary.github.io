@@ -24,7 +24,7 @@
 
 @media only screen and (max-width: 1380px) {
     .intro {
-        padding-left: 6%;
+        padding-left: 7%;
 
         .container {
             .name {
@@ -48,7 +48,7 @@
 
 @media only screen and (max-width: 1240px) {
     .intro {
-        padding-left: 4%;
+        padding-left: 6%;
 
         .container {
             .name {
@@ -79,7 +79,7 @@
     .intro {
         .container {
             .name {
-                font-size: 2.4em;
+                font-size: 2.2em;
             }
         }
     }
@@ -101,6 +101,8 @@
 
 @media only screen and (max-width: 1065px) {
     .intro  {
+        padding-left: 4%;
+
         .container {
             .name {
                 font-size: 2.2em;
