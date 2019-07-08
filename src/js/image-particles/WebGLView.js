@@ -15,7 +15,8 @@ export default class WebGLView {
             imageX: options.imageX || 0,
             imageY: options.imageY || 0,
             scale: options.scale || 1,
-            id: options.id || 'particles'
+            id: options.id || 'particles',
+            image: options.image
         }
     }
 

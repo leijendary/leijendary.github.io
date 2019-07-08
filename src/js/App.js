@@ -14,6 +14,8 @@ export default class App {
         this.mobileWidth = 700;
         // Get the logo element for the image particles
         this.logoContainer = query('#logo');
+        // Image for the image particles
+        this.logo = '/img/logo.png';
         // Get the header element
         this.header = query('header');
         // GIT REKT
@@ -23,6 +25,7 @@ export default class App {
             imageX: this.particlesXPosition.bind(this),
             imageY: this.particlesYPosition.bind(this),
             scale: this.particlesScale.bind(this),
+            image: this.logo
         })
         // Elements with data-animate attribute
         this.dataAnimate = queryAll('[data-animate]');
@@ -34,8 +37,6 @@ export default class App {
         this.apiUrl = 'https://inaapi.herokuapp.com';
         // Contact form
         this.form = query('form');
-        // Image to be used if the screen reached the mobile threshold
-        this.logo = '/img/logo.png';
         // Date I started working
         this.startDate = new Date(2014, 10);
 
@@ -44,8 +45,6 @@ export default class App {
     }
 
     init() {
-        this.imageParticles.image = this.logo;
-
         // Initialize image particles
         this.imageParticles.init();
 

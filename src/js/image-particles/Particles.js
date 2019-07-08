@@ -24,15 +24,13 @@ export default class Particles {
         this.webgl = webgl;
         // Object3D Container
         this.container = new Object3D();
-
         // Texture Loader
         this.loader = new TextureLoader();
-
         // Interactive move listener
         this.handlerInteractiveMove = this.onInteractiveMove.bind(this);
 
         // Initialize the image into the texture loader
-        this.init(webgl.image);
+        this.init(webgl.options.image);
     }
 
     /**
