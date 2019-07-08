@@ -226,7 +226,7 @@ export default class App {
          */
         function createDelay(delay) {
             // Get the current style element with the same delay
-            const currentStyle = query('style[delay="' + delay + '"]');
+            const currentStyle = query(`style[delay="${delay}"]`);
 
             // If style with the same delay is already created,
             // do nothing and return
@@ -243,10 +243,10 @@ export default class App {
             style.setAttribute('delay', delay);
             // Create an animation-delay attribute css style
             style.innerHTML =
-                '[data-delay="' + delay + '"],' +
-                '[data-delay="' + delay + '"]::after {' +
-                '   animation-delay: ' + delay + ' !important;' +
-                '}';
+                `[data-delay="${delay}"],\
+                [data-delay="${delay}"]::after { \
+                   animation-delay: ${delay} !important; \
+                }`;
 
             // Append the created style into the <head> tag
             head.appendChild(style);
@@ -283,7 +283,7 @@ export default class App {
             // Create the index of the project
             const index = document.createElement('span');
             index.classList.add('index');
-            index.innerHTML = ('00000' + (i + 1)).substr(-2);
+            index.innerHTML = (`00000${i + 1}`).substr(-2);
 
             // Insert the index of the project before the first
             // element inside the project
@@ -390,11 +390,11 @@ export default class App {
         let message;
 
         if (yearRemainder >= .5) {
-            message = 'ALMOST ' + (years + 1);
+            message = `ALMOST ${years + 1}`;
         } else if (yearRemainder == .0) {
             message = years;
         } else {
-            message = 'OVER ' + years;
+            message = `OVER ${years}`;
         }
 
         return message;
