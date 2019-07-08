@@ -224,15 +224,19 @@ export default class Particles {
             this.object3D.material.uniforms.uSize,
             time,
             { value: 0.5 },
-            { value: this.webgl.options.particlesSize });
+            { value: this.webgl.options.particlesSize }
+        );
         TweenLite.to(
             this.object3D.material.uniforms.uRandom,
             time,
-            { value: this.webgl.options.particlesDepth });
-        TweenLite.fromTo(this.object3D.material.uniforms.uDepth,
+            { value: this.webgl.options.particlesDepth }
+        );
+        TweenLite.fromTo(
+            this.object3D.material.uniforms.uDepth,
             time * 1.5,
             { value: 1000.0 },
-            { value: this.webgl.options.particlesDepth });
+            { value: this.webgl.options.particlesDepth }
+        );
 
         this.addListeners();
     }
