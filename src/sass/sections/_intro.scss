@@ -1,4 +1,4 @@
-/** Header */
+/** Header/Intro/Landing section */
 header {
     align-items: center;
     display: flex;
@@ -8,48 +8,45 @@ header {
     width: 100%;
 }
 
-/** Intro/Landing section */
-.intro {
-    padding-left: 8%;
+#logo {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#intro {
+    margin-left: 15%;
     padding-top: 25px;
     line-height: .8;
 
-    .container {
-        #logo {
-            height: 100vh;
-            height: calc(var(--vh, 1vh) * 100);
-            left: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-        }
+    .name,
+    .position {
+        max-width: 100%;
+        position: relative;
+        text-align: left;
+        width: max-content;
+        z-index: 3;
+    }
 
-        .name,
-        .position {
-            max-width: 100%;
-            position: relative;
-            text-align: left;
-            width: max-content;
-            z-index: 3;
-        }
+    .name {
+        animation-delay: 1s;
+        color: $primary-text-color;
+        font-family: Bjorn, sans-serif;
+        font-size: 3em;
+        letter-spacing: .13em;
+        margin: 0 0 10px 0;
+    }
 
-        .name {
-            animation-delay: 1s;
-            color: $primary-text-color;
-            font-family: Bjorn, sans-serif;
-            font-size: 3em;
-            letter-spacing: .13em;
-            margin: 0 0 10px 0;
-        }
-
-        .position {
-            color: $secondary-text-color;
-            font-family: Ubuntu, sans-serif;
-            font-size: 1em;
-            font-weight: 700;
-            letter-spacing: .8em;
-            margin: 0;
-        }
+    .position {
+        color: $secondary-text-color;
+        font-family: Ubuntu, sans-serif;
+        font-size: 1em;
+        font-weight: 700;
+        letter-spacing: .8em;
+        margin: 0;
     }
 }
 

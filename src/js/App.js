@@ -21,6 +21,7 @@ export default class App {
         // Create Image Particles
         this.imageParticles = new ImageParticles(this.logoContainer, {
             imageX: this.particlesXPosition.bind(this),
+            imageY: this.particlesYPosition.bind(this),
             scale: this.particlesScale.bind(this),
         })
         // Elements with data-animate attribute
@@ -76,6 +77,9 @@ export default class App {
         if (mobile()) {
             this.mobileView();
         }
+
+        // Set the particle size
+        this.setParticleSize();
     }
 
     /**
@@ -124,37 +128,20 @@ export default class App {
         // Update the VH value
         this.setVh();
 
-        // Set the particles' size value using the height and width
-        // basis and the current height and width of the header element
-        let size;
+        // Update the particle size
+        this.setParticleSize();
 
-        // If the window width is less than the mobile width basis,
-        // set the size value default for mobile views
-        if (window.innerWidth <= this.mobileWidth) {
-            size = 1.4;
-        } else {
-            // Initial particle size value
-            const initialValue = 1;
-            // Ratio basis for the initial value
-            const basis = this.basis.width / this.basis.height;
-            // The current height and width of the header element
-            const current = this.header.clientWidth / this.header.clientHeight;
-
-            // The new value of the particles size
-            size = initialValue * (current / basis);
-        }
-
-        // Update the value in the image particles object
-        this.imageParticles.particles.object3D.material.uniforms.uSize.value = size;
+        // Resize the image particles
+        this.imageParticles.resize();
     }
 
     /**
      * Get the particles' X position based on the client height and width
-     * of the header element
+     * of the logo container element
      */
     particlesXPosition() {
-        const clientHeight = this.header.clientHeight;
-        const clientWidth = this.header.clientWidth;
+        const clientHeight = this.logoContainer.clientHeight;
+        const clientWidth = this.logoContainer.clientWidth;
 
         // If the client width is less than the mobile
         // threshold, set the x position to 0
@@ -166,17 +153,33 @@ export default class App {
     }
 
     /**
+     * Get the particles' Y position based on the client width
+     * of the logo container element
+     */
+    particlesYPosition() {
+        const clientWidth = this.logoContainer.clientWidth;
+
+        // If the client width is less than the mobile
+        // threshold, set the x position to 0
+        if (clientWidth <= this.mobileWidth) {
+            return 40;
+        }
+
+        return 0;
+    }
+
+    /**
      * Get the particles' scale value based on the client height and width
-     * of the header element
+     * of the logo container element
      */
     particlesScale() {
-        const clientHeight = this.header.clientHeight;
-        const clientWidth = this.header.clientWidth;
+        const clientHeight = this.logoContainer.clientHeight;
+        const clientWidth = this.logoContainer.clientWidth;
 
         // If the client width is less than the mobile
         // threshold, set the scale to 1
         if (clientWidth <= this.mobileWidth) {
-            return 1;
+            return .4;
         }
 
         if (clientHeight > clientWidth) {
@@ -532,5 +535,40 @@ export default class App {
         // Then we set the value in the --vh custom property
         // to the root of the document
         document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+
+    /**
+     * Set the particles' size value using the height and width
+     * basis and the current height and width of the logo container
+     * element
+     */
+    setParticleSize() {
+        let size;
+
+        // If the window width is less than the mobile width basis,
+        // set the size value default for mobile views
+        if (window.innerWidth <= this.mobileWidth) {
+            size = 0.4;
+        } else {
+            // Initial particle size value
+            const initialValue = 1;
+            // Ratio basis for the initial value
+            const basis = this.basis.width / this.basis.height;
+            // The current height and width of the logo container element
+            const current = this.logoContainer.clientWidth / this.logoContainer.clientHeight;
+
+            // The new value of the particles size
+            size = initialValue * (current / basis);
+        }
+
+        // If the 3D object is already initialized, set the value of
+        // the material uniform size.
+        // Else, set the options size only
+        if (this.imageParticles.particles.object3D) {
+            // Update the value in the image particles object
+            this.imageParticles.particles.object3D.material.uniforms.uSize.value = size;
+        }
+
+        this.imageParticles.options.particlesSize = size;
     }
 }

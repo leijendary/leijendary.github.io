@@ -1,13 +1,17 @@
-@media only screen and (max-width: 1490px) {
-    .intro {
-        .container {
-            .name {
-                font-size: 2.8em;
-            }
+@media only screen and (max-width: 1700px) {
+    #intro {
+        margin-left: 8%;
+    }
+}
 
-            .position {
-                font-size: .9em;
-            }
+@media only screen and (max-width: 1490px) {
+    #intro {
+        .name {
+            font-size: 2.8em;
+        }
+
+        .position {
+            font-size: .9em;
         }
     }
 
@@ -23,17 +27,13 @@
 }
 
 @media only screen and (max-width: 1380px) {
-    .intro {
-        padding-left: 7%;
+    #intro {
+        .name {
+            font-size: 2.6em;
+        }
 
-        .container {
-            .name {
-                font-size: 2.6em;
-            }
-
-            .position {
-                font-size: .85em;
-            }
+        .position {
+            font-size: .85em;
         }
     }
 
@@ -47,13 +47,11 @@
 }
 
 @media only screen and (max-width: 1240px) {
-    .intro {
-        padding-left: 6%;
+    #intro {
+        margin-left: 6%;
 
-        .container {
-            .name {
-                font-size: 2.5em;
-            }
+        .name {
+            font-size: 2.5em;
         }
     }
 
@@ -76,11 +74,9 @@
 }
 
 @media only screen and (max-width: 1145px) {
-    .intro {
-        .container {
-            .name {
-                font-size: 2.2em;
-            }
+    #intro {
+        .name {
+            font-size: 2.2em;
         }
     }
 
@@ -100,17 +96,15 @@
 }
 
 @media only screen and (max-width: 1065px) {
-    .intro  {
-        padding-left: 4%;
+    #intro  {
+        margin-left: 4%;
 
-        .container {
-            .name {
-                font-size: 2.2em;
-            }
+        .name {
+            font-size: 2.2em;
+        }
 
-            .position {
-                font-size: .7em;
-            }
+        .position {
+            font-size: .7em;
         }
     }
 
@@ -171,15 +165,13 @@
 }
 
 @media only screen and (max-width: 975px) {
-    .intro {
-        .container {
-            .name {
-                font-size: 2em;
-            }
+    #intro {
+        .name {
+            font-size: 2em;
+        }
 
-            .position {
-                font-size: .65em;
-            }
+        .position {
+            font-size: .65em;
         }
     }
 
@@ -256,13 +248,11 @@
 }
 
 @media only screen and (max-width: 890px) {
-    .intro {
-        padding-left: 4%;
+    #intro {
+        margin-left: 4%;
 
-        .container {
-            .name {
-                font-size: 1.9em;
-            }
+        .name {
+            font-size: 1.9em;
         }
     }
 
@@ -276,15 +266,13 @@
 }
 
 @media only screen and (max-width: 840px) {
-    .intro {
-        .container {
-            .name {
-                font-size: 1.7em;
-            }
+    #intro {
+        .name {
+            font-size: 1.7em;
+        }
 
-            .position {
-                font-size: .6em;
-            }
+        .position {
+            font-size: .6em;
         }
     }
 
@@ -322,11 +310,9 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .intro {
-        .container {
-            .name {
-                font-size: 1.6em;
-            }
+    #intro {
+        .name {
+            font-size: 1.6em;
         }
     }
 
@@ -381,38 +367,24 @@
 }
 
 @media only screen and (max-width: 700px) {
-    .intro {
-        padding-left: 0;
+    #intro {
+        margin-left: 0;
+        margin-top: 30vh;
         padding-top: 0;
         width: 100%;
 
-        .container {
-            margin: auto;
-            max-width: 100%;
-            width: max-content;
+        .name {
+            font-size: 2.4em;
+        }
 
-            #logo {
-                height: 250px;
-                left: 0;
-                margin-bottom: 40px;
-                position: relative;
-                top: 0;
-                width: 100%;
-            }
+        .position {
+            font-size: .8em;
+        }
 
-            .name {
-                font-size: 2.4em;
-            }
-
-            .position {
-                font-size: .8em;
-            }
-
-            .name,
-            .position {
-                * {
-                    padding: 0 40px;
-                }
+        .name,
+        .position {
+            * {
+                padding: 0 40px;
             }
         }
     }
@@ -474,15 +446,13 @@
 }
 
 @media only screen and (max-width: 670px) {
-    .intro {
-        .container {
-            .name {
-                font-size: 2em;
-            }
+    #intro {
+        .name {
+            font-size: 2em;
+        }
 
-            .position {
-                font-size: .7em;
-            }
+        .position {
+            font-size: .7em;
         }
     }
 
@@ -544,15 +514,13 @@
 }
 
 @media only screen and (max-width: 562px) {
-    .intro {
-        .container {
-            .name {
-                font-size: 1.6em;
-            }
+    #intro {
+        .name {
+            font-size: 1.6em;
+        }
 
-            .position {
-                font-size: .6em;
-            }
+        .position {
+            font-size: .6em;
         }
     }
 }
@@ -586,15 +554,13 @@
 }
 
 @media only screen and (max-width: 465px) {
-    .intro {
-        .container {
-            .name {
-                font-size: 1.4em;
-            }
+    #intro {
+        .name {
+            font-size: 1.4em;
+        }
 
-            .position {
-                font-size: .52em;
-            }
+        .position {
+            font-size: .52em;
         }
     }
 
@@ -623,19 +589,17 @@
 }
 
 @media only screen and (max-width: 417px) {
-    .intro {
-        .container {
-            .name,
-            .position {
-                * {
-                    max-width: 100%;
-                    white-space: normal;
-                }
+    #intro {
+        .name,
+        .position {
+            * {
+                max-width: 100%;
+                white-space: normal;
             }
+        }
 
-            .name {
-                font-size: 1.2em;
-            }
+        .name {
+            font-size: 1.2em;
         }
     }
 
@@ -711,14 +675,12 @@
 }
 
 @media only screen and (max-width: 370px) {
-    .intro {
-        .container {
-            .name {
-                font-size: .99em;
+    #intro {
+        .name {
+            font-size: .99em;
 
-                * {
-                    line-height: .8;
-                }
+            * {
+                line-height: .8;
             }
         }
     }
