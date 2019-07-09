@@ -50,6 +50,9 @@ export default class App {
         setTimeout(() => {
             // Initialize image particles
             this.imageParticles.init();
+
+            // Set the particle size
+            this.setParticleSize();
         }, 1000);
 
         // Set the number of years i have been working
@@ -80,9 +83,6 @@ export default class App {
         if (mobile()) {
             this.mobileView();
         }
-
-        // Set the particle size
-        this.setParticleSize();
     }
 
     /**
