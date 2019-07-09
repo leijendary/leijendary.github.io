@@ -45,8 +45,12 @@ export default class App {
     }
 
     init() {
-        // Initialize image particles
-        this.imageParticles.init();
+        // Add delay because there is also a delay in
+        // removing the pre-loader
+        setTimeout(() => {
+            // Initialize image particles
+            this.imageParticles.init();
+        }, 1000);
 
         // Set the number of years i have been working
         this.years.innerHTML = this.yearsOfExperience();
