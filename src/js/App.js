@@ -21,7 +21,7 @@ export default class App {
         // GIT REKT
         this.header.getRect = this.header.getBoundingClientRect;
         // Create Image Particles
-        this.imageParticles = new ImageParticles(this.logoContainer, {
+        this.headerParticles = new ImageParticles(this.logoContainer, {
             imageX: this.particlesXPosition.bind(this),
             imageY: this.particlesYPosition.bind(this),
             scale: this.particlesScale.bind(this),
@@ -49,7 +49,7 @@ export default class App {
         // removing the pre-loader
         setTimeout(() => {
             // Initialize image particles
-            this.imageParticles.init();
+            this.headerParticles.init();
 
             // Set the particle size
             this.setParticleSize();
@@ -106,7 +106,7 @@ export default class App {
         // If the heading can be seen in the window
         if (this.header.getRect().bottom > 0) {
             // Resize the image particles
-            this.imageParticles.resize();
+            this.headerParticles.resize();
         }
 
         // Check data-animate attributes if to be animated
@@ -135,7 +135,7 @@ export default class App {
         this.setParticleSize();
 
         // Resize the image particles
-        this.imageParticles.resize();
+        this.headerParticles.resize();
     }
 
     /**
@@ -567,11 +567,11 @@ export default class App {
         // If the 3D object is already initialized, set the value of
         // the material uniform size.
         // Else, set the options size only
-        if (this.imageParticles.particles.object3D) {
+        if (this.headerParticles.particles.object3D) {
             // Update the value in the image particles object
-            this.imageParticles.particles.object3D.material.uniforms.uSize.value = size;
+            this.headerParticles.particles.object3D.material.uniforms.uSize.value = size;
         }
 
-        this.imageParticles.options.particlesSize = size;
+        this.headerParticles.options.particlesSize = size;
     }
 }
