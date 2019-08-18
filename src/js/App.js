@@ -453,7 +453,7 @@ export default class App {
                 if (response.responseText) {
                     responseElement.innerHTML = response.responseText;
                     responseElement.classList.add('error');
-                } else {
+                } else  {
                     // If there is none just show a generic error message
                     responseElement.innerHTML = 'Could not send the email';
                     responseElement.classList.add('error');
@@ -474,7 +474,7 @@ export default class App {
                 name.value = '';
                 email.value = '';
                 message.value = '';
-            } else if (response.status == 400) {
+            } else if ([400, 500].indexOf(response.status) >= 0) {
                 // If the response has validation errors
                 if (response.json.errors) {
                     const errors = response.json.errors;
