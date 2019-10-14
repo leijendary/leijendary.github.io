@@ -2,6 +2,7 @@ import ajax from './util/ajax';
 import { ImageParticles } from './image-particles';
 import mobile from './util/mobile';
 import { query, queryAll } from './util/Query';
+import requestAnimationFrame from './util/request-animation-frame';
 
 export default class App {
 
@@ -39,6 +40,11 @@ export default class App {
         this.form = query('form');
         // Date I started working
         this.startDate = new Date(2014, 10);
+        // Set mouse position
+        this.mousePosition = {
+            x: 0,
+            y: 0
+        };
 
         // Set the VH value
         this.setVh();
@@ -75,6 +81,9 @@ export default class App {
 
         // Wake up the emailer API
         this.wakeUpApi();
+
+        // Initialize cursor animation frame
+        this.initCursor();
 
         // Wake up API again every 5 minutes
         setInterval(this.wakeUpApi.bind(this), 300000);
@@ -120,8 +129,10 @@ export default class App {
      * Window mouse move function
      */
     onMouseMove(e) {
-        this.cursor.style.left = e.clientX + 'px';
-        this.cursor.style.top = e.clientY + 'px';
+        this.mousePosition = {
+            x: e.clientX,
+            y: e.clientY
+        }
     }
 
     /**
@@ -516,6 +527,19 @@ export default class App {
      */
     wakeUpApi() {
         ajax(`${this.apiUrl}/wake-me-up`, 'get');
+    }
+
+    initCursor() {
+        const render = () => {
+            const { x, y } = this.mousePosition;
+
+            this.cursor.style.left = x + 'px';
+            this.cursor.style.top = y + 'px';
+
+            requestAnimationFrame(render);
+        }
+
+        requestAnimationFrame(render);
     }
 
     /**
