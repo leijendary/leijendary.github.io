@@ -66,10 +66,7 @@ button {
 
 input {
     @include form-text-settings;
-
-    &[type=text] {
-        @include form-input-settings;
-    }
+    @include form-input-settings;
 
     &:focus {
         @include focus-settings;
