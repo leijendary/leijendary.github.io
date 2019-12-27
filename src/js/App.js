@@ -445,11 +445,14 @@ export default class App {
         const email = this.form.query('input[name=email]');
         // Message
         const message = this.form.query('textarea[name=message]');
+        // reCAPTCHA token
+        const token = grecaptcha.getResponse();
         // Combine the form data into json format
         const data = {
             name: name.value,
             email: email.value,
             message: message.value,
+            token: token
         };
 
         // Create the ajax request
