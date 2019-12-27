@@ -522,6 +522,9 @@ export default class App {
         function enableSubmit() {
             button.disabled = false;
             button.innerHTML = 'Send Message';
+
+            // Reset captcha widget
+            grecaptcha.reset();
         }
     }
 
