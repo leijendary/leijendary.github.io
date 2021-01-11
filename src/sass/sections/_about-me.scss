@@ -1,130 +1,134 @@
 @mixin about-me-description {
-    color: $secondary-text-color;
-    font-family: Lato, sans-serif;
-    font-size: .8em;
-    letter-spacing: .3em;
-    line-height: 1.5em;
-    vertical-align: middle;
-}
-
-#about-me .content {
-    display: flex;
-    margin-top: 100px;
-    margin-bottom: 100px;
-}
-
-.picture-frame {
-    max-height: max-content;
-    padding: 30px 55px;
-    position: relative;
-    z-index: 1;
-
-    &::before {
-        background-color: $primary-color;
-        content: '';
-        display: block;
-        height: calc(100% - 60px);
-        left: 0px;
-        position: absolute;
-        top: -15px;
-        width: 77%;
-    }
-
-    &::after {
-        border-bottom: 10px solid $primary-color;
-        border-right: 10px solid $primary-color;
-        border-top: 10px solid $primary-color;
-        content: '';
-        display: block;
-        height: calc(100% - 30px);
-        position: absolute;
-        right: 25px;
-        top: 5px;
-        width: 67%;
-    }
-
-    img {
-        max-height: 250px;
-        max-width: 335px;
-        position: relative;
-        z-index: 2;
-    }
+  color: $secondary-text-color;
+  font-family: Lato, sans-serif;
+  font-size: .8em;
+  letter-spacing: .3em;
+  line-height: 1.5em;
+  vertical-align: middle;
 }
 
 #about-me {
-    .words {
-        @include about-me-description;
+  .content {
+    display: flex;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
 
-        .headline {
-            color: $primary-color;
-        }
+  #years {
+    font-family: 'Ubuntu';
+  }
 
-        > p {
-            margin-bottom: 40px;
-        }
+  .words {
+    @include about-me-description;
+
+    .headline {
+      color: $primary-color;
     }
+
+    > p {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.picture-frame {
+  max-height: max-content;
+  padding: 30px 55px;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    background-color: $primary-color;
+    content: '';
+    display: block;
+    height: calc(100% - 60px);
+    left: 0px;
+    position: absolute;
+    top: -15px;
+    width: 77%;
+  }
+
+  &::after {
+    border-bottom: 10px solid $primary-color;
+    border-right: 10px solid $primary-color;
+    border-top: 10px solid $primary-color;
+    content: '';
+    display: block;
+    height: calc(100% - 30px);
+    position: absolute;
+    right: 25px;
+    top: 5px;
+    width: 67%;
+  }
+
+  img {
+    max-height: 250px;
+    max-width: 335px;
+    position: relative;
+    z-index: 2;
+  }
 }
 
 .awards {
-    article {
-        display: flex;
-        margin: 20px 40px;
+  article {
+    display: flex;
+    margin: 20px 40px;
 
-        h2 {
-            display: none;
-        }
-
-        .description {
-            @include about-me-description;
-            padding-left: 45px;
-            position: relative;
-            z-index: 6;
-        }
-
-        .image {
-            img {
-                max-width: 300px;
-            }
-        }
-
-        .link {
-            margin-top: 50px;
-            text-align: right;
-        }
+    h2 {
+      display: none;
     }
 
-    .headline {
-        color: $primary-color;
-        display: flex;
-        font-family: Lato, sans-serif;
-        font-weight: 400;
-        letter-spacing: .3em;
-        line-height: .8em;
-        margin-bottom: 50px;
-        width: 100%;
-
-        > div {
-            align-self: flex-end;
-
-            &:first-child {
-                width: 6%;
-            }
-
-            &:last-child {
-                flex: 1
-            }
-        }
-
-        > span {
-            padding: 0 30px;
-            text-align: center;
-        }
-
-        .line {
-            background-color: $primary-color;
-            height: 1px;
-            margin-bottom: 5px;
-            width: 100%;
-        }
+    .description {
+      @include about-me-description;
+      padding-left: 45px;
+      position: relative;
+      z-index: 6;
     }
+
+    .image {
+      img {
+        max-width: 300px;
+      }
+    }
+
+    .link {
+      margin-top: 50px;
+      text-align: right;
+    }
+  }
+
+  .headline {
+    color: $primary-color;
+    display: flex;
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+    letter-spacing: .3em;
+    line-height: .8em;
+    margin-bottom: 50px;
+    width: 100%;
+
+    > div {
+      align-self: flex-end;
+
+      &:first-child {
+        width: 6%;
+      }
+
+      &:last-child {
+        flex: 1
+      }
+    }
+
+    > span {
+      padding: 0 30px;
+      text-align: center;
+    }
+
+    .line {
+      background-color: $primary-color;
+      height: 1px;
+      margin-bottom: 5px;
+      width: 100%;
+    }
+  }
 }

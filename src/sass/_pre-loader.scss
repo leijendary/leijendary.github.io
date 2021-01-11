@@ -1,44 +1,44 @@
 #pre-loader {
-    background-color: $body-bg;
+  background-color: $body-bg;
+  height: 100%;
+  opacity: 1;
+  position: fixed;
+  transition: opacity .3s linear, visibility .3s;
+  visibility: visible;
+  width: 100%;
+  z-index: 100;
+
+  svg {
+    display: inline-block;
+    fill: none;
     height: 100%;
-    opacity: 1;
-    position: fixed;
-    transition: opacity .3s linear, visibility .3s;
-    visibility: visible;
-    width: 100%;
-    z-index: 100;
+    left: 50%;
+    max-width: 25%;
+    position: absolute;
+    stroke: $primary-text-color;
+    stroke-width: 20;
+    transform: translateX(-50%);
+    vertical-align: middle;
 
-    svg {
-        display: inline-block;
-        fill: none;
-        height: 100%;
-        left: 50%;
-        max-width: 25%;
-        position: absolute;
-        stroke: $primary-text-color;
-        stroke-width: 20;
-        transform: translateX(-50%);
-        vertical-align: middle;
-
-        &.diamond {
-            stroke-dasharray: 7461.53271484375;
-            stroke-dashoffset: 7461.53271484375;
-        }
-
-        &.j {
-            stroke-dasharray: 4204.67138671875;
-            stroke-dashoffset: 4204.67138671875;
-        }
-
-        polygon {
-            transition: 1s;
-        }
+    &.diamond {
+      stroke-dasharray: 7461.53271484375;
+      stroke-dashoffset: 7461.53271484375;
     }
+
+    &.j {
+      stroke-dasharray: 4204.67138671875;
+      stroke-dashoffset: 4204.67138671875;
+    }
+
+    polygon {
+      transition: 1s;
+    }
+  }
 }
 
 .ready {
-    #pre-loader {
-        opacity: 0;
-        visibility: hidden;
-    }
+  #pre-loader {
+    opacity: 0;
+    visibility: hidden;
+  }
 }

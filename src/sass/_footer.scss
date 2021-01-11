@@ -1,73 +1,73 @@
 footer {
-    background-color: $footer-bg;
-    clear: both;
-    color: $secondary-text-color;
-    font-family: Lato, sans-serif;
-    padding: 40px;
-    position: relative;
-    text-align: center;
-    z-index: 6;
+  background-color: $footer-bg;
+  clear: both;
+  color: $secondary-text-color;
+  font-family: Lato, sans-serif;
+  padding: 40px;
+  position: relative;
+  text-align: center;
+  z-index: 6;
 
-    .logo {
-        max-height: 60px;
-        max-width: 60px;
-    }
+  .logo {
+    max-height: 60px;
+    max-width: 60px;
+  }
 
-    hr {
-        background-color: $secondary-text-color;
-        border: none;
-        height: 1px;
-        margin: 40px -40px;
-    }
+  hr {
+    background-color: $secondary-text-color;
+    border: none;
+    height: 1px;
+    margin: 40px -40px;
+  }
 
-    .menu {
-        letter-spacing: .3em;
-        list-style: none;
-        margin: 30px;
+  .menu {
+    letter-spacing: .3em;
+    list-style: none;
+    margin: 30px;
 
-        .item {
-            display: inline-block;
-            font-size: .82em;
-            padding: 0 25px;
+    .item {
+      display: inline-block;
+      font-size: .82em;
+      padding: 0 25px;
 
-            a {
-                color: $secondary-text-color;
-                text-decoration: none;
-                transition: color .2s;
+      a {
+        color: $secondary-text-color;
+        text-decoration: none;
+        transition: color .2s;
 
-                &::after {
-                    height: 0;
-                }
-
-                &:hover {
-                    color: $primary-color;
-                }
-            }
+        &::after {
+          height: 0;
         }
 
-        &.social {
-            margin: 60px 30px;
-
-            .item {
-                .icon {
-                    fill: $secondary-text-color;
-                    height: 30px;
-                    width: 30px;
-                    padding: 10px;
-                    transition: fill .2s;
-                }
-
-                a:hover {
-                    .icon {
-                        fill: $primary-color;
-                    }
-                }
-            }
+        &:hover {
+          color: $primary-color;
         }
+      }
     }
 
-    .copyright {
-        font-size: .82em;
-        letter-spacing: .2em;
+    &.social {
+      margin: 60px 30px;
+
+      .item {
+        .icon {
+          fill: $secondary-text-color;
+          height: 30px;
+          width: 30px;
+          padding: 10px;
+          transition: fill .2s;
+        }
+
+        a:hover {
+          .icon {
+            fill: $primary-color;
+          }
+        }
+      }
     }
+  }
+
+  .copyright {
+    font-size: .82em;
+    letter-spacing: .2em;
+  }
 }

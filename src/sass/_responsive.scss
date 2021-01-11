@@ -1,746 +1,746 @@
 @media only screen and (max-width: 1700px) {
-    #intro {
-        margin-left: 8%;
-    }
+  #intro {
+    margin-left: 8%;
+  }
 }
 
 @media only screen and (max-width: 1490px) {
-    #intro {
-        .name {
-            font-size: 2.8em;
-        }
-
-        .position {
-            font-size: .9em;
-        }
+  #intro {
+    .name {
+      font-size: 2.8em;
     }
 
-    section {
-        .title {
-            font-size: 2.6em
-        }
-
-        .sub-title {
-            font-size: .85em;
-        }
+    .position {
+      font-size: .9em;
     }
+  }
+
+  section {
+    .title {
+      font-size: 2.6em
+    }
+
+    .sub-title {
+      font-size: .85em;
+    }
+  }
 }
 
 @media only screen and (max-width: 1380px) {
-    #intro {
-        .name {
-            font-size: 2.6em;
-        }
-
-        .position {
-            font-size: .85em;
-        }
+  #intro {
+    .name {
+      font-size: 2.6em;
     }
 
-    section {
-        padding: 110px 12%;
-
-        .title {
-            font-size: 2.4em
-        }
+    .position {
+      font-size: .85em;
     }
+  }
+
+  section {
+    padding: 110px 12%;
+
+    .title {
+      font-size: 2.4em
+    }
+  }
 }
 
 @media only screen and (max-width: 1240px) {
-    #intro {
-        margin-left: 6%;
+  #intro {
+    margin-left: 6%;
 
-        .name {
-            font-size: 2.5em;
-        }
+    .name {
+      font-size: 2.5em;
     }
+  }
 
-    section {
-        padding: 110px 10%;
+  section {
+    padding: 110px 10%;
 
-        .title {
-            font-size: 2.3em
-        }
+    .title {
+      font-size: 2.3em
     }
+  }
 
-    .device {
-        .image {
-            img {
-                max-height: 400px;
-                max-width: 400px;
-            }
-        }
+  .device {
+    .image {
+      img {
+        max-height: 400px;
+        max-width: 400px;
+      }
     }
+  }
 }
 
 @media only screen and (max-width: 1145px) {
-    #intro {
-        .name {
-            font-size: 2.2em;
-        }
+  #intro {
+    .name {
+      font-size: 2.2em;
     }
+  }
 
-    .ready {
-        .scroll-text {
-            transform: translateX(45%) rotate(-90deg);
-        }
+  .ready {
+    .scroll-text {
+      transform: translateX(45%) rotate(-90deg);
     }
+  }
 
-    section {
-        padding: 80px 8%;
+  section {
+    padding: 80px 8%;
 
-        .title {
-            font-size: 2.2em
-        }
+    .title {
+      font-size: 2.2em
     }
+  }
 }
 
 @media only screen and (max-width: 1065px) {
-    #intro  {
-        margin-left: 4%;
+  #intro  {
+    margin-left: 4%;
 
-        .name {
-            font-size: 2.2em;
-        }
-
-        .position {
-            font-size: .7em;
-        }
+    .name {
+      font-size: 2.2em;
     }
 
-    .ready {
-        .scroll-text {
-            bottom: 0;
-            display: inline-block;
-            right: 50%;
-            width: max-content;
+    .position {
+      font-size: .7em;
+    }
+  }
 
-            .hider {
-                animation: none;
-                animation-fill-mode: none;
-                float: none;
-                width: max-content;
-            }
+  .ready {
+    .scroll-text {
+      bottom: 0;
+      display: inline-block;
+      right: 50%;
+      width: max-content;
 
-            .line,
-            .text {
-                display: none;
-            }
+      .hider {
+        animation: none;
+        animation-fill-mode: none;
+        float: none;
+        width: max-content;
+      }
 
-            .mouse {
-                animation-delay: 2s;
-                margin-left: 3px;
-                margin-right: 0;
+      .line,
+      .text {
+        display: none;
+      }
 
-                &::before {
-                    animation-delay: 2s;
-                }
-            }
+      .mouse {
+        animation-delay: 2s;
+        margin-left: 3px;
+        margin-right: 0;
+
+        &::before {
+          animation-delay: 2s;
         }
+      }
+    }
+  }
+
+  section {
+    .title {
+      font-size: 2.2em
+    }
+  }
+
+  .device {
+    .name {
+      h4 {
+        font-size: 1em;
+      }
     }
 
-    section {
-        .title {
-            font-size: 2.2em
-        }
+    .summary {
+      font-size: .65em;
     }
+  }
 
-    .device {
-        .name {
-            h4 {
-                font-size: 1em;
-            }
-        }
-
-        .summary {
-            font-size: .65em;
-        }
+  .project {
+    .name {
+      font-size: 2.6em;
     }
-
-    .project {
-        .name {
-            font-size: 2.6em;
-        }
-    }
+  }
 }
 
 @media only screen and (max-width: 975px) {
-    #intro {
-        .name {
-            font-size: 2em;
-        }
-
-        .position {
-            font-size: .65em;
-        }
+  #intro {
+    .name {
+      font-size: 2em;
     }
 
-    section {
-        .title {
-            font-size: 1.8em
-        }
+    .position {
+      font-size: .65em;
+    }
+  }
 
-        .sub-title {
-            font-size: .7em;
-        }
+  section {
+    .title {
+      font-size: 1.8em
     }
 
-    .device {
-        .image {
-            img {
-                max-height: 300px;
-                max-width: 300px;
-            }
-        }
+    .sub-title {
+      font-size: .7em;
+    }
+  }
+
+  .device {
+    .image {
+      img {
+        max-height: 300px;
+        max-width: 300px;
+      }
+    }
+  }
+
+  .project {
+    margin-bottom: 80px;
+
+    .detail {
+      margin-bottom: 15px;
     }
 
-    .project {
-        margin-bottom: 80px;
+    .description {
+      bottom: unset;
+      float: none;
+      opacity: 1;
+      position: relative;
+      right: unset;
+      width: 100%;
 
-        .detail {
-            margin-bottom: 15px;
-        }
+      &.in,
+      &.out {
+        animation: none;
+      }
+    }
+  }
 
-        .description {
-            bottom: unset;
-            float: none;
-            opacity: 1;
-            position: relative;
-            right: unset;
-            width: 100%;
+  #about-me {
+    .content {
+      flex-direction: column;
+      margin-bottom: 50px;
+      margin-top: 50px;
 
-            &.in,
-            &.out {
-                animation: none;
-            }
-        }
+      .frame-container {
+        margin: 0 auto 40px auto;
+      }
     }
 
-    #about-me {
-        .content {
-            flex-direction: column;
-            margin-bottom: 50px;
-            margin-top: 50px;
+    article {
+      flex-direction: column;
+      margin-left: 0;
+      margin-right: 0;
 
-            .frame-container {
-                margin: 0 auto 40px auto;
-            }
-        }
+      .image {
+        margin: 0 auto 40px auto;
+      }
 
-        article {
-            flex-direction: column;
-            margin-left: 0;
-            margin-right: 0;
+      .description {
+        padding-left: 0;
+      }
 
-            .image {
-                margin: 0 auto 40px auto;
-            }
-
-            .description {
-                padding-left: 0;
-            }
-
-            .link {
-                text-align: left;
-            }
-        }
+      .link {
+        text-align: left;
+      }
     }
+  }
 }
 
 @media only screen and (max-width: 890px) {
-    #intro {
-        margin-left: 4%;
+  #intro {
+    margin-left: 4%;
 
-        .name {
-            font-size: 1.9em;
-        }
+    .name {
+      font-size: 1.9em;
     }
+  }
 
-    section {
-        padding: 70px 6%;
+  section {
+    padding: 70px 6%;
 
-        .title {
-            font-size: 1.7em
-        }
+    .title {
+      font-size: 1.7em
     }
+  }
 }
 
 @media only screen and (max-width: 840px) {
-    #intro {
-        .name {
-            font-size: 1.7em;
-        }
-
-        .position {
-            font-size: .6em;
-        }
+  #intro {
+    .name {
+      font-size: 1.7em;
     }
+
+    .position {
+      font-size: .6em;
+    }
+  }
 
 }
 
 @media only screen and (max-width: 815px) {
-    .device {
-        &:not(.reverse) {
-            .name {
-                h4 {
-                    text-align: right;
-                    width: 100%;
-                }
-            }
+  .device {
+    &:not(.reverse) {
+      .name {
+        h4 {
+          text-align: right;
+          width: 100%;
         }
-
-        .line {
-            display: none;
-        }
-
-        .platform {
-            .summary {
-                width: 100%;
-            }
-        }
+      }
     }
 
-    footer {
-        .menu {
-            .item {
-                padding: 0 15px;
-            }
-        }
+    .line {
+      display: none;
     }
+
+    .platform {
+      .summary {
+        width: 100%;
+      }
+    }
+  }
+
+  footer {
+    .menu {
+      .item {
+        padding: 0 15px;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    #intro {
-        .name {
-            font-size: 1.6em;
+  #intro {
+    .name {
+      font-size: 1.6em;
+    }
+  }
+
+  .device {
+    flex-direction: column !important;
+    margin-bottom: 100px;
+
+    .platform {
+      .name {
+        padding: 0 !important;
+
+        h4 {
+          text-align: left;
         }
+      }
+
+      .summary {
+        float: none;
+        text-align: left;
+      }
     }
 
-    .device {
-        flex-direction: column !important;
-        margin-bottom: 100px;
+    .image {
+      margin-bottom: 30px;
+      padding: 0 !important;
+    }
+  }
 
-        .platform {
-            .name {
-                padding: 0 !important;
-
-                h4 {
-                    text-align: left;
-                }
-            }
-
-            .summary {
-                float: none;
-                text-align: left;
-            }
-        }
-
-        .image {
-            margin-bottom: 30px;
-            padding: 0 !important;
-        }
+  #featured-projects {
+    .title {
+      display: block;
+      float: none;
+      text-align: center;
     }
 
-    #featured-projects {
-        .title {
-            display: block;
-            float: none;
-            text-align: center;
-        }
+    #projects {
+      margin-top: 40px;
+    }
+  }
 
-        #projects {
-            margin-top: 40px;
-        }
+  .project {
+    .name {
+      font-size: 2em;
     }
 
-    .project {
-        .name {
-            font-size: 2em;
-        }
-
-        .index,
-        .detail,
-        .description {
-            font-size: .7em;
-        }
+    .index,
+    .detail,
+    .description {
+      font-size: .7em;
     }
+  }
 }
 
 @media only screen and (max-width: 700px) {
-    #intro {
-        margin-left: 0;
-        margin-top: 30vh;
-        padding-top: 0;
-        width: 100%;
+  #intro {
+    margin-left: 0;
+    margin-top: 30vh;
+    padding-top: 0;
+    width: 100%;
 
-        .name {
-            font-size: 2.4em;
-        }
-
-        .position {
-            font-size: .8em;
-        }
-
-        .name,
-        .position {
-            * {
-                padding: 0 40px;
-            }
-        }
+    .name {
+      font-size: 2.4em;
     }
 
-    section {
-        padding: 60px 40px;
-
-        .title {
-            font-size: 1.6em;
-        }
+    .position {
+      font-size: .8em;
     }
 
-    .device {
-        display: block;
-        position: relative;
+    .name,
+    .position {
+      * {
+        padding: 0 40px;
+      }
+    }
+  }
 
-        .platform,
-        .image {
-            display: block;
-            max-width: unset;
-            padding: 0 0 30px 0;
-            width: 100%;
-        }
+  section {
+    padding: 60px 40px;
 
-        .image {
-            text-align: center;
+    .title {
+      font-size: 1.6em;
+    }
+  }
 
-            &.right {
-                padding: 0 0 30px 0;
-            }
+  .device {
+    display: block;
+    position: relative;
 
-            img {
-                max-height: 300px;
-            }
-        }
+    .platform,
+    .image {
+      display: block;
+      max-width: unset;
+      padding: 0 0 30px 0;
+      width: 100%;
     }
 
-    footer {
-        .menu {
-            margin: 15px;
+    .image {
+      text-align: center;
 
-            &.social {
-                margin: 40px 15px;
-            }
+      &.right {
+        padding: 0 0 30px 0;
+      }
 
-            .item {
-                font-size: .75em;
-            }
-        }
+      img {
+        max-height: 300px;
+      }
+    }
+  }
 
-        .copyright {
-            font-size: .75em;
-        }
+  footer {
+    .menu {
+      margin: 15px;
+
+      &.social {
+        margin: 40px 15px;
+      }
+
+      .item {
+        font-size: .75em;
+      }
     }
 
-    #cursor {
-        display: none;
+    .copyright {
+      font-size: .75em;
     }
+  }
+
+  #cursor {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 670px) {
-    #intro {
-        .name {
-            font-size: 2em;
-        }
-
-        .position {
-            font-size: .7em;
-        }
+  #intro {
+    .name {
+      font-size: 2em;
     }
 
-    footer {
-        padding-bottom: 20px;
-        padding-top: 20px;
-
-        hr {
-            margin: 20px -40px;
-        }
-
-        .menu {
-            margin: 15px 0;
-
-            &.social {
-                margin: 30px 0;
-
-                .item {
-                    .icon {
-                        height: 25px;
-                        width: 25px;
-                    }
-                }
-            }
-
-            .item {
-                font-size: .7em;
-            }
-        }
-
-        .copyright {
-            font-size: .7em;
-        }
+    .position {
+      font-size: .7em;
     }
+  }
+
+  footer {
+    padding-bottom: 20px;
+    padding-top: 20px;
+
+    hr {
+      margin: 20px -40px;
+    }
+
+    .menu {
+      margin: 15px 0;
+
+      &.social {
+        margin: 30px 0;
+
+        .item {
+          .icon {
+            height: 25px;
+            width: 25px;
+          }
+        }
+      }
+
+      .item {
+        font-size: .7em;
+      }
+    }
+
+    .copyright {
+      font-size: .7em;
+    }
+  }
 }
 
 @media only screen and (max-width: 600px) {
-    footer {
-        .menu:not(.social) {
-            .item {
-                display: block;
-                margin: 30px 0;
-            }
-        }
+  footer {
+    .menu:not(.social) {
+      .item {
+        display: block;
+        margin: 30px 0;
+      }
     }
+  }
 }
 
 @media only screen and (max-width: 580px) {
-    form {
-        width: 100%;
-    }
+  form {
+    width: 100%;
+  }
 
-    .picture-frame {
-        img {
-            max-height: 224px;
-            max-width: 300px;
-        }
+  .picture-frame {
+    img {
+      max-height: 224px;
+      max-width: 300px;
     }
+  }
 }
 
 @media only screen and (max-width: 562px) {
-    #intro {
-        .name {
-            font-size: 1.6em;
-        }
-
-        .position {
-            font-size: .6em;
-        }
+  #intro {
+    .name {
+      font-size: 1.6em;
     }
+
+    .position {
+      font-size: .6em;
+    }
+  }
 }
 
 @media only screen and (max-width: 515px) {
-    section {
-        .title {
-            font-size: 1.4em;
-        }
+  section {
+    .title {
+      font-size: 1.4em;
     }
+  }
 
-    .awards {
-        .headline {
-            > div {
-                display: none;
-            }
+  .awards {
+    .headline {
+      > div {
+        display: none;
+      }
 
-            > span {
-                padding: 0;
-                width: 100%;
-            }
-        }
+      > span {
+        padding: 0;
+        width: 100%;
+      }
     }
+  }
 
-    #about-me {
-        .words,
-        article .description {
-            font-size: .7em;
-        }
+  #about-me {
+    .words,
+    article .description {
+      font-size: .7em;
     }
+  }
 }
 
 @media only screen and (max-width: 465px) {
-    #intro {
-        .name {
-            font-size: 1.4em;
-        }
-
-        .position {
-            font-size: .52em;
-        }
+  #intro {
+    .name {
+      font-size: 1.4em;
     }
 
-    .picture-frame {
-        img {
-            max-height: 180px;
-            max-width: 242px;
-        }
+    .position {
+      font-size: .52em;
+    }
+  }
 
-        &:before {
-            left: 5px;
-            top: -10px;
-        }
+  .picture-frame {
+    img {
+      max-height: 180px;
+      max-width: 242px;
     }
 
-    button {
-        width: 100%;
+    &:before {
+      left: 5px;
+      top: -10px;
     }
+  }
 
-    #response {
-        display: block;
-        margin-left: 0;
-        margin-top: 10px;
-        text-align: center;
-    }
+  button {
+    width: 100%;
+  }
+
+  #response {
+    display: block;
+    margin-left: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
 }
 
 @media only screen and (max-width: 417px) {
-    #intro {
-        .name,
-        .position {
-            * {
-                max-width: 100%;
-                white-space: normal;
-            }
-        }
-
-        .name {
-            font-size: 1.2em;
-        }
+  #intro {
+    .name,
+    .position {
+      * {
+        max-width: 100%;
+        white-space: normal;
+      }
     }
 
-    section {
-        .title {
-            font-size: 1em;
+    .name {
+      font-size: 1.2em;
+    }
+  }
+
+  section {
+    .title {
+      font-size: 1em;
+    }
+  }
+
+  .device {
+    margin-bottom: 60px;
+
+    .platform {
+      .name {
+        h4 {
+          font-size: .9em;
+
+          * {
+            white-space: normal;
+          }
         }
+      }
     }
 
-    .device {
-        margin-bottom: 60px;
+    .image {
+      img {
+        max-height: 200px;
+        max-width: 200px;
+      }
+    }
+  }
 
-        .platform {
-            .name {
-                h4 {
-                    font-size: .9em;
+  .project {
+    margin-bottom: 40px;
+    padding-left: 15px;
 
-                    * {
-                        white-space: normal;
-                    }
-                }
-            }
-        }
-
-        .image {
-            img {
-                max-height: 200px;
-                max-width: 200px;
-            }
-        }
+    .name {
+      font-size: 1.8em;
     }
 
-    .project {
-        margin-bottom: 40px;
-        padding-left: 15px;
+    .index,
+    .detail,
+    .description {
+      font-size: .65em;
+    }
+  }
 
-        .name {
-            font-size: 1.8em;
-        }
-
-        .index,
-        .detail,
-        .description {
-            font-size: .65em;
-        }
+  .picture-frame {
+    img {
+      max-height: 150px;
+      max-width: 202px;
     }
 
-    .picture-frame {
+    &:before {
+      left: 10px;
+      top: -5px;
+    }
+  }
+
+  .awards {
+    .headline {
+      font-size: .9em;
+    }
+
+    article {
+      .image {
         img {
-            max-height: 150px;
-            max-width: 202px;
+          max-width: 270px;
         }
-
-        &:before {
-            left: 10px;
-            top: -5px;
-        }
+      }
     }
-
-    .awards {
-        .headline {
-            font-size: .9em;
-        }
-
-        article {
-            .image {
-                img {
-                    max-width: 270px;
-                }
-            }
-        }
-    }
+  }
 }
 
 @media only screen and (max-width: 370px) {
-    #intro {
-        .name {
-            font-size: .99em;
+  #intro {
+    .name {
+      font-size: .99em;
 
-            * {
-                line-height: .8;
-            }
-        }
+      * {
+        line-height: .8;
+      }
     }
+  }
 }
 
 @media only screen and (max-width: 355px) {
-    section {
-        .title {
-            font-size: .9em;
+  section {
+    .title {
+      font-size: .9em;
+    }
+  }
+
+  .device {
+    .platform {
+      .name {
+        h4 {
+          font-size: .75em;
         }
+      }
+    }
+  }
+
+  .picture-frame {
+    img {
+      max-height: 115px;
+      max-width: 155px;
     }
 
-    .device {
-        .platform {
-            .name {
-                h4 {
-                    font-size: .75em;
-                }
-            }
-        }
+    &:before {
+      left: 15px;
+      top: 0px;
+      width: 68%;
+    }
+  }
+
+  .awards {
+    .headline {
+      font-size: .8em;
     }
 
-    .picture-frame {
+    article {
+      .image {
         img {
-            max-height: 115px;
-            max-width: 155px;
+          max-width: 220px;
         }
-
-        &:before {
-            left: 15px;
-            top: 0px;
-            width: 68%;
-        }
+      }
     }
-
-    .awards {
-        .headline {
-            font-size: .8em;
-        }
-
-        article {
-            .image {
-                img {
-                    max-width: 220px;
-                }
-            }
-        }
-    }
+  }
 }
 
 @media only screen and (max-width: 320px) {
-    #contact {
-        background-position: 150px 80%;
-    }
+  #contact {
+    background-position: 150px 80%;
+  }
 
-    footer {
-        .menu {
-            .item {
-                padding: 0 10px;
-            }
-        }
+  footer {
+    .menu {
+      .item {
+        padding: 0 10px;
+      }
     }
+  }
 }

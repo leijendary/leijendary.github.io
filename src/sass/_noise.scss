@@ -1,14 +1,14 @@
 /** Background noise. Toit */
 .noice {
-    background-image: url(../img/noice.gif);
-    background-size: 214px;
-    height: 100%;
-    opacity: .13;
-    position: fixed;
-    width: 100%;
-    z-index: 101;
+  background-image: url(../img/noice.gif);
+  background-size: 214px;
+  height: 100%;
+  opacity: .13;
+  position: fixed;
+  width: 100%;
+  z-index: 101;
 }
 
 .ready .noice {
-    z-index: 0;
+  z-index: 0;
 }

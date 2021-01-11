@@ -3,8 +3,8 @@ let passiveSupported = false;
 
 const isSupported = () => {
 	if (alreadyTested) {
-        return passiveSupported;
-    }
+    return passiveSupported;
+  }
 
 	alreadyTested = true;
 
@@ -14,15 +14,15 @@ const isSupported = () => {
 			get: () => {
 				passiveSupported = true;
 			}
-        });
+    });
 
-        window.addEventListener('test', null, opts);
+    window.addEventListener('test', null, opts);
 
 	} catch (e) {
 		return passiveSupported;
-    }
+  }
 
-    window.removeEventListener('test', null, opts);
+  window.removeEventListener('test', null, opts);
 
 	return passiveSupported;
 };
