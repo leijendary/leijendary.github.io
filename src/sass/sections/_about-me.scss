@@ -3,12 +3,12 @@
   font-family: Lato, sans-serif;
   font-size: .8em;
   letter-spacing: .3em;
-  line-height: 1.5em;
+  line-height: 1.6em;
   vertical-align: middle;
 }
 
 #about-me {
-  .content {
+  .details {
     display: flex;
     margin-top: 100px;
     margin-bottom: 100px;
@@ -29,6 +29,12 @@
       margin-bottom: 40px;
     }
   }
+}
+
+.frame-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .picture-frame {
@@ -69,7 +75,9 @@
   }
 }
 
-.awards {
+.awards, .badges {
+  margin-bottom: 5rem;
+
   article {
     display: flex;
     margin: 20px 40px;
@@ -129,6 +137,25 @@
       height: 1px;
       margin-bottom: 5px;
       width: 100%;
+    }
+  }
+
+  .certifications {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+
+    .certificate {
+      padding: 1rem;
+
+      a:after {
+        content: none;
+      }
+
+      img {
+        max-height: 300px;
+        max-width: 300px;
+      }
     }
   }
 }

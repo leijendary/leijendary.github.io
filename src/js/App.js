@@ -12,7 +12,7 @@ export default class App {
       width: 1536,
     }
     // Width of the mobile threshold in pixels
-    this.mobileWidth = 700;
+    this.mobileWidth = 890;
     // Get the logo element for the image particles
     this.logoContainer = query('#logo');
     // Image for the image particles
