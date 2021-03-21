@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require('path');
 const sass = require('sass');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: './src/js/index.js',
@@ -143,16 +143,15 @@ module.exports = {
     ignored: /node_modules/
   },
   optimization: {
+    minimize: true,
     minimizer: [
-      new UglifyJsPlugin({
-        uglifyOptions: {
+      new TerserPlugin({
+        terserOptions: {
           compress: {
             drop_console: true
           },
-          output: {
-            comments: false
-          }
-        }
+        },
+        extractComments: true,
       })
     ]
   }

@@ -1,18 +1,18 @@
 import glslify from 'glslify';
-import { TweenLite } from 'gsap/TweenMax';
+import { TweenLite } from 'gsap';
 import {
-    BufferAttribute,
-    InstancedBufferAttribute,
-    InstancedBufferGeometry,
-    LinearFilter,
-    Mesh,
-    MeshBasicMaterial,
-    Object3D,
-    PlaneGeometry,
-    RawShaderMaterial,
-    RGBFormat,
-    TextureLoader,
-    Vector2
+  BufferAttribute,
+  InstancedBufferAttribute,
+  InstancedBufferGeometry,
+  LinearFilter,
+  Mesh,
+  MeshBasicMaterial,
+  Object3D,
+  PlaneGeometry,
+  RawShaderMaterial,
+  RGBFormat,
+  TextureLoader,
+  Vector2
 } from 'three';
 import fragmentShader from '../../../shaders/particle.frag';
 import vertexShader from '../../../shaders/particle.vert';
@@ -105,7 +105,7 @@ export default class Particles {
     positions.setXYZ(3, 0.5, -0.5, 0.0);
 
     // Add the position attribute to the geometry object
-    geometry.addAttribute('position', positions);
+    geometry.setAttribute('position', positions);
 
     // UVs
     const uvs = new BufferAttribute(new Float32Array(4 * 2), 2);
@@ -115,7 +115,7 @@ export default class Particles {
     uvs.setXYZ(3, 1.0, 1.0);
 
     // Add the uv attribute to the geometry object
-    geometry.addAttribute('uv', uvs);
+    geometry.setAttribute('uv', uvs);
 
     // Index
     const indexBuffer = new Uint16Array([0, 2, 1, 2, 3, 1]);
@@ -147,9 +147,9 @@ export default class Particles {
     const offset = new InstancedBufferAttribute(offsets, 3, false);
     const angle = new InstancedBufferAttribute(angles, 1, false);
 
-    geometry.addAttribute('pindex', pindex);
-    geometry.addAttribute('offset', offset);
-    geometry.addAttribute('angle', angle);
+    geometry.setAttribute('pindex', pindex);
+    geometry.setAttribute('offset', offset);
+    geometry.setAttribute('angle', angle);
 
     this.object3D = new Mesh(geometry, material);
     this.container.add(this.object3D);
