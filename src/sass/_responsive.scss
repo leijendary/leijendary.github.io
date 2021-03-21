@@ -2,6 +2,15 @@
   #intro {
     margin-left: 8%;
   }
+
+  section {
+    padding-left: 12%;
+    padding-right: 12%;
+
+    .content {
+      width: 100%;
+    }
+  }
 }
 
 @media only screen and (max-width: 1490px) {
@@ -46,7 +55,7 @@
   }
 }
 
-@media only screen and (max-width: 1240px) {
+@media only screen and (max-width: 1280px) {
   #intro {
     margin-left: 6%;
 
@@ -71,40 +80,42 @@
       }
     }
   }
+
+  #about-me {
+    .details {
+      flex-direction: column;
+      margin-bottom: 50px;
+      margin-top: 50px;
+
+      .frame-container {
+        margin: 0 auto 40px auto;
+      }
+    }
+
+    article {
+      flex-direction: column;
+      margin-left: 0;
+      margin-right: 0;
+
+      .image {
+        margin: 0 auto 40px auto;
+      }
+
+      .description {
+        padding-left: 0;
+      }
+
+      .link {
+        text-align: left;
+      }
+    }
+  }
 }
 
-@media only screen and (max-width: 1145px) {
+@media only screen and (max-width: 1180px) {
   #intro {
     .name {
       font-size: 2.2em;
-    }
-  }
-
-  .ready {
-    .scroll-text {
-      transform: translateX(45%) rotate(-90deg);
-    }
-  }
-
-  section {
-    padding: 80px 8%;
-
-    .title {
-      font-size: 2.2em
-    }
-  }
-}
-
-@media only screen and (max-width: 1065px) {
-  #intro  {
-    margin-left: 4%;
-
-    .name {
-      font-size: 2.2em;
-    }
-
-    .position {
-      font-size: .7em;
     }
   }
 
@@ -140,6 +151,28 @@
   }
 
   section {
+    padding: 80px 8%;
+
+    .title {
+      font-size: 2.2em
+    }
+  }
+}
+
+@media only screen and (max-width: 1065px) {
+  #intro  {
+    margin-left: 4%;
+
+    .name {
+      font-size: 2.2em;
+    }
+
+    .position {
+      font-size: .7em;
+    }
+  }
+
+  section {
     .title {
       font-size: 2.2em
     }
@@ -164,7 +197,7 @@
   }
 }
 
-@media only screen and (max-width: 975px) {
+@media only screen and (max-width: 1000px) {
   #intro {
     .name {
       font-size: 2em;
@@ -215,44 +248,36 @@
       }
     }
   }
-
-  #about-me {
-    .content {
-      flex-direction: column;
-      margin-bottom: 50px;
-      margin-top: 50px;
-
-      .frame-container {
-        margin: 0 auto 40px auto;
-      }
-    }
-
-    article {
-      flex-direction: column;
-      margin-left: 0;
-      margin-right: 0;
-
-      .image {
-        margin: 0 auto 40px auto;
-      }
-
-      .description {
-        padding-left: 0;
-      }
-
-      .link {
-        text-align: left;
-      }
-    }
-  }
 }
 
 @media only screen and (max-width: 890px) {
   #intro {
-    margin-left: 4%;
+    margin-left: 0;
+    margin-top: 30vh;
+    padding-top: 0;
+    width: 100%;
 
     .name {
-      font-size: 1.9em;
+      font-size: 2.4em;
+    }
+
+    .position {
+      font-size: .8em;
+    }
+
+    .name,
+    .position {
+      * {
+        padding: 0 40px;
+      }
+    }
+  }
+
+  section {
+    padding: 60px 40px;
+
+    .title {
+      font-size: 1.6em;
     }
   }
 
@@ -263,19 +288,6 @@
       font-size: 1.7em
     }
   }
-}
-
-@media only screen and (max-width: 840px) {
-  #intro {
-    .name {
-      font-size: 1.7em;
-    }
-
-    .position {
-      font-size: .6em;
-    }
-  }
-
 }
 
 @media only screen and (max-width: 815px) {
@@ -310,12 +322,6 @@
 }
 
 @media only screen and (max-width: 768px) {
-  #intro {
-    .name {
-      font-size: 1.6em;
-    }
-  }
-
   .device {
     flex-direction: column !important;
     margin-bottom: 100px;
@@ -367,36 +373,6 @@
 }
 
 @media only screen and (max-width: 700px) {
-  #intro {
-    margin-left: 0;
-    margin-top: 30vh;
-    padding-top: 0;
-    width: 100%;
-
-    .name {
-      font-size: 2.4em;
-    }
-
-    .position {
-      font-size: .8em;
-    }
-
-    .name,
-    .position {
-      * {
-        padding: 0 40px;
-      }
-    }
-  }
-
-  section {
-    padding: 60px 40px;
-
-    .title {
-      font-size: 1.6em;
-    }
-  }
-
   .device {
     display: block;
     position: relative;

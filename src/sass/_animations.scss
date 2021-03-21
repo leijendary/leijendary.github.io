@@ -10,6 +10,12 @@
   top: 40px;
 }
 
+[data-animate="fade-in-down"] {
+  bottom: 40px;
+  opacity: 0;
+  position: relative;
+}
+
 [data-animate="slide-in-left"] {
   opacity: 0;
   left: 40px;
@@ -60,6 +66,12 @@
     @include animation-delay;
     @include animation-options;
     animation-name: fade-in-up;
+  }
+
+  .fade-in-down {
+    @include animation-delay;
+    @include animation-options;
+    animation-name: fade-in-down;
   }
 
   .slide-in-left {
@@ -163,6 +175,18 @@
   to {
     opacity: 1;
     top: 0;
+  }
+}
+
+@keyframes fade-in-down {
+  from {
+    bottom: 40px;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 1;
   }
 }
 

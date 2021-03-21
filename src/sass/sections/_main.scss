@@ -4,9 +4,11 @@ main {
 }
 
 section {
+  display: flex;
   font-family: Lato, sans-serif;
+  justify-content: center;
   position: relative;
-  padding: 120px 15%;
+  padding: 120px 0;
 
   .title {
     color: $primary-color;
@@ -26,5 +28,9 @@ section {
     max-width: 600px;
     position: relative;
     z-index: 9;
+  }
+
+  .content {
+    width: 1380px;
   }
 }

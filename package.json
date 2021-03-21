@@ -27,18 +27,18 @@
     "last 5 Android versions"
   ],
   "dependencies": {
-    "events": "^3.2.0",
+    "events": "^3.3.0",
     "glsl-noise": "0.0.0",
     "glslify": "^7.1.1",
     "gsap": "^3.6.0",
     "three": "^0.125.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.2.2",
-    "browser-sync": "^2.26.13",
+    "browser-sync": "^2.26.14",
     "browser-sync-webpack-plugin": "^2.3.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.2",
@@ -50,10 +50,10 @@
     "mini-css-extract-plugin": "^0.7.0",
     "postcss-loader": "^3.0.0",
     "raw-loader": "^3.1.0",
-    "sass": "^1.32.2",
+    "sass": "^1.32.8",
     "sass-loader": "^7.3.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^4.45.0",
+    "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
   }
 }
