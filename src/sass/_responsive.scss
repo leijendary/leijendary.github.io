@@ -16,11 +16,11 @@
 @media only screen and (max-width: 1490px) {
   #intro {
     .name {
-      font-size: 2.8em;
+      font-size: 2.8rem;
     }
 
     .position {
-      font-size: .9em;
+      font-size: .9rem;
     }
   }
 
@@ -30,7 +30,7 @@
     }
 
     .sub-title {
-      font-size: .85em;
+      font-size: .85rem;
     }
   }
 }
@@ -38,11 +38,11 @@
 @media only screen and (max-width: 1380px) {
   #intro {
     .name {
-      font-size: 2.6em;
+      font-size: 2.6rem;
     }
 
     .position {
-      font-size: .85em;
+      font-size: .85rem;
     }
   }
 
@@ -60,7 +60,7 @@
     margin-left: 6%;
 
     .name {
-      font-size: 2.5em;
+      font-size: 2.5rem;
     }
   }
 
@@ -115,7 +115,7 @@
 @media only screen and (max-width: 1180px) {
   #intro {
     .name {
-      font-size: 2.2em;
+      font-size: 2.2rem;
     }
   }
 
@@ -164,11 +164,11 @@
     margin-left: 4%;
 
     .name {
-      font-size: 2.2em;
+      font-size: 2.2rem;
     }
 
     .position {
-      font-size: .7em;
+      font-size: .7rem;
     }
   }
 
@@ -181,18 +181,18 @@
   .device {
     .name {
       h4 {
-        font-size: 1em;
+        font-size: 1rem;
       }
     }
 
     .summary {
-      font-size: .65em;
+      font-size: .65rem;
     }
   }
 
   .project {
     .name {
-      font-size: 2.6em;
+      font-size: 2.6rem;
     }
   }
 }
@@ -200,11 +200,11 @@
 @media only screen and (max-width: 1000px) {
   #intro {
     .name {
-      font-size: 2em;
+      font-size: 2rem;
     }
 
     .position {
-      font-size: .65em;
+      font-size: .65rem;
     }
   }
 
@@ -214,7 +214,7 @@
     }
 
     .sub-title {
-      font-size: .7em;
+      font-size: .7rem;
     }
   }
 
@@ -258,11 +258,11 @@
     width: 100%;
 
     .name {
-      font-size: 2.4em;
+      font-size: 2.4rem;
     }
 
     .position {
-      font-size: .8em;
+      font-size: .8rem;
     }
 
     .name,
@@ -277,7 +277,7 @@
     padding: 60px 40px;
 
     .title {
-      font-size: 1.6em;
+      font-size: 1.6rem;
     }
   }
 
@@ -361,13 +361,13 @@
 
   .project {
     .name {
-      font-size: 2em;
+      font-size: 2rem;
     }
 
     .index,
     .detail,
     .description {
-      font-size: .7em;
+      font-size: .7rem;
     }
   }
 }
@@ -407,12 +407,12 @@
       }
 
       .item {
-        font-size: .75em;
+        font-size: .75rem;
       }
     }
 
     .copyright {
-      font-size: .75em;
+      font-size: .75rem;
     }
   }
 
@@ -424,11 +424,11 @@
 @media only screen and (max-width: 670px) {
   #intro {
     .name {
-      font-size: 2em;
+      font-size: 2rem;
     }
 
     .position {
-      font-size: .7em;
+      font-size: .7rem;
     }
   }
 
@@ -455,12 +455,12 @@
       }
 
       .item {
-        font-size: .7em;
+        font-size: .7rem;
       }
     }
 
     .copyright {
-      font-size: .7em;
+      font-size: .7rem;
     }
   }
 }
@@ -492,11 +492,11 @@
 @media only screen and (max-width: 562px) {
   #intro {
     .name {
-      font-size: 1.6em;
+      font-size: 1.6rem;
     }
 
     .position {
-      font-size: .6em;
+      font-size: .6rem;
     }
   }
 }
@@ -504,11 +504,11 @@
 @media only screen and (max-width: 515px) {
   section {
     .title {
-      font-size: 1.4em;
+      font-size: 1.4rem;
     }
   }
 
-  .awards {
+  .awards, .certifications {
     .headline {
       > div {
         display: none;
@@ -517,6 +517,17 @@
       > span {
         padding: 0;
         width: 100%;
+
+        &:after {
+          background-color: $primary-color;
+          content: "";
+          display: block;
+          height: 1px;
+          left: calc(50% - 2rem);
+          position: relative;
+          top: 1rem;
+          width: 4rem;
+        }
       }
     }
   }
@@ -524,7 +535,7 @@
   #about-me {
     .words,
     article .description {
-      font-size: .7em;
+      font-size: .7rem;
     }
   }
 }
@@ -532,12 +543,12 @@
 @media only screen and (max-width: 465px) {
   #intro {
     .name {
-      font-size: 1.4em;
+      font-size: 1.4rem;
     }
+  }
 
-    .position {
-      font-size: .52em;
-    }
+  .project .index {
+    left: -15px;
   }
 
   .picture-frame {
@@ -570,18 +581,19 @@
     .position {
       * {
         max-width: 100%;
+        padding: 0 20px;
         white-space: normal;
       }
     }
 
     .name {
-      font-size: 1.2em;
+      font-size: 1.2rem;
     }
   }
 
   section {
     .title {
-      font-size: 1em;
+      font-size: 1.2rem;
     }
   }
 
@@ -591,7 +603,7 @@
     .platform {
       .name {
         h4 {
-          font-size: .9em;
+          font-size: .9rem;
 
           * {
             white-space: normal;
@@ -613,13 +625,13 @@
     padding-left: 15px;
 
     .name {
-      font-size: 1.8em;
+      font-size: 1.8rem;
     }
 
     .index,
     .detail,
     .description {
-      font-size: .65em;
+      font-size: .65rem;
     }
   }
 
@@ -637,7 +649,7 @@
 
   .awards {
     .headline {
-      font-size: .9em;
+      font-size: .9rem;
     }
 
     article {
@@ -653,7 +665,7 @@
 @media only screen and (max-width: 370px) {
   #intro {
     .name {
-      font-size: .99em;
+      font-size: .99rem;
 
       * {
         line-height: .8;
@@ -665,7 +677,7 @@
 @media only screen and (max-width: 355px) {
   section {
     .title {
-      font-size: .9em;
+      font-size: .9rem;
     }
   }
 
@@ -673,7 +685,7 @@
     .platform {
       .name {
         h4 {
-          font-size: .75em;
+          font-size: .75rem;
         }
       }
     }
@@ -694,7 +706,7 @@
 
   .awards {
     .headline {
-      font-size: .8em;
+      font-size: .8rem;
     }
 
     article {
