@@ -5,12 +5,11 @@ import { query, queryAll } from './util/Query';
 import requestAnimationFrame from './util/request-animation-frame';
 
 export default class App {
-
   constructor() {
     this.basis = {
       height: 754,
       width: 1536,
-    }
+    };
     // Width of the mobile threshold in pixels
     this.mobileWidth = 890;
     // Get the logo element for the image particles
@@ -26,8 +25,8 @@ export default class App {
       imageX: this.particlesXPosition.bind(this),
       imageY: this.particlesYPosition.bind(this),
       scale: this.particlesScale.bind(this),
-      image: this.logo
-    })
+      image: this.logo,
+    });
     // Elements with data-animate attribute
     this.dataAnimate = queryAll('[data-animate]');
     // Cirle cursor
@@ -37,7 +36,7 @@ export default class App {
     // Years
     this.years = query('#years');
     // API url
-    this.apiUrl = 'https://inaapi.herokuapp.com';
+    this.apiUrl = 'https://z9ymkxxs3h.execute-api.eu-central-1.amazonaws.com/emailer';
     // Contact form
     this.form = query('form');
     // Date I started working
@@ -45,7 +44,7 @@ export default class App {
     // Set mouse position
     this.mousePosition = {
       x: 0,
-      y: 0
+      y: 0,
     };
 
     // Set the VH value
@@ -81,14 +80,8 @@ export default class App {
     // Add event listeners
     this.addListeners();
 
-    // Wake up the emailer API
-    this.wakeUpApi();
-
     // Initialize cursor animation frame
     this.initCursor();
-
-    // Wake up API again every 5 minutes
-    setInterval(this.wakeUpApi.bind(this), 300000);
 
     // Set the mobile view if this is a mobile browser
     if (mobile()) {
@@ -133,8 +126,8 @@ export default class App {
   onMouseMove(e) {
     this.mousePosition = {
       x: e.clientX,
-      y: e.clientY
-    }
+      y: e.clientY,
+    };
   }
 
   /**
@@ -195,7 +188,7 @@ export default class App {
     // If the client width is less than the mobile
     // threshold, set the scale to 1
     if (clientWidth <= this.mobileWidth) {
-      return .4;
+      return 0.4;
     }
 
     if (clientHeight > clientWidth) {
@@ -220,13 +213,10 @@ export default class App {
       if (padding && padding.substring(padding.length - 1) == '%') {
         const percent = padding.substring(0, padding.length - 1);
 
-        padding = element.clientHeight * (percent * .01);
+        padding = element.clientHeight * (percent * 0.01);
       }
 
-      const isVisible = (
-        (rect.bottom - padding < window.innerHeight)
-        && (rect.bottom + padding - element.clientHeight > 0)
-      );
+      const isVisible = rect.bottom - padding < window.innerHeight && rect.bottom + padding - element.clientHeight > 0;
 
       if (isVisible) {
         if (delay) {
@@ -258,8 +248,7 @@ export default class App {
       // animation delay of this style
       style.setAttribute('delay', delay);
       // Create an animation-delay attribute css style
-      style.innerHTML =
-        `[data-delay="${delay}"],\
+      style.innerHTML = `[data-delay="${delay}"],\
         [data-delay="${delay}"]::after { \
            animation-delay: ${delay} !important; \
         }`;
@@ -299,7 +288,7 @@ export default class App {
       // Create the index of the project
       const index = document.createElement('span');
       index.classList.add('index');
-      index.innerHTML = (`00000${i + 1}`).substr(-2);
+      index.innerHTML = `00000${i + 1}`.substr(-2);
 
       // Insert the index of the project before the first
       // element inside the project
@@ -343,8 +332,7 @@ export default class App {
       // Get the inactive background container
       const bg = query(`${selector}:not(.active)`);
 
-      bg.style.backgroundImage =
-        `radial-gradient(ellipse at center, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.9) 100%), \
+      bg.style.backgroundImage = `radial-gradient(ellipse at center, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.9) 100%), \
         url(${image})`;
       bg.classList.add('active');
 
@@ -404,10 +392,10 @@ export default class App {
     const yearRemainder = exactYears % 1;
     const years = Math.floor(exactYears);
 
-    if (yearRemainder >= .5) {
+    if (yearRemainder >= 0.5) {
       this.yearMessage.innerHTML = 'almost';
       this.years.innerHTML = years + 1;
-    } else if (yearRemainder == .0) {
+    } else if (yearRemainder == 0.0) {
       this.yearMessage.remove();
       this.years.innerHTML = years;
     } else {
@@ -447,14 +435,11 @@ export default class App {
     const email = this.form.query('input[name=email]');
     // Message
     const message = this.form.query('textarea[name=message]');
-    // reCAPTCHA token
-    const token = grecaptcha.getResponse();
     // Combine the form data into json format
     const data = {
       name: name.value,
       email: email.value,
       message: message.value,
-      token: token
     };
 
     // Create the ajax request
@@ -464,12 +449,14 @@ export default class App {
      * Ajax request callback
      */
     function callback(response) {
+      console.log(response);
+
       if (!response.json) {
         // If there is a responseText, show the error message
         if (response.responseText) {
           responseElement.innerHTML = response.responseText;
           responseElement.classList.add('error');
-        } else  {
+        } else {
           // If there is none just show a generic error message
           responseElement.innerHTML = 'Could not send the email';
           responseElement.classList.add('error');
@@ -481,37 +468,49 @@ export default class App {
         return;
       }
 
-      // If the response is success
-      if (response.status == 200) {
-        // Set the message of the response object
-        responseElement.innerHTML = response.json.message;
+      const { data, errors, status } = response.json;
+      let error;
 
-        // Remove the value of the inputs and text area
-        name.value = '';
-        email.value = '';
-        message.value = '';
-      } else if ([400, 500].indexOf(response.status) >= 0) {
-        // If the response has validation errors
-        if (response.json.errors) {
-          const errors = response.json.errors;
+      switch (status) {
+        case 200:
+          // Set the message of the response object
+          responseElement.innerHTML = data.message;
 
-          if (errors['name']) {
-            name.nextElementSibling.innerHTML = errors['name'];
+          // Remove the value of the inputs and text area
+          name.value = '';
+          email.value = '';
+          message.value = '';
+
+          break;
+        case 400:
+          error = errors.reduce((map, error) => {
+            map[error.field] = error;
+
+            return map;
+          }, {});
+
+          console.log(error);
+
+          if (error['name']) {
+            name.nextElementSibling.innerHTML = error['name'].message;
           }
 
-          if (errors['email']) {
-            email.nextElementSibling.innerHTML = errors['email'];
+          if (error['email']) {
+            email.nextElementSibling.innerHTML = error['email'].message;
           }
 
-          if (errors['message']) {
-            message.nextElementSibling.innerHTML = errors['message'];
+          if (error['message']) {
+            message.nextElementSibling.innerHTML = error['message'].message;
           }
-        } else if (response.json.error) {
+
+          break;
+        case 500:
+          error = errors[0];
+
           // If the response has a generic error
           // Set the message of the response object
-          responseElement.innerHTML = response.json.error;
+          responseElement.innerHTML = error.message;
           responseElement.classList.add('error');
-        }
       }
 
       // Enable submit button
@@ -524,17 +523,7 @@ export default class App {
     function enableSubmit() {
       button.disabled = false;
       button.innerHTML = 'Send Message';
-
-      // Reset captcha widget
-      grecaptcha.reset();
     }
-  }
-
-  /**
-   * Wake up the "inaapi" API
-   */
-  wakeUpApi() {
-    ajax(`${this.apiUrl}/wake-me-up`, 'get');
   }
 
   initCursor() {
@@ -545,7 +534,7 @@ export default class App {
       this.cursor.style.top = y + 'px';
 
       requestAnimationFrame(render);
-    }
+    };
 
     requestAnimationFrame(render);
   }

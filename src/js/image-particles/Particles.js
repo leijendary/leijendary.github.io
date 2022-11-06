@@ -10,17 +10,16 @@ import {
   Object3D,
   PlaneGeometry,
   RawShaderMaterial,
-  RGBFormat,
+  RGBAFormat,
   TextureLoader,
-  Vector2
+  Vector2,
 } from 'three';
 import fragmentShader from '../../../shaders/particle.frag';
 import vertexShader from '../../../shaders/particle.vert';
 import TouchTexture from './TouchTexture';
 
 export default class Particles {
-
-  constructor (webgl) {
+  constructor(webgl) {
     this.webgl = webgl;
     // Object3D Container
     this.container = new Object3D();
@@ -41,7 +40,7 @@ export default class Particles {
       this.texture = texture;
       this.texture.minFilter = LinearFilter;
       this.texture.magFilter = LinearFilter;
-      this.texture.format = RGBFormat;
+      this.texture.format = RGBAFormat;
       this.width = texture.image.width;
       this.height = texture.image.height;
 
@@ -175,7 +174,7 @@ export default class Particles {
       this.touch = new TouchTexture(this);
     }
 
-		this.object3D.material.uniforms.uTouch.value = this.touch.texture;
+    this.object3D.material.uniforms.uTouch.value = this.touch.texture;
   }
 
   /**
@@ -186,7 +185,7 @@ export default class Particles {
       return;
     }
 
-		if (this.touch) {
+    if (this.touch) {
       this.touch.update();
     }
 
@@ -216,19 +215,15 @@ export default class Particles {
   /**
    * Show the particles
    */
-  show(time = 1.00) {
-		// Reset
+  show(time = 1.0) {
+    // Reset
     TweenLite.fromTo(
       this.object3D.material.uniforms.uSize,
       time,
       { value: 0.5 },
       { value: this.webgl.options.particlesSize }
     );
-    TweenLite.to(
-      this.object3D.material.uniforms.uRandom,
-      time,
-      { value: this.webgl.options.particlesDepth }
-    );
+    TweenLite.to(this.object3D.material.uniforms.uRandom, time, { value: this.webgl.options.particlesDepth });
     TweenLite.fromTo(
       this.object3D.material.uniforms.uDepth,
       time * 1.5,
@@ -243,8 +238,8 @@ export default class Particles {
    * Add event listeners to the particles
    */
   addListeners() {
-		this.webgl.interactive.addListener('interactive-move', this.handlerInteractiveMove);
-		this.webgl.interactive.objects.push(this.hitArea);
+    this.webgl.interactive.addListener('interactive-move', this.handlerInteractiveMove);
+    this.webgl.interactive.objects.push(this.hitArea);
     this.webgl.interactive.enable();
   }
 
@@ -252,13 +247,13 @@ export default class Particles {
    * Remove event listeners from the particles
    */
   removeListeners() {
-		this.webgl.interactive.removeListener('interactive-move', this.handlerInteractiveMove);
+    this.webgl.interactive.removeListener('interactive-move', this.handlerInteractiveMove);
 
-    const index = this.webgl.interactive.objects.findIndex(obj => obj === this.hitArea);
+    const index = this.webgl.interactive.objects.findIndex((obj) => obj === this.hitArea);
 
-		this.webgl.interactive.objects.splice(index, 1);
-		this.webgl.interactive.disable();
-	}
+    this.webgl.interactive.objects.splice(index, 1);
+    this.webgl.interactive.disable();
+  }
 
   /**
    * On interactive control touch move
@@ -266,7 +261,7 @@ export default class Particles {
   onInteractiveMove(e) {
     const uv = e.intersectionData.uv;
 
-		if (this.touch) {
+    if (this.touch) {
       this.touch.addTouch(uv);
     }
   }
@@ -275,22 +270,22 @@ export default class Particles {
    * Remove elements
    */
   destroy() {
-		if (!this.object3D) {
+    if (!this.object3D) {
       return;
     }
 
-		this.object3D.parent.remove(this.object3D);
-		this.object3D.geometry.dispose();
-		this.object3D.material.dispose();
-		this.object3D = null;
+    this.object3D.parent.remove(this.object3D);
+    this.object3D.geometry.dispose();
+    this.object3D.material.dispose();
+    this.object3D = null;
 
-		if (!this.hitArea) {
+    if (!this.hitArea) {
       return;
     }
 
-		this.hitArea.parent.remove(this.hitArea);
-		this.hitArea.geometry.dispose();
-		this.hitArea.material.dispose();
+    this.hitArea.parent.remove(this.hitArea);
+    this.hitArea.geometry.dispose();
+    this.hitArea.material.dispose();
     this.hitArea = null;
-	}
+  }
 }
