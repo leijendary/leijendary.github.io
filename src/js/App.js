@@ -449,8 +449,6 @@ export default class App {
      * Ajax request callback
      */
     function callback(response) {
-      console.log(response);
-
       if (!response.json) {
         // If there is a responseText, show the error message
         if (response.responseText) {
@@ -488,8 +486,6 @@ export default class App {
 
             return map;
           }, {});
-
-          console.log(error);
 
           if (error['name']) {
             name.nextElementSibling.innerHTML = error['name'].message;
