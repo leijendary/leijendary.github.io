@@ -20,17 +20,17 @@
     }
 
     .position {
-      font-size: .9rem;
+      font-size: 0.9rem;
     }
   }
 
   section {
     .title {
-      font-size: 2.6em
+      font-size: 2.6em;
     }
 
     .sub-title {
-      font-size: .85rem;
+      font-size: 0.85rem;
     }
   }
 }
@@ -42,7 +42,7 @@
     }
 
     .position {
-      font-size: .85rem;
+      font-size: 0.85rem;
     }
   }
 
@@ -50,7 +50,7 @@
     padding: 110px 12%;
 
     .title {
-      font-size: 2.4em
+      font-size: 2.4em;
     }
   }
 }
@@ -68,7 +68,7 @@
     padding: 110px 10%;
 
     .title {
-      font-size: 2.3em
+      font-size: 2.3em;
     }
   }
 
@@ -154,13 +154,13 @@
     padding: 80px 8%;
 
     .title {
-      font-size: 2.2em
+      font-size: 2.2em;
     }
   }
 }
 
 @media only screen and (max-width: 1065px) {
-  #intro  {
+  #intro {
     margin-left: 4%;
 
     .name {
@@ -168,13 +168,13 @@
     }
 
     .position {
-      font-size: .7rem;
+      font-size: 0.7rem;
     }
   }
 
   section {
     .title {
-      font-size: 2.2em
+      font-size: 2.2em;
     }
   }
 
@@ -186,7 +186,7 @@
     }
 
     .summary {
-      font-size: .65rem;
+      font-size: 0.65rem;
     }
   }
 
@@ -204,17 +204,13 @@
     }
 
     .position {
-      font-size: .65rem;
+      font-size: 0.65rem;
     }
   }
 
   section {
     .title {
-      font-size: 1.8em
-    }
-
-    .sub-title {
-      font-size: .7rem;
+      font-size: 1.8em;
     }
   }
 
@@ -262,7 +258,7 @@
     }
 
     .position {
-      font-size: .8rem;
+      font-size: 0.8rem;
     }
 
     .name,
@@ -285,7 +281,7 @@
     padding: 70px 6%;
 
     .title {
-      font-size: 1.7em
+      font-size: 1.7em;
     }
   }
 }
@@ -367,7 +363,7 @@
     .index,
     .detail,
     .description {
-      font-size: .7rem;
+      font-size: 0.7rem;
     }
   }
 }
@@ -407,12 +403,12 @@
       }
 
       .item {
-        font-size: .75rem;
+        font-size: 0.75rem;
       }
     }
 
     .copyright {
-      font-size: .75rem;
+      font-size: 0.75rem;
     }
   }
 
@@ -428,7 +424,7 @@
     }
 
     .position {
-      font-size: .7rem;
+      font-size: 0.7rem;
     }
   }
 
@@ -455,12 +451,12 @@
       }
 
       .item {
-        font-size: .7rem;
+        font-size: 0.7rem;
       }
     }
 
     .copyright {
-      font-size: .7rem;
+      font-size: 0.7rem;
     }
   }
 }
@@ -496,7 +492,7 @@
     }
 
     .position {
-      font-size: .6rem;
+      font-size: 0.6rem;
     }
   }
 }
@@ -508,7 +504,8 @@
     }
   }
 
-  .awards, .certifications {
+  .awards,
+  .certifications {
     .headline {
       > div {
         display: none;
@@ -535,7 +532,7 @@
   #about-me {
     .words,
     article .description {
-      font-size: .7rem;
+      font-size: 0.7rem;
     }
   }
 }
@@ -593,7 +590,7 @@
 
   section {
     .title {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
   }
 
@@ -603,7 +600,7 @@
     .platform {
       .name {
         h4 {
-          font-size: .9rem;
+          font-size: 0.9rem;
 
           * {
             white-space: normal;
@@ -631,7 +628,7 @@
     .index,
     .detail,
     .description {
-      font-size: .65rem;
+      font-size: 0.65rem;
     }
   }
 
@@ -649,7 +646,7 @@
 
   .awards {
     .headline {
-      font-size: .9rem;
+      font-size: 0.9rem;
     }
 
     article {
@@ -665,10 +662,10 @@
 @media only screen and (max-width: 370px) {
   #intro {
     .name {
-      font-size: .99rem;
+      font-size: 0.99rem;
 
       * {
-        line-height: .8;
+        line-height: 0.8;
       }
     }
   }
@@ -677,7 +674,7 @@
 @media only screen and (max-width: 355px) {
   section {
     .title {
-      font-size: .9rem;
+      font-size: 0.9rem;
     }
   }
 
@@ -685,7 +682,7 @@
     .platform {
       .name {
         h4 {
-          font-size: .75rem;
+          font-size: 0.75rem;
         }
       }
     }
@@ -706,7 +703,7 @@
 
   .awards {
     .headline {
-      font-size: .8rem;
+      font-size: 0.8rem;
     }
 
     article {

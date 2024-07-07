@@ -7,11 +7,6 @@
   src: url(fonts/Lato-Regular.woff);
 }
 @font-face {
-  font-family: Lato;
-  font-weight: 200;
-  src: url(fonts/Lato-Light.woff);
-}
-@font-face {
   font-family: Ubuntu;
   font-weight: 700;
   src: url(fonts/Ubuntu-Bold.woff);
@@ -430,7 +425,6 @@ header {
 #intro {
   margin-left: 15%;
   padding-top: 25px;
-  line-height: 0.8;
 }
 #intro .name,
 #intro .position {
@@ -445,6 +439,7 @@ header {
   font-family: Bjorn, sans-serif;
   font-size: 3rem;
   letter-spacing: 0.13em;
+  line-height: 0.8;
   margin: 0 0 10px 0;
 }
 #intro .position {
@@ -452,7 +447,7 @@ header {
   font-family: Ubuntu, sans-serif;
   font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.2em;
   margin: 0;
 }
 
@@ -550,7 +545,7 @@ section .title {
 }
 section .sub-title {
   color: #696969;
-  font-weight: 200;
+  font-weight: 400;
   letter-spacing: 0.3em;
   line-height: 1.5em;
   margin-bottom: 70px;
@@ -622,7 +617,7 @@ section .content {
 .device .platform .summary, .device .image .summary {
   color: #696969;
   float: right;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   letter-spacing: 0.3em;
   line-height: 1.7em;
   text-align: right;
@@ -713,7 +708,6 @@ section .content {
   color: #fff;
   font-family: Lato, sans-serif;
   font-size: 0.8rem;
-  font-weight: 200;
   letter-spacing: 0.3em;
   position: absolute;
   left: -25px;
@@ -733,7 +727,6 @@ section .content {
   color: #fff;
   font-family: Lato, sans-serif;
   font-size: 0.8rem;
-  font-weight: 200;
   letter-spacing: 0.3em;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
@@ -741,7 +734,6 @@ section .content {
   color: #fff;
   font-family: Lato, sans-serif;
   font-size: 0.8rem;
-  font-weight: 200;
   letter-spacing: 0.3em;
   bottom: 30px;
   color: #fff;
@@ -1215,9 +1207,6 @@ footer .copyright {
   section .title {
     font-size: 1.8em;
   }
-  section .sub-title {
-    font-size: 0.7rem;
-  }
 
   .device .image img {
     max-height: 300px;
@@ -1428,14 +1417,17 @@ footer .copyright {
     font-size: 1.4rem;
   }
 
-  .awards .headline > div, .certifications .headline > div {
+  .awards .headline > div,
+.certifications .headline > div {
     display: none;
   }
-  .awards .headline > span, .certifications .headline > span {
+  .awards .headline > span,
+.certifications .headline > span {
     padding: 0;
     width: 100%;
   }
-  .awards .headline > span:after, .certifications .headline > span:after {
+  .awards .headline > span:after,
+.certifications .headline > span:after {
     background-color: #00dbdb;
     content: "";
     display: block;
@@ -1492,7 +1484,7 @@ footer .copyright {
   }
 
   section .title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .device {

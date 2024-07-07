@@ -13,16 +13,16 @@ section {
   .title {
     color: $primary-color;
     font-family: Bjorn, sans-serif;
-    letter-spacing: .3em;
-    line-height: .8em;
+    letter-spacing: 0.3em;
+    line-height: 0.8em;
     position: relative;
     z-index: 9;
   }
 
   .sub-title {
     color: $secondary-text-color;
-    font-weight: 200;
-    letter-spacing: .3em;
+    font-weight: 400;
+    letter-spacing: 0.3em;
     line-height: 1.5em;
     margin-bottom: 70px;
     max-width: 600px;

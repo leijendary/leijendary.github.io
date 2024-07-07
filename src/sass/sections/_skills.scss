@@ -26,7 +26,7 @@
       h4 {
         color: $primary-color;
         font-size: 1.1rem;
-        letter-spacing: .3em;
+        letter-spacing: 0.3em;
         min-width: fit-content;
       }
     }
@@ -42,7 +42,7 @@
       &::before {
         background-color: $primary-color;
         border-radius: 50%;
-        content: '';
+        content: "";
         display: block;
         height: 20px;
         left: 0;
@@ -54,7 +54,7 @@
       &::after {
         border: 1px solid $primary-color;
         border-radius: 50%;
-        content: '';
+        content: "";
         height: 50px;
         position: absolute;
         left: -16px;
@@ -66,8 +66,8 @@
     .summary {
       color: $secondary-text-color;
       float: right;
-      font-size: .7rem;
-      letter-spacing: .3em;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
       line-height: 1.7em;
       text-align: right;
       width: 90%;
