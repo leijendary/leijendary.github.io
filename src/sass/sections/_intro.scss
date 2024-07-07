@@ -20,7 +20,7 @@ header {
 #intro {
   margin-left: 15%;
   padding-top: 25px;
-  line-height: .8;
+  line-height: 0.8;
 
   .name,
   .position {
@@ -35,7 +35,7 @@ header {
     color: $primary-text-color;
     font-family: Bjorn, sans-serif;
     font-size: 3rem;
-    letter-spacing: .13em;
+    letter-spacing: 0.13em;
     margin: 0 0 10px 0;
   }
 
@@ -44,7 +44,7 @@ header {
     font-family: Ubuntu, sans-serif;
     font-size: 1rem;
     font-weight: 700;
-    letter-spacing: .8em;
+    letter-spacing: 0.4em;
     margin: 0;
   }
 }
@@ -89,7 +89,7 @@ header {
         background-color: $primary-text-color;
         border-radius: 100%;
         box-sizing: border-box;
-        content: '';
+        content: "";
         height: 4px;
         left: 50%;
         margin-left: -2px;
@@ -121,7 +121,7 @@ header {
       animation-delay: 3s;
       animation-fill-mode: forwards;
       font-family: Lato, sans-serif;
-      font-size: .6rem;
+      font-size: 0.6rem;
       letter-spacing: 5px;
       opacity: 0;
       text-shadow: 0 0 3px rgba(255, 255, 255, 1);
