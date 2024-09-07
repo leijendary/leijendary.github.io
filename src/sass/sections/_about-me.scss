@@ -1,8 +1,8 @@
 @mixin about-me-description {
   color: $secondary-text-color;
   font-family: Lato, sans-serif;
-  font-size: .8rem;
-  letter-spacing: .3em;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
   line-height: 1.6em;
   vertical-align: middle;
 }
@@ -15,7 +15,7 @@
   }
 
   #years {
-    font-family: 'Ubuntu';
+    font-family: "Ubuntu";
   }
 
   .words {
@@ -45,7 +45,7 @@
 
   &::before {
     background-color: $primary-color;
-    content: '';
+    content: "";
     display: block;
     height: calc(100% - 60px);
     left: 0px;
@@ -58,7 +58,7 @@
     border-bottom: 10px solid $primary-color;
     border-right: 10px solid $primary-color;
     border-top: 10px solid $primary-color;
-    content: '';
+    content: "";
     display: block;
     height: calc(100% - 30px);
     position: absolute;
@@ -75,7 +75,8 @@
   }
 }
 
-.awards, .certifications {
+.awards,
+.certifications {
   margin-bottom: 5rem;
 
   article {
@@ -110,8 +111,8 @@
     display: flex;
     font-family: Lato, sans-serif;
     font-weight: 400;
-    letter-spacing: .3em;
-    line-height: .8em;
+    letter-spacing: 0.3em;
+    line-height: 0.8em;
     margin-bottom: 50px;
     width: 100%;
 
@@ -123,7 +124,7 @@
       }
 
       &:last-child {
-        flex: 1
+        flex: 1;
       }
     }
 
@@ -153,8 +154,8 @@
       }
 
       img {
-        max-height: 300px;
-        max-width: 300px;
+        max-height: 200px;
+        max-width: 200px;
       }
     }
   }
