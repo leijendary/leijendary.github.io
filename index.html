@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>leijendary — Product Engineer</title>
+    <meta
+      name="description"
+      content="Jonathan Leijendekker · Product Engineer with 11+ years building full-stack systems, cloud architectures, and mobile platforms."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <div id="cur"></div>
+    <div id="cur-coords">
+      <div>[X] <span id="cx">000.0</span>px</div>
+      <div>[Y] <span id="cy">000.0</span>px</div>
+    </div>
+    <div id="wpreview"><img id="wpreview-img" src="" alt="" loading="lazy" /></div>
+
+    <!-- LOADER -->
+    <div id="loader">
+      <div style="text-align: center">
+        <div style="display: flex; align-items: baseline; gap: 10px; justify-content: center">
+          <span class="load-pct" id="loadNum">0</span>
+          <span class="load-unit">%</span>
+        </div>
+        <div class="load-status">// site.loading — leijendary.portfolio</div>
+        <div class="load-bar-wrap"><div class="load-bar" id="loadBar"></div></div>
+        <div class="load-lines-wrap">
+          <div class="load-line-item" id="ll1"></div>
+          <div class="load-line-item" id="ll2"></div>
+          <div class="load-line-item" id="ll3"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <nav id="nav">
+      <div class="nav-left">
+        <span class="nav-status"><span class="sdot"></span>status:active</span>
+        <span class="nav-copy">©JL — 2026</span>
+      </div>
+      <a href="#" class="nav-logo">leijendary</a>
+      <div class="nav-right-wrap">
+        <ul class="nav-right">
+          <li><a href="#works">works</a></li>
+          <li><a href="#credentials">credentials</a></li>
+          <li><a href="#about">about</a></li>
+          <li><a href="#contact">contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span></button>
+      </div>
+    </nav>
+
+    <!-- MOBILE NAV DRAWER -->
+    <div class="nav-drawer" id="navDrawer">
+      <ul>
+        <li><a href="#works">works</a></li>
+        <li><a href="#credentials">credentials</a></li>
+        <li><a href="#about">about</a></li>
+        <li><a href="#contact">contact</a></li>
+      </ul>
+    </div>
+
+    <!-- HERO -->
+    <section id="hero">
+      <canvas id="webgl-canvas"></canvas>
+      <div class="hgrid">
+        <div class="hgcol"></div>
+        <div class="hgcol"></div>
+        <div class="hgcol"></div>
+        <div class="hgcol"></div>
+        <div class="hgcol"></div>
+        <div class="hgcol"></div>
+        <div class="hgcol"></div>
+        <div class="hgcol"></div>
+        <div class="hgcol"></div>
+        <div class="hgcol"></div>
+        <div class="hgcol"></div>
+        <div class="hgcol"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-main">
+          <div class="hero-tag">Product Engineer · Software Architect · NL</div>
+          <h1 class="hero-title">
+            <span class="line"><span class="li">Hi, I'm</span></span>
+            <span class="line"
+              ><em class="li"><span class="glitch" data-g="Nathan.">Nathan.</span></em></span
+            >
+          </h1>
+        </div>
+        <div class="hero-bottom">
+          <div class="hcell"><strong>Role</strong>Product Engineer<br />+ Software Architect</div>
+          <div class="hcell">
+            <strong>Location</strong>Netherlands 🌷<br /><span style="color: var(--coral)">// open to remote</span>
+          </div>
+          <div class="hcell">
+            <strong>Experience</strong><span class="big">11+</span
+            ><span style="display: block; margin-top: 4px; color: var(--coral)">years ✦</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-corner">Portfolio 2026</div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-wrap">
+      <div class="mtrack">
+        <span class="mitem">Product Thinking <span class="msep">✦</span></span>
+        <span class="mitem">Software Engineering <span class="msep">✦</span></span>
+        <span class="mitem mhigh">Coffee ♥ <span class="msep">✦</span></span>
+        <span class="mitem">Architecture <span class="msep">✦</span></span>
+        <span class="mitem">Kotlin <span class="msep">✦</span></span>
+        <span class="mitem">Java <span class="msep">✦</span></span>
+        <span class="mitem">Spring Boot <span class="msep">✦</span></span>
+        <span class="mitem">Full-stack Development <span class="msep">✦</span></span>
+        <span class="mitem">AWS <span class="msep">✦</span></span>
+      </div>
+      <div class="mtrack" aria-hidden="true">
+        <span class="mitem">Product Thinking <span class="msep">✦</span></span>
+        <span class="mitem">Software Engineering <span class="msep">✦</span></span>
+        <span class="mitem mhigh">Coffee ♥ <span class="msep">✦</span></span>
+        <span class="mitem">Architecture <span class="msep">✦</span></span>
+        <span class="mitem">Kotlin <span class="msep">✦</span></span>
+        <span class="mitem">Java <span class="msep">✦</span></span>
+        <span class="mitem">Spring Boot <span class="msep">✦</span></span>
+        <span class="mitem">Full-stack Development <span class="msep">✦</span></span>
+        <span class="mitem">AWS <span class="msep">✦</span></span>
+      </div>
+    </div>
+
+    <!-- CHAPTER 01: ABOUT -->
+    <div class="ch-div">
+      <span class="ch-num">chapter 01</span>
+      <div class="ch-line"></div>
+      <span>about</span>
+    </div>
+    <div class="intro-section">
+      <div class="intro-left rev">
+        <div>
+          <div class="intro-label">about</div>
+          <h2 class="intro-big">
+            Engineering digital<br />products with<br /><em>precision</em><br />&amp; <em>purpose.</em>
+          </h2>
+          <p class="intro-sub">
+            Netherlands-based <strong>product engineer</strong> with 11+ years building full-stack systems, cloud
+            architectures, and mobile platforms. I bridge the gap between technical execution and user experience —
+            shipping software that's not just functional, but something users <strong>actually enjoy using</strong>.
+          </p>
+        </div>
+        <div class="chips" style="margin-top: 28px">
+          <span class="chip on">Kotlin</span><span class="chip on">Java</span><span class="chip on">Spring Boot</span>
+          <span class="chip">AWS</span><span class="chip">React</span><span class="chip">Docker</span>
+          <span class="chip">PostgreSQL</span><span class="chip">Kotlin Multiplatform</span
+          ><span class="chip">React Native</span>
+        </div>
+      </div>
+      <div class="intro-right">
+        <div class="term rev">
+          <div class="term-bar">
+            <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+            <span class="tname">leijendary — engineer session [active]</span>
+          </div>
+          <div class="term-body">
+            <div class="tl" id="tl0"><span class="tp">→ </span><span class="tc">init leijendary.profile</span></div>
+            <div class="tl" id="tl1"><span class="to">// loading engineer data...</span></div>
+            <div class="tl" id="tl2">
+              <span class="ts">✓ </span><span class="tk">role</span><span class="to"> Product Engineer</span>
+            </div>
+            <div class="tl" id="tl3">
+              <span class="ts">✓ </span><span class="tk">loc</span><span class="to"> Netherlands 🌷</span>
+            </div>
+            <div class="tl" id="tl4">
+              <span class="ts">✓ </span><span class="tk">stack</span><span class="to"> Kotlin · Spring Boot · AWS</span>
+            </div>
+            <div class="tl" id="tl5">
+              <span class="ts">✓ </span><span class="tk">fuel</span><span class="to"> Coffee</span>
+            </div>
+            <div class="tl" id="tl6">
+              <span class="ts">✓ </span><span class="tk">exp</span><span class="to"> 11+ years in the field</span>
+            </div>
+            <div class="tl" id="tl7">
+              <span class="tp">→ </span><span id="tscramble" class="tc">_</span><span class="tblink"></span>
+            </div>
+          </div>
+        </div>
+        <div class="istat-row rev">
+          <div class="istat">
+            <span class="istat-num">11+</span><span class="istat-label">Years of experience</span>
+          </div>
+          <div class="istat"><span class="istat-num">8</span><span class="istat-label">Products shipped</span></div>
+          <div class="istat"><span class="istat-num">∞</span><span class="istat-label">Curiosity</span></div>
+          <div class="istat"><span class="istat-num">3</span><span class="istat-label">Certifications</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHAPTER 02: WORKS -->
+    <div class="ch-div">
+      <span class="ch-num">chapter 02</span>
+      <div class="ch-line"></div>
+      <span>selected works</span>
+    </div>
+    <section class="works-section" id="works">
+      <div class="works-head">
+        <div class="wh-left rev">
+          <div class="tag-line">selected works</div>
+          <h2 class="sec-big">Projects<br /><em>&amp; Cases</em></h2>
+        </div>
+        <div class="wh-right rev">
+          <p>
+            Eight products across event ticketing, telehealth, loyalty, logistics, fintech, e-commerce, HR tech, and
+            mobile. Built with clean architecture and a strong product mindset.
+          </p>
+        </div>
+      </div>
+      <a
+        class="work-row"
+        href="https://evenz.com"
+        target="_blank"
+        rel="noopener"
+        data-img="img/projects/evenz.jpg"
+        data-label="Evenz"
+        ><span class="wnum">01</span
+        ><span class="wname-wrap"><span class="wname">Evenz</span><span class="wurl">evenz.com ↗</span></span
+        ><span class="wcat">Ticketing · Web App</span><span class="warrow">→</span></a
+      >
+      <a
+        class="work-row"
+        href="https://konsulta.md"
+        target="_blank"
+        rel="noopener"
+        data-img="img/projects/konsultamd.jpg"
+        data-label="KonsultaMD"
+        ><span class="wnum">02</span
+        ><span class="wname-wrap"><span class="wname">KonsultaMD</span><span class="wurl">konsulta.md ↗</span></span
+        ><span class="wcat">Telehealth · Web App</span><span class="warrow">→</span></a
+      >
+      <div class="work-row" data-img="img/projects/hachi.jpg" data-label="Hachi Rewards">
+        <span class="wnum">03</span><span class="wname">Hachi Rewards</span
+        ><span class="wcat">Bank Rewards · Web App</span><span class="warrow">→</span>
+      </div>
+      <div class="work-row" data-img="img/projects/falcon.jpg" data-label="Falcon">
+        <span class="wnum">04</span><span class="wname">Falcon</span><span class="wcat">Logistics · Web App</span
+        ><span class="warrow">→</span>
+      </div>
+      <div class="work-row" data-img="img/projects/impoq.jpg" data-label="Impoq">
+        <span class="wnum">05</span><span class="wname">Impoq</span><span class="wcat">Fintech · Mobile App</span
+        ><span class="warrow">→</span>
+      </div>
+      <div class="work-row" data-img="img/projects/the-grocery.jpg" data-label="The Grocery">
+        <span class="wnum">06</span><span class="wname">The Grocery</span><span class="wcat">E-commerce · Web App</span
+        ><span class="warrow">→</span>
+      </div>
+      <div class="work-row" data-img="img/projects/ceevee.jpg" data-label="CeeVee">
+        <span class="wnum">07</span><span class="wname">CeeVee</span><span class="wcat">HR Tech · Web App</span
+        ><span class="warrow">→</span>
+      </div>
+      <div class="work-row" data-img="img/projects/ember.jpg" data-label="Ember">
+        <span class="wnum">08</span><span class="wname">Ember</span><span class="wcat">Fintech · Mobile App</span
+        ><span class="warrow">→</span>
+      </div>
+    </section>
+
+    <!-- CHAPTER 02.1: THE PERSON -->
+    <div class="ch-div">
+      <span class="ch-num">chapter 02.1</span>
+      <div class="ch-line"></div>
+      <span>the person</span>
+    </div>
+    <section class="about-section" id="about">
+      <div class="about-left rev">
+        <div class="tag-line">nice to meet you</div>
+        <h2 class="sec-big">I'm<br /><em>Jonathan</em><br />Leijendekker.</h2>
+        <div class="tools-list">
+          <div class="tool-row">
+            <span class="tn">Kotlin</span><span class="tr">Primary Language</span><span class="th">♥</span>
+          </div>
+          <div class="tool-row">
+            <span class="tn">Spring Boot</span><span class="tr">Backend Framework</span><span class="th">♥</span>
+          </div>
+          <div class="tool-row">
+            <span class="tn">AWS</span><span class="tr">Cloud Platform</span><span class="th">♥</span>
+          </div>
+          <div class="tool-row">
+            <span class="tn">React</span><span class="tr">Frontend</span><span class="th">♥</span>
+          </div>
+          <div class="tool-row">
+            <span class="tn">Claude</span><span class="tr">AI Collaborator</span><span class="th">♥</span>
+          </div>
+          <div class="tool-row">
+            <span class="tn">GitHub Copilot</span><span class="tr">Code Companion</span><span class="th">♥</span>
+          </div>
+          <div class="tool-row">
+            <span class="tn">Docker</span><span class="tr">Containerization</span><span class="th">♥</span>
+          </div>
+          <div class="tool-row">
+            <span class="tn">Coffee</span><span class="tr">Daily Fuel</span><span class="th">♥</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-right rev">
+        <p>
+          I'm a product engineer who cares as much about <strong>why</strong> something is built as
+          <strong>how</strong> it's built. With 11+ years spanning backend systems, cloud infrastructure, and mobile
+          development, I bring technical depth that's grounded in real product thinking.
+        </p>
+        <p>
+          I've led engineering teams, shaped technical roadmaps, and shipped products across telehealth, logistics,
+          fintech, and e-commerce. My focus is always on the end user —
+          <strong>what makes a product great</strong> isn't just clean code, it's whether it solves a real problem and
+          feels good to use.
+        </p>
+        <p>
+          I work at the intersection of engineering and product: translating business goals into scalable, maintainable
+          systems, and ensuring what we ship is something users <strong>genuinely want to come back to</strong>.
+        </p>
+        <p>
+          Outside the terminal: fueled by a Coffee, obsessed with clean architecture, and always looking to make things
+          simpler than they need to be.
+        </p>
+        <div style="margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--border)">
+          <div
+            style="
+              font-size: 9px;
+              letter-spacing: 0.18em;
+              text-transform: uppercase;
+              color: var(--muted2);
+              margin-bottom: 10px;
+            "
+          >
+            // active ingredients
+          </div>
+          <div style="font-size: 11px; color: var(--muted2); line-height: 2.1">
+            Kotlin · Java · Spring Boot · AWS · React · Docker · PostgreSQL · Kotlin Multiplatform · React Native ·
+            Domain-Driven Design · Clean Architecture · Claude · GitHub Copilot · Coffee
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 02.2: CREDENTIALS -->
+    <div class="ch-div">
+      <span class="ch-num">chapter 02.2</span>
+      <div class="ch-line"></div>
+      <span>credentials</span>
+    </div>
+    <section class="cred-section" id="credentials">
+      <div class="cred-head">
+        <div class="cred-head-left rev">
+          <div class="tag-line">certifications &amp; awards</div>
+          <h2 class="sec-big">Creds &amp;<br /><em>Achievements</em></h2>
+        </div>
+        <div class="cred-head-right rev">
+          <p>
+            Continuous learning across project management, cloud architecture, and product delivery — backed by globally
+            recognized certifications.
+          </p>
+          <a
+            href="https://www.credly.com/users/jonathan-leijendekker/badges"
+            target="_blank"
+            rel="noopener"
+            class="mag-btn-ghost cred-credly-btn"
+            >View on Credly ↗</a
+          >
+        </div>
+      </div>
+
+      <div class="cert-row rev">
+        <div class="cert-num">01</div>
+        <div class="cert-info">
+          <div class="cert-name">Certified Associate in Project Management</div>
+          <div class="cert-issuer">Project Management Institute (PMI)</div>
+        </div>
+        <div class="cert-tag">CAPM®</div>
+      </div>
+      <div class="cert-row rev">
+        <div class="cert-num">02</div>
+        <div class="cert-info">
+          <div class="cert-name">AWS Solutions Architect — Professional</div>
+          <div class="cert-issuer">Amazon Web Services</div>
+        </div>
+        <div class="cert-tag">AWS SAP</div>
+      </div>
+      <div class="cert-row rev">
+        <div class="cert-num">03</div>
+        <div class="cert-info">
+          <div class="cert-name">AWS Solutions Architect — Associate</div>
+          <div class="cert-issuer">Amazon Web Services</div>
+        </div>
+        <div class="cert-tag">AWS SAA</div>
+      </div>
+
+      <div class="achieve-row rev">
+        <div class="achieve-icon">★</div>
+        <div class="achieve-info">
+          <div class="achieve-name">AngelHack Manila 2018 — Grand Winner</div>
+          <div class="achieve-desc">
+            Led team <em>"Relax, You're Doing Fine"</em> to first place with <strong>Impoq</strong> — an app automating
+            traditional Filipino money pooling practices (paluwagan). Competed against 200+ teams across Southeast Asia.
+          </div>
+          <div class="achieve-links">
+            <a
+              href="https://smart.com.ph/About/newsroom/full-news/2018/06/05/smart-backs-seamless-innovations-at-angelhack-manila-2018"
+              target="_blank"
+              rel="noopener"
+              class="achieve-link"
+              >SMART Newsroom ↗</a
+            >
+            <a href="https://wellfound.com/company/impoq" target="_blank" rel="noopener" class="achieve-link"
+              >Wellfound ↗</a
+            >
+          </div>
+        </div>
+        <div class="achieve-tag">Hackathon</div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 03: CONTACT -->
+    <div class="ch-div">
+      <span class="ch-num">chapter 03</span>
+      <div class="ch-line"></div>
+      <span>contact</span>
+    </div>
+    <section class="contact-section" id="contact">
+      <div class="cbg">Hello.</div>
+      <div class="ctag rev">let's connect</div>
+      <h2 class="ctitle rev">Say<br /><em>hello.</em></h2>
+      <div class="cta-row rev">
+        <a href="mailto:hi@leijendary.com" class="mag-btn" id="magBtn"
+          ><span>hi@leijendary.com</span><span class="mag-btn-ico">→</span></a
+        >
+        <a href="https://linkedin.com/in/jonathan-leijendekker" target="_blank" rel="noopener" class="mag-btn-ghost"
+          >LinkedIn ↗</a
+        >
+        <a href="https://github.com/leijendary" target="_blank" rel="noopener" class="mag-btn-ghost">GitHub ↗</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© Jonathan Leijendekker 2026</p>
+      <p class="f-mid">Made with ♥ Coffee &amp; Code</p>
+      <p class="f-right"><a href="#" style="color: var(--muted2)">↑ top</a></p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
