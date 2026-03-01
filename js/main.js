@@ -61,6 +61,8 @@ let webglTick; // assigned below; consumed by unified RAF loop
       u_res: { value: new THREE.Vector2(innerWidth, innerHeight) },
       u_mouse: { value: new THREE.Vector2(innerWidth / 2, innerHeight / 2) },
     },
+    depthTest: false,
+    depthWrite: false,
   });
   scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), mat));
 
