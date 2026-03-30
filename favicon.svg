@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1600">
+  <defs>
+    <clipPath id="r">
+      <rect width="1600" height="1600" rx="300" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect width="1600" height="1600" fill="#09090b" />
+    <g fill="#f0f2f5">
+      <path transform="matrix(1,0,0,-1,1003,0)"
+        d="M0 0V-728L-203-931-333-800-203-669.001V-421L-581-800-203-1179 175.001-800V0Z" />
+      <path transform="matrix(1,0,0,-1,800,0)"
+        d="M0 0-800-800 0-1600 800-800 450-450V-690L559-800 0-1360-559-800 0-241 203-444.001V-201Z" />
+    </g>
+  </g>
+</svg>
