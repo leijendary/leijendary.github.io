@@ -18,8 +18,8 @@
   --muted2: #a1a1aa;
   --border: #27272a;
   --border2: #3f3f46;
-  --coral: #da7756;
-  --coral2: #e8896a;
+  --coral: #7ca65c;
+  --coral2: #8fba6b;
 }
 
 ::selection {
@@ -32,14 +32,17 @@ html {
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-size: 14px;
   line-height: 1.7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 /* ═══════════════════════════════════════════════════════
    SCROLLBAR
@@ -200,7 +203,7 @@ nav.scrolled {
   transform: translateX(-50%);
   width: 900px;
   height: 900px;
-  background: radial-gradient(ellipse, rgba(218, 119, 86, 0.07) 0%, transparent 65%);
+  background: radial-gradient(ellipse, rgba(124, 166, 92, 0.2) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -244,7 +247,7 @@ nav.scrolled {
   margin-top: 28px;
 }
 .highlight {
-  background: linear-gradient(90deg, var(--coral2), #f0a085);
+  background: linear-gradient(90deg, var(--coral2), #a8d48a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -420,7 +423,7 @@ nav.scrolled {
 .filter-btn.active {
   border-color: var(--coral);
   color: var(--coral);
-  background: rgba(218, 119, 86, 0.06);
+  background: rgba(124, 166, 92, 0.06);
 }
 
 /* Works Grid */
@@ -559,8 +562,13 @@ nav.scrolled {
   animation: pulse 2s ease-in-out infinite;
 }
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
 }
 .status-inactive {
   color: var(--muted);
@@ -710,18 +718,34 @@ nav.scrolled {
   transition: all 0.2s;
 }
 .card-link:hover {
-  background: rgba(218, 119, 86, 0.08);
+  background: rgba(124, 166, 92, 0.08);
 }
 
 /* Per-project color theming */
-.p-evenz { --project-color: #ff4a4a; }
-.p-konsulta { --project-color: #4a8fff; }
-.p-hachi { --project-color: #4ade80; }
-.p-falcon { --project-color: #ff8c42; }
-.p-impoq { --project-color: #b97ff8; }
-.p-grocery { --project-color: #3affcf; }
-.p-ceevee { --project-color: #ffd84a; }
-.p-ember { --project-color: #ff6eb4; }
+.p-evenz {
+  --project-color: #ff4a4a;
+}
+.p-konsulta {
+  --project-color: #4a8fff;
+}
+.p-hachi {
+  --project-color: #4ade80;
+}
+.p-falcon {
+  --project-color: #ff8c42;
+}
+.p-impoq {
+  --project-color: #b97ff8;
+}
+.p-grocery {
+  --project-color: #3affcf;
+}
+.p-ceevee {
+  --project-color: #ffd84a;
+}
+.p-ember {
+  --project-color: #ff6eb4;
+}
 
 /* ═══════════════════════════════════════════════════════
    ABOUT SECTION
@@ -781,7 +805,7 @@ nav.scrolled {
 .chip.on {
   border-color: var(--coral);
   color: var(--coral);
-  background: rgba(218, 119, 86, 0.06);
+  background: rgba(124, 166, 92, 0.06);
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -889,7 +913,7 @@ nav.scrolled {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--coral);
-  border: 1px solid rgba(218, 119, 86, 0.3);
+  border: 1px solid rgba(124, 166, 92, 0.3);
   padding: 6px 12px;
   white-space: nowrap;
   border-radius: 6px;
@@ -949,13 +973,13 @@ nav.scrolled {
   font-weight: 500;
   color: var(--coral);
   text-decoration: none;
-  border: 1px solid rgba(218, 119, 86, 0.3);
+  border: 1px solid rgba(124, 166, 92, 0.3);
   padding: 5px 12px;
   border-radius: 6px;
   transition: all 0.2s;
 }
 .achieve-link:hover {
-  background: rgba(218, 119, 86, 0.08);
+  background: rgba(124, 166, 92, 0.08);
   border-color: var(--coral);
 }
 .achieve-tag {
@@ -964,7 +988,7 @@ nav.scrolled {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--coral);
-  border: 1px solid rgba(218, 119, 86, 0.3);
+  border: 1px solid rgba(124, 166, 92, 0.3);
   padding: 6px 12px;
   white-space: nowrap;
   align-self: start;
@@ -1109,7 +1133,7 @@ footer a:hover {
   .body-section:nth-child(even) {
     border-right: none;
   }
-  .body-section:nth-child(n+3) {
+  .body-section:nth-child(n + 3) {
     border-bottom: none;
   }
   .body-section:nth-child(3),

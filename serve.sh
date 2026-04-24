@@ -1,3 +1,3 @@
 #!/bin/bash
 
-npx serve -l 3000
+bun --watch ./index.html
